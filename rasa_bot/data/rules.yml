@@ -42,3 +42,68 @@ rules:
   steps:
     - intent: greet
     - action: utter_greet
+
+- rule: Handle invalid selection
+  steps:
+    - intent: invalid_selection
+    - action: utter_invalid_selection
+
+- rule: Show PAN menu
+  steps:
+    - intent: select_pan_assistance
+    - action: utter_pan_menu
+
+- rule: Show TAN menu
+  steps:
+    - intent: select_tan_assistance
+    - action: utter_tan_menu
+
+- rule: Show General menu
+  steps:
+    - intent: select_general_assistance
+    - action: utter_general_menu
+
+- rule: Answer PAN apply process
+  steps:
+    - intent: pan_apply_process
+    - action: utter_pan_apply_process
+
+- rule: Answer PAN documents required
+  steps:
+    - intent: pan_documents_required
+    - action: utter_pan_documents_required
+
+- rule: Answer what is TAN
+  steps:
+    - intent: tan_what
+    - action: utter_tan_what
+
+- rule: Answer who needs TAN
+  steps:
+    - intent: tan_who_needs
+    - action: utter_tan_who_needs
+
+- rule: Answer TAN apply process
+  steps:
+    - intent: tan_apply_process
+    - action: utter_tan_apply_process
+
+- rule: Answer general tax info
+  steps:
+    - intent: general_tax_info
+    - action: utter_general_tax_info
+
+- rule: Answer general contact info
+  steps:
+    - intent: general_contact_info
+    - action: utter_general_contact_info
+
+- rule: Show callback menu
+  steps:
+    - intent: select_callback_assistance
+    - action: utter_callback_menu
+
+- rule: Show feedback menu
+  steps:
+    - intent: select_feedback_assistance
+    - action: utter_feedback_menu

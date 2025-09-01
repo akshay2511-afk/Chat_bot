@@ -121,9 +121,138 @@ nlu:
     - do i need pan if my income is not taxable
     - is it mandatory to have a pan card
 
+- intent: select_pan_assistance
+  examples: |
+    - pan assistance
+    - PAN assistance
+    - 1
+    - option 1
+    - first option
+    - pan help
+    - PAN help
+    - I need help with PAN
+    - pan card assistance
+    - permanent account number
+
+- intent: select_tan_assistance
+  examples: |
+    - tan assistance
+    - TAN assistance
+    - 2
+    - option 2
+    - second option
+    - tan help
+    - TAN help
+    - I need help with TAN
+    - tax deduction account number
+
+- intent: select_general_assistance
+  examples: |
+    - general assistance
+    - General assistance
+    - 3
+    - option 3
+    - third option
+    - general help
+    - general information
+    - other help
+    - miscellaneous
+
+- intent: invalid_selection
+  examples: |
+    - something else
+    - 4
+    - option 4
+    - random text
+    - xyz
+    - invalid option
+    - other
+    - help me
+    - I don't know
+
 - intent: pan_multiple
   examples: |
     - can a person have more than one pan
     - is it legal to have two pan cards
     - can i hold multiple pan numbers
     - can someone have 2 pans
+
+- intent: pan_apply_process
+  examples: |
+    - how to apply for pan
+    - pan application process
+    - how can i get a pan card
+    - steps to apply pan
+    - pan card application
+
+- intent: pan_documents_required
+  examples: |
+    - what documents are needed for pan
+    - pan card documents required
+    - documents for pan application
+    - pan card requirements
+    - what papers needed for pan
+
+- intent: tan_what
+  examples: |
+    - what is tan
+    - what is a tan number
+    - tan full form
+    - meaning of tan
+    - tell me about tan
+
+- intent: tan_who_needs
+  examples: |
+    - who needs tan
+    - who should have tan
+    - who must have tan
+    - do i need tan
+
+- intent: tan_apply_process
+  examples: |
+    - how to apply for tan
+    - tan application process
+    - how can i get tan
+    - steps to apply tan
+
+- intent: general_tax_info
+  examples: |
+    - tax information
+    - general tax info
+    - tell me about taxes
+    - tax details
+    - income tax information
+
+- intent: general_contact_info
+  examples: |
+    - contact information
+    - helpline numbers
+    - how to contact
+    - phone numbers
+    - support contact
+
+- intent: select_callback_assistance
+  examples: |
+    - schedule callback
+    - Schedule callback
+    - 4
+    - option 4
+    - fourth option
+    - callback
+    - call me back
+    - schedule a call
+    - book callback
+    - arrange call
+
+- intent: select_feedback_assistance
+  examples: |
+    - feedback
+    - Feedback
+    - 5
+    - option 5
+    - fifth option
+    - give feedback
+    - share feedback
+    - rate service
+    - review
+    - comment

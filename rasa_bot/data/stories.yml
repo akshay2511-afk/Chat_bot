@@ -2,29 +2,73 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: User selects PAN assistance
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - intent: select_pan_assistance
+  - action: utter_pan_menu
+  - intent: pan_what
+  - action: utter_pan_what
 
-- story: sad path 1
+- story: User selects TAN assistance
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - intent: select_tan_assistance
+  - action: utter_tan_menu
+  - intent: tan_what
+  - action: utter_tan_what
 
-- story: sad path 2
+- story: User selects General assistance
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - intent: select_general_assistance
+  - action: utter_general_menu
+  - intent: general_tax_info
+  - action: utter_general_tax_info
+
+- story: Invalid selection redirects to menu
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: invalid_selection
+  - action: utter_invalid_selection
+  - intent: select_pan_assistance
+  - action: utter_pan_menu
+
+- story: PAN assistance flow
+  steps:
+  - intent: select_pan_assistance
+  - action: utter_pan_menu
+  - intent: pan_apply_process
+  - action: utter_pan_apply_process
+
+- story: TAN assistance flow
+  steps:
+  - intent: select_tan_assistance
+  - action: utter_tan_menu
+  - intent: tan_who_needs
+  - action: utter_tan_who_needs
+
+- story: General assistance flow
+  steps:
+  - intent: select_general_assistance
+  - action: utter_general_menu
+  - intent: general_contact_info
+  - action: utter_general_contact_info
+
+- story: User selects Schedule callback
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: select_callback_assistance
+  - action: utter_callback_menu
+
+- story: User selects Feedback
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: select_feedback_assistance
+  - action: utter_feedback_menu

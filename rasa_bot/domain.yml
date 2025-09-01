@@ -8,15 +8,28 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - select_pan_assistance
+  - select_tan_assistance
+  - select_general_assistance
+  - invalid_selection
   - pan_what
   - pan_importance
   - pan_who_needs
   - pan_mandatory
   - pan_multiple
+  - pan_apply_process
+  - pan_documents_required
+  - tan_what
+  - tan_who_needs
+  - tan_apply_process
+  - general_tax_info
+  - general_contact_info
+  - select_callback_assistance
+  - select_feedback_assistance
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "👋 Welcome! I'm your Tax Assistant. Please choose one of the following options:\n\n1️⃣ PAN assistance\n2️⃣ TAN assistance\n3️⃣ General assistance\n4️⃣ Schedule callback\n5️⃣ Feedback\n\nJust type your choice (e.g., 'PAN assistance' or '1') to get started!"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -49,6 +62,45 @@ responses:
 
   utter_pan_multiple:
     - text: "No. Holding more than one PAN is illegal and can attract penalties."
+
+  utter_invalid_selection:
+    - text: "❌ Please choose one from the following options:\n\n1️⃣ PAN assistance\n2️⃣ TAN assistance\n3️⃣ General assistance\n4️⃣ Schedule callback\n5️⃣ Feedback\n\nType your choice to continue."
+
+  utter_pan_menu:
+    - text: "🏛️ PAN Assistance Menu:\n\n1️⃣ What is PAN?\n2️⃣ Why is PAN important?\n3️⃣ Who needs a PAN?\n4️⃣ How to apply for PAN?\n5️⃣ Documents required for PAN\n6️⃣ Can I have multiple PANs?\n\nWhat would you like to know?"
+
+  utter_tan_menu:
+    - text: "🏢 TAN Assistance Menu:\n\n1️⃣ What is TAN?\n2️⃣ Who needs TAN?\n3️⃣ How to apply for TAN?\n\nWhat would you like to know?"
+
+  utter_general_menu:
+    - text: "ℹ️ General Assistance Menu:\n\n1️⃣ Tax information\n2️⃣ Contact information\n\nWhat would you like to know?"
+
+  utter_pan_apply_process:
+    - text: "To apply for PAN:\n\n1. Visit www.utiitsl.com or www.nsdl.co.in\n2. Fill Form 49A (Indian citizens) or 49AA (foreign citizens)\n3. Submit required documents\n4. Pay application fee\n5. Receive PAN card in 15-20 days\n\nYou can also apply offline at PAN centers."
+
+  utter_pan_documents_required:
+    - text: "Documents required for PAN application:\n\n📋 **Identity Proof** (any one):\n• Aadhaar Card\n• Voter ID\n• Passport\n• Driving License\n\n📋 **Address Proof** (any one):\n• Aadhaar Card\n• Utility Bill\n• Bank Statement\n• Rent Agreement\n\n📋 **Date of Birth Proof**:\n• Birth Certificate\n• School Certificate\n• Passport"
+
+  utter_tan_what:
+    - text: "TAN stands for Tax Deduction and Collection Account Number. It's a 10-digit alphanumeric number required for entities that deduct or collect tax at source."
+
+  utter_tan_who_needs:
+    - text: "TAN is required for:\n\n• Employers deducting TDS from salaries\n• Banks deducting TDS on interest\n• Companies making payments requiring TDS\n• Government departments collecting taxes\n• Any entity deducting tax at source"
+
+  utter_tan_apply_process:
+    - text: "To apply for TAN:\n\n1. Visit www.tin-nsdl.com\n2. Fill Form 49B online\n3. Submit required documents\n4. Pay application fee (₹55 + taxes)\n5. Receive TAN certificate\n\nTAN is issued immediately upon successful application."
+
+  utter_general_tax_info:
+    - text: "📊 General Tax Information:\n\n• Income Tax is levied on income earned\n• GST is applicable on goods and services\n• Tax rates vary based on income slabs\n• File ITR annually before due date\n• Keep all tax documents safe\n\nFor detailed information, visit www.incometax.gov.in"
+
+  utter_general_contact_info:
+    - text: "📞 Contact Information:\n\n**Income Tax Helpline:** 1961\n**GST Helpline:** 1800-103-4786\n**PAN/TAN Helpline:** 020-27218080\n\n**Websites:**\n• www.incometax.gov.in\n• www.gst.gov.in\n• www.utiitsl.com\n• www.tin-nsdl.com\n\nFor technical support, contact respective service providers."
+
+  utter_callback_menu:
+    - text: "📞 Schedule Callback Menu:\n\nThis feature is currently under development. We'll notify you when it's ready!\n\nFor now, you can:\n• Contact us directly at 1961\n• Visit our website for immediate assistance\n• Choose another option from the main menu\n\nWhat would you like to do?"
+
+  utter_feedback_menu:
+    - text: "💬 Feedback Menu:\n\nWe'd love to hear from you! Please share your experience:\n\n• How was your interaction with the bot?\n• Any suggestions for improvement?\n• Rate your experience (1-5 stars)\n• Any specific issues you encountered?\n\nYour feedback helps us improve our services!"
 
 actions:
   - action_hello_world
