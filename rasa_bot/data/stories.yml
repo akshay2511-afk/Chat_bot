@@ -2,10 +2,28 @@ version: "3.1"
 
 stories:
 
-- story: User selects PAN assistance
+- story: User selects English language
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: select_language_english
+  - action: utter_language_selected_english
+  - intent: select_pan_assistance
+  - action: utter_pan_menu
+  - intent: pan_what
+  - action: utter_pan_what
+
+- story: User selects Hindi language
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: select_language_hindi
+  - action: utter_language_selected_hindi
+  - intent: pan_what_hindi
+  - action: utter_pan_what_hindi
+
+- story: User selects PAN assistance
+  steps:
   - intent: select_pan_assistance
   - action: utter_pan_menu
   - intent: pan_what
@@ -72,3 +90,61 @@ stories:
   - action: utter_greet
   - intent: select_feedback_assistance
   - action: utter_feedback_menu
+
+# Hindi Language Stories
+- story: Hindi PAN assistance flow
+  steps:
+  - intent: select_language_hindi
+  - action: utter_language_selected_hindi
+  - intent: pan_what_hindi
+  - action: utter_pan_what_hindi
+
+- story: Hindi TAN assistance flow
+  steps:
+  - intent: select_language_hindi
+  - action: utter_language_selected_hindi
+  - intent: tan_what_hindi
+  - action: utter_tan_what_hindi
+
+- story: Hindi General assistance flow
+  steps:
+  - intent: select_language_hindi
+  - action: utter_language_selected_hindi
+  - intent: general_tax_info_hindi
+  - action: utter_general_tax_info_hindi
+
+- story: Hindi Callback selection
+  steps:
+  - intent: select_language_hindi
+  - action: utter_language_selected_hindi
+  - intent: select_callback_assistance_hindi
+  - action: utter_callback_menu_hindi
+
+- story: Hindi Feedback selection
+  steps:
+  - intent: select_language_hindi
+  - action: utter_language_selected_hindi
+  - intent: select_feedback_assistance_hindi
+  - action: utter_feedback_menu_hindi
+
+# Hindi Menu Selection Stories
+- story: Hindi PAN assistance selection
+  steps:
+  - intent: select_language_hindi
+  - action: utter_language_selected_hindi
+  - intent: select_pan_assistance_hindi
+  - action: utter_select_pan_assistance_hindi
+
+- story: Hindi TAN assistance selection
+  steps:
+  - intent: select_language_hindi
+  - action: utter_language_selected_hindi
+  - intent: select_tan_assistance_hindi
+  - action: utter_select_tan_assistance_hindi
+
+- story: Hindi General assistance selection
+  steps:
+  - intent: select_language_hindi
+  - action: utter_language_selected_hindi
+  - intent: select_general_assistance_hindi
+  - action: utter_select_general_assistance_hindi
