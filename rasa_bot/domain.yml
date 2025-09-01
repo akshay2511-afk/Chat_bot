@@ -8,6 +8,8 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - select_language_english
+  - select_language_hindi
   - select_pan_assistance
   - select_tan_assistance
   - select_general_assistance
@@ -26,30 +28,49 @@ intents:
   - general_contact_info
   - select_callback_assistance
   - select_feedback_assistance
+  # Hindi Intents
+  - pan_what_hindi
+  - pan_importance_hindi
+  - pan_who_needs_hindi
+  - pan_mandatory_hindi
+  - pan_multiple_hindi
+  - pan_apply_process_hindi
+  - pan_documents_required_hindi
+  - tan_what_hindi
+  - tan_who_needs_hindi
+  - tan_apply_process_hindi
+  - general_tax_info_hindi
+  - general_contact_info_hindi
+  - select_callback_assistance_hindi
+  - select_feedback_assistance_hindi
+  - invalid_selection_hindi
+  - select_pan_assistance_hindi
+  - select_tan_assistance_hindi
+  - select_general_assistance_hindi
 
 responses:
   utter_greet:
-  - text: "👋 Welcome! I'm your Tax Assistant. Please choose one of the following options:\n\n1️⃣ PAN assistance\n2️⃣ TAN assistance\n3️⃣ General assistance\n4️⃣ Schedule callback\n5️⃣ Feedback\n\nJust type your choice (e.g., 'PAN assistance' or '1') to get started!"
+    - text: "👋 Welcome! I'm your Tax Assistant. Please select your preferred language:\n\n🌐 **भाषा चुनें / Choose Language:**\n\n🇮🇳 **हिंदी**\n🇺🇸 **English**\n\nType 'हिंदी' or 'Hindi' for Hindi, or 'English' for English to continue."
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
 
+  # English Responses
   utter_pan_what:
-  - text: "PAN stands for Permanent Account Number. It’s a unique 10-character alphanumeric ID issued by the Income Tax Department to individuals, firms, and organizations for tax purposes."
-
+    - text: "PAN stands for Permanent Account Number. It's a unique 10-character alphanumeric ID issued by the Income Tax Department to individuals, firms, and organizations for tax purposes."
 
   utter_pan_importance:
     - text: "PAN is needed for filing income tax returns, opening bank accounts, high-value transactions, applying for loans, and financial identity verification."
@@ -58,28 +79,22 @@ responses:
     - text: "Individuals and entities involved in financial transactions—salaried employees, business owners, NRIs, companies and trusts—generally need a PAN."
 
   utter_pan_mandatory:
-    - text: "PAN isn’t mandatory for everyone. It’s mainly required if you earn taxable income, make high-value transactions, or need official identity verification."
+    - text: "PAN isn't mandatory for everyone. It's mainly required if you earn taxable income, make high-value transactions, or need official identity verification."
 
   utter_pan_multiple:
     - text: "No. Holding more than one PAN is illegal and can attract penalties."
 
-  utter_invalid_selection:
-    - text: "❌ Please choose one from the following options:\n\n1️⃣ PAN assistance\n2️⃣ TAN assistance\n3️⃣ General assistance\n4️⃣ Schedule callback\n5️⃣ Feedback\n\nType your choice to continue."
-
   utter_pan_menu:
     - text: "🏛️ PAN Assistance Menu:\n\n1️⃣ What is PAN?\n2️⃣ Why is PAN important?\n3️⃣ Who needs a PAN?\n4️⃣ How to apply for PAN?\n5️⃣ Documents required for PAN\n6️⃣ Can I have multiple PANs?\n\nWhat would you like to know?"
-
-  utter_tan_menu:
-    - text: "🏢 TAN Assistance Menu:\n\n1️⃣ What is TAN?\n2️⃣ Who needs TAN?\n3️⃣ How to apply for TAN?\n\nWhat would you like to know?"
-
-  utter_general_menu:
-    - text: "ℹ️ General Assistance Menu:\n\n1️⃣ Tax information\n2️⃣ Contact information\n\nWhat would you like to know?"
 
   utter_pan_apply_process:
     - text: "To apply for PAN:\n\n1. Visit www.utiitsl.com or www.nsdl.co.in\n2. Fill Form 49A (Indian citizens) or 49AA (foreign citizens)\n3. Submit required documents\n4. Pay application fee\n5. Receive PAN card in 15-20 days\n\nYou can also apply offline at PAN centers."
 
   utter_pan_documents_required:
     - text: "Documents required for PAN application:\n\n📋 **Identity Proof** (any one):\n• Aadhaar Card\n• Voter ID\n• Passport\n• Driving License\n\n📋 **Address Proof** (any one):\n• Aadhaar Card\n• Utility Bill\n• Bank Statement\n• Rent Agreement\n\n📋 **Date of Birth Proof**:\n• Birth Certificate\n• School Certificate\n• Passport"
+
+  utter_tan_menu:
+    - text: "🏢 TAN Assistance Menu:\n\n1️⃣ What is TAN?\n2️⃣ Who needs TAN?\n3️⃣ How to apply for TAN?\n\nWhat would you like to know?"
 
   utter_tan_what:
     - text: "TAN stands for Tax Deduction and Collection Account Number. It's a 10-digit alphanumeric number required for entities that deduct or collect tax at source."
@@ -89,6 +104,9 @@ responses:
 
   utter_tan_apply_process:
     - text: "To apply for TAN:\n\n1. Visit www.tin-nsdl.com\n2. Fill Form 49B online\n3. Submit required documents\n4. Pay application fee (₹55 + taxes)\n5. Receive TAN certificate\n\nTAN is issued immediately upon successful application."
+
+  utter_general_menu:
+    - text: "ℹ️ General Assistance Menu:\n\n1️⃣ Tax information\n2️⃣ Contact information\n\nWhat would you like to know?"
 
   utter_general_tax_info:
     - text: "📊 General Tax Information:\n\n• Income Tax is levied on income earned\n• GST is applicable on goods and services\n• Tax rates vary based on income slabs\n• File ITR annually before due date\n• Keep all tax documents safe\n\nFor detailed information, visit www.incometax.gov.in"
@@ -101,6 +119,75 @@ responses:
 
   utter_feedback_menu:
     - text: "💬 Feedback Menu:\n\nWe'd love to hear from you! Please share your experience:\n\n• How was your interaction with the bot?\n• Any suggestions for improvement?\n• Rate your experience (1-5 stars)\n• Any specific issues you encountered?\n\nYour feedback helps us improve our services!"
+
+  utter_invalid_selection:
+    - text: "❌ Please choose one from the following options:\n\n1️⃣ PAN assistance\n2️⃣ TAN assistance\n3️⃣ General assistance\n4️⃣ Schedule callback\n5️⃣ Feedback\n\nType your choice to continue."
+
+  # Language Selection Responses
+  utter_language_selected_english:
+    - text: "🇺🇸 **English Selected!**\n\nWelcome! I'm your Tax Assistant. Please choose one of the following options:\n\n1️⃣ PAN assistance\n2️⃣ TAN assistance\n3️⃣ General assistance\n4️⃣ Schedule callback\n5️⃣ Feedback\n\nJust type your choice (e.g., 'PAN assistance' or '1') to get started!"
+
+  utter_language_selected_hindi:
+    - text: "🇮🇳 **हिंदी चुनी गई!**\n\nस्वागत है! मैं आपका कर सहायक हूं। कृपया निम्नलिखित विकल्पों में से एक चुनें:\n\n1️⃣ पैन सहायता\n2️⃣ टैन सहायता\n3️⃣ सामान्य सहायता\n4️⃣ कॉलबैक शेड्यूल करें\n5️⃣ प्रतिक्रिया\n\nअपना विकल्प टाइप करें (जैसे 'पैन सहायता' या '1') शुरू करने के लिए!"
+
+  # Hindi Menu Selection Responses
+  utter_select_pan_assistance_hindi:
+    - text: "🏛️ **पैन सहायता मेनू:**\n\n1️⃣ पैन क्या है?\n2️⃣ पैन क्यों महत्वपूर्ण है?\n3️⃣ किसे पैन की आवश्यकता है?\n4️⃣ पैन के लिए कैसे आवेदन करें?\n5️⃣ पैन के लिए कौन से दस्तावेज आवश्यक हैं?\n6️⃣ क्या मैं कई पैन रख सकता हूं?\n\nआप क्या जानना चाहते हैं?"
+
+  utter_select_tan_assistance_hindi:
+    - text: "🏢 **टैन सहायता मेनू:**\n\n1️⃣ टैन क्या है?\n2️⃣ किसे टैन की आवश्यकता है?\n3️⃣ टैन के लिए कैसे आवेदन करें?\n\nआप क्या जानना चाहते हैं?"
+
+  utter_select_general_assistance_hindi:
+    - text: "ℹ️ **सामान्य सहायता मेनू:**\n\n1️⃣ कर की जानकारी\n2️⃣ संपर्क जानकारी\n\nआप क्या जानना चाहते हैं?"
+
+  # Hindi Responses for PAN Assistance
+  utter_pan_what_hindi:
+    - text: "पैन का मतलब स्थायी खाता संख्या है। यह आयकर विभाग द्वारा व्यक्तियों, फर्मों और संगठनों को कर उद्देश्यों के लिए जारी किया गया एक अद्वितीय 10-अक्षर का अल्फान्यूमेरिक आईडी है।"
+
+  utter_pan_importance_hindi:
+    - text: "पैन आयकर रिटर्न दाखिल करने, बैंक खाते खोलने, उच्च-मूल्य लेनदेन, ऋण के लिए आवेदन करने और वित्तीय पहचान सत्यापन के लिए आवश्यक है।"
+
+  utter_pan_who_needs_hindi:
+    - text: "वित्तीय लेनदेन में शामिल व्यक्ति और संस्थाएं—वेतनभोगी कर्मचारी, व्यवसाय के मालिक, एनआरआई, कंपनियां और ट्रस्ट—आमतौर पर पैन की आवश्यकता रखते हैं।"
+
+  utter_pan_mandatory_hindi:
+    - text: "पैन सभी के लिए अनिवार्य नहीं है। यह मुख्य रूप से आवश्यक है यदि आप कर योग्य आय कमाते हैं, उच्च-मूल्य लेनदेन करते हैं, या आधिकारिक पहचान सत्यापन की आवश्यकता है।"
+
+  utter_pan_multiple_hindi:
+    - text: "नहीं। एक से अधिक पैन रखना अवैध है और इस पर जुर्माना लग सकता है।"
+
+  utter_pan_apply_process_hindi:
+    - text: "पैन के लिए आवेदन करने के लिए:\n\n1. www.utiitsl.com या www.nsdl.co.in पर जाएं\n2. फॉर्म 49A (भारतीय नागरिक) या 49AA (विदेशी नागरिक) भरें\n3. आवश्यक दस्तावेज जमा करें\n4. आवेदन शुल्क का भुगतान करें\n5. 15-20 दिनों में पैन कार्ड प्राप्त करें\n\nआप ऑफलाइन भी पैन केंद्रों पर आवेदन कर सकते हैं।"
+
+  utter_pan_documents_required_hindi:
+    - text: "पैन आवेदन के लिए आवश्यक दस्तावेज:\n\n📋 **पहचान प्रमाण** (कोई एक):\n• आधार कार्ड\n• वोटर आईडी\n• पासपोर्ट\n• ड्राइविंग लाइसेंस\n\n📋 **पता प्रमाण** (कोई एक):\n• आधार कार्ड\n• बिजली बिल\n• बैंक स्टेटमेंट\n• किराया समझौता\n\n📋 **जन्म तिथि प्रमाण**:\n• जन्म प्रमाणपत्र\n• स्कूल प्रमाणपत्र\n• पासपोर्ट"
+
+  # Hindi Responses for TAN Assistance
+  utter_tan_what_hindi:
+    - text: "टैन का मतलब कर कटौती और संग्रह खाता संख्या है। यह स्रोत पर कर काटने या एकत्र करने वाली संस्थाओं के लिए आवश्यक 10-अंकीय अल्फान्यूमेरिक संख्या है।"
+
+  utter_tan_who_needs_hindi:
+    - text: "टैन की आवश्यकता है:\n\n• वेतन से टीडीएस काटने वाले नियोक्ता\n• ब्याज पर टीडीएस काटने वाले बैंक\n• टीडीएस की आवश्यकता वाले भुगतान करने वाली कंपनियां\n• कर एकत्र करने वाले सरकारी विभाग\n• स्रोत पर कर काटने वाली कोई भी संस्था"
+
+  utter_tan_apply_process_hindi:
+    - text: "टैन के लिए आवेदन करने के लिए:\n\n1. www.tin-nsdl.com पर जाएं\n2. फॉर्म 49B ऑनलाइन भरें\n3. आवश्यक दस्तावेज जमा करें\n4. आवेदन शुल्क का भुगतान करें (₹55 + कर)\n5. टैन प्रमाणपत्र प्राप्त करें\n\nटैन सफल आवेदन पर तुरंत जारी किया जाता है।"
+
+  # Hindi Responses for General Assistance
+  utter_general_tax_info_hindi:
+    - text: "📊 **सामान्य कर जानकारी:**\n\n• आयकर अर्जित आय पर लगाया जाता है\n• जीएसटी वस्तुओं और सेवाओं पर लागू होता है\n• कर दरें आय स्लैब के आधार पर भिन्न होती हैं\n• वार्षिक रूप से आईटीआर दाखिल करें\n• सभी कर दस्तावेज सुरक्षित रखें\n\nविस्तृत जानकारी के लिए www.incometax.gov.in पर जाएं"
+
+  utter_general_contact_info_hindi:
+    - text: "📞 **संपर्क जानकारी:**\n\n**आयकर हेल्पलाइन:** 1961\n**जीएसटी हेल्पलाइन:** 1800-103-4786\n**पैन/टैन हेल्पलाइन:** 020-27218080\n\n**वेबसाइट्स:**\n• www.incometax.gov.in\n• www.gst.gov.in\n• www.utiitsl.com\n• www.tin-nsdl.com\n\nतकनीकी सहायता के लिए संबंधित सेवा प्रदाताओं से संपर्क करें।"
+
+  # Hindi Responses for Callback and Feedback
+  utter_callback_menu_hindi:
+    - text: "📞 **कॉलबैक शेड्यूल मेनू:**\n\nयह सुविधा वर्तमान में विकास के अधीन है। जब यह तैयार होगी तो हम आपको सूचित करेंगे!\n\nअभी के लिए आप:\n• 1961 पर सीधे संपर्क कर सकते हैं\n• तत्काल सहायता के लिए हमारी वेबसाइट पर जा सकते हैं\n• मुख्य मेनू से कोई अन्य विकल्प चुन सकते हैं\n\nआप क्या करना चाहते हैं?"
+
+  utter_feedback_menu_hindi:
+    - text: "💬 **प्रतिक्रिया मेनू:**\n\nहम आपकी राय सुनना चाहेंगे! कृपया अपना अनुभव साझा करें:\n\n• बॉट के साथ आपकी बातचीत कैसी थी?\n• सुधार के लिए कोई सुझाव?\n• अपने अनुभव को रेट करें (1-5 सितारे)\n• कोई विशिष्ट समस्या जिसका आपने सामना किया?\n\nआपकी प्रतिक्रिया हमारी सेवाओं को बेहतर बनाने में मदद करती है!"
+
+  utter_invalid_selection_hindi:
+    - text: "❌ कृपया निम्नलिखित विकल्पों में से एक चुनें:\n\n1️⃣ पैन सहायता\n2️⃣ टैन सहायता\n3️⃣ सामान्य सहायता\n4️⃣ कॉलबैक शेड्यूल करें\n5️⃣ प्रतिक्रिया\n\nजारी रखने के लिए अपना विकल्प टाइप करें।"
 
 actions:
   - action_hello_world

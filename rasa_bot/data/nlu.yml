@@ -1,6 +1,33 @@
 version: "3.1"
 
 nlu:
+- intent: select_language_english
+  examples: |
+    - english
+    - English
+    - ENGLISH
+    - english language
+    - i want english
+    - english please
+    - in english
+    - english mein
+    - angrezi
+    - अंग्रेजी
+
+- intent: select_language_hindi
+  examples: |
+    - hindi
+    - Hindi
+    - HINDI
+    - hindi language
+    - i want hindi
+    - hindi please
+    - in hindi
+    - hindi mein
+    - हिंदी
+    - हिंदी में
+    - हिंदी भाषा
+
 - intent: greet
   examples: |
     - hey
@@ -256,3 +283,174 @@ nlu:
     - rate service
     - review
     - comment
+
+# Hindi Intent Examples
+- intent: pan_what_hindi
+  examples: |
+    - पैन क्या है
+    - पैन कार्ड क्या है
+    - पैन का फुल फॉर्म
+    - पैन का मतलब
+    - पैन के बारे में बताएं
+    - पैन क्या होता है
+    - पैन कार्ड क्या होता है
+
+- intent: pan_importance_hindi
+  examples: |
+    - पैन क्यों जरूरी है
+    - पैन की जरूरत क्यों है
+    - पैन कार्ड क्यों चाहिए
+    - पैन का उपयोग
+    - पैन किस लिए चाहिए
+
+- intent: pan_who_needs_hindi
+  examples: |
+    - किसे पैन की जरूरत है
+    - कौन पैन ले सकता है
+    - किसे पैन कार्ड चाहिए
+    - पैन कौन ले सकता है
+    - क्या मुझे पैन चाहिए
+
+- intent: pan_mandatory_hindi
+  examples: |
+    - क्या पैन सभी के लिए जरूरी है
+    - क्या पैन अनिवार्य है
+    - क्या मुझे पैन लेना चाहिए
+    - पैन कब जरूरी होता है
+
+- intent: pan_multiple_hindi
+  examples: |
+    - क्या एक से ज्यादा पैन रख सकते हैं
+    - क्या दो पैन कार्ड रख सकते हैं
+    - क्या कई पैन नंबर रख सकते हैं
+    - क्या कोई दो पैन रख सकता है
+
+- intent: pan_apply_process_hindi
+  examples: |
+    - पैन के लिए कैसे आवेदन करें
+    - पैन आवेदन प्रक्रिया
+    - पैन कार्ड कैसे मिलेगा
+    - पैन के लिए क्या करना होगा
+    - पैन कार्ड आवेदन
+
+- intent: pan_documents_required_hindi
+  examples: |
+    - पैन के लिए कौन से दस्तावेज चाहिए
+    - पैन कार्ड के लिए क्या दस्तावेज चाहिए
+    - पैन आवेदन के लिए क्या चाहिए
+    - पैन कार्ड के लिए क्या पेपर्स चाहिए
+
+- intent: tan_what_hindi
+  examples: |
+    - टैन क्या है
+    - टैन नंबर क्या है
+    - टैन का फुल फॉर्म
+    - टैन का मतलब
+    - टैन के बारे में बताएं
+
+- intent: tan_who_needs_hindi
+  examples: |
+    - किसे टैन की जरूरत है
+    - कौन टैन ले सकता है
+    - किसे टैन चाहिए
+    - क्या मुझे टैन चाहिए
+
+- intent: tan_apply_process_hindi
+  examples: |
+    - टैन के लिए कैसे आवेदन करें
+    - टैन आवेदन प्रक्रिया
+    - टैन कैसे मिलेगा
+    - टैन के लिए क्या करना होगा
+
+- intent: general_tax_info_hindi
+  examples: |
+    - कर की जानकारी
+    - सामान्य कर जानकारी
+    - कर के बारे में बताएं
+    - कर की जानकारी दें
+    - आयकर की जानकारी
+
+- intent: general_contact_info_hindi
+  examples: |
+    - संपर्क जानकारी
+    - हेल्पलाइन नंबर
+    - कैसे संपर्क करें
+    - फोन नंबर
+    - सहायता संपर्क
+
+- intent: select_callback_assistance_hindi
+  examples: |
+    - कॉलबैक शेड्यूल करें
+    - कॉलबैक बुक करें
+    - 4
+    - विकल्प 4
+    - चौथा विकल्प
+    - कॉलबैक
+    - मुझे कॉल करें
+    - कॉल शेड्यूल करें
+    - कॉलबैक बुक करें
+
+- intent: select_feedback_assistance_hindi
+  examples: |
+    - प्रतिक्रिया
+    - फीडबैक
+    - 5
+    - विकल्प 5
+    - पांचवां विकल्प
+    - प्रतिक्रिया दें
+    - फीडबैक शेयर करें
+    - सेवा रेट करें
+    - रिव्यू
+    - टिप्पणी
+
+- intent: invalid_selection_hindi
+  examples: |
+    - कुछ और
+    - 6
+    - विकल्प 6
+    - रैंडम टेक्स्ट
+    - xyz
+    - अमान्य विकल्प
+    - अन्य
+    - मेरी मदद करें
+    - मुझे नहीं पता
+
+# Hindi Menu Selection Intents
+- intent: select_pan_assistance_hindi
+  examples: |
+    - पैन सहायता
+    - पैन मदद
+    - पैन के बारे में
+    - पैन कार्ड सहायता
+    - पैन कार्ड मदद
+    - 1
+    - विकल्प 1
+    - पहला विकल्प
+    - पैन
+    - पैन कार्ड
+
+- intent: select_tan_assistance_hindi
+  examples: |
+    - टैन सहायता
+    - टैन मदद
+    - टैन के बारे में
+    - टैन नंबर सहायता
+    - टैन नंबर मदद
+    - 2
+    - विकल्प 2
+    - दूसरा विकल्प
+    - टैन
+    - टैन नंबर
+
+- intent: select_general_assistance_hindi
+  examples: |
+    - सामान्य सहायता
+    - सामान्य मदद
+    - सामान्य जानकारी
+    - कर सहायता
+    - कर मदद
+    - 3
+    - विकल्प 3
+    - तीसरा विकल्प
+    - सामान्य
+    - कर

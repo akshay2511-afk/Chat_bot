@@ -12,7 +12,6 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-
 - rule: Answer what is PAN
   steps:
     - intent: pan_what
@@ -42,6 +41,16 @@ rules:
   steps:
     - intent: greet
     - action: utter_greet
+
+- rule: Handle English language selection
+  steps:
+    - intent: select_language_english
+    - action: utter_language_selected_english
+
+- rule: Handle Hindi language selection
+  steps:
+    - intent: select_language_hindi
+    - action: utter_language_selected_hindi
 
 - rule: Handle invalid selection
   steps:
@@ -107,3 +116,95 @@ rules:
   steps:
     - intent: select_feedback_assistance
     - action: utter_feedback_menu
+
+# Hindi Intent Rules
+- rule: Answer what is PAN in Hindi
+  steps:
+    - intent: pan_what_hindi
+    - action: utter_pan_what_hindi
+
+- rule: Answer PAN importance in Hindi
+  steps:
+    - intent: pan_importance_hindi
+    - action: utter_pan_importance_hindi
+
+- rule: Answer who needs PAN in Hindi
+  steps:
+    - intent: pan_who_needs_hindi
+    - action: utter_pan_who_needs_hindi
+
+- rule: Answer PAN mandatory in Hindi
+  steps:
+    - intent: pan_mandatory_hindi
+    - action: utter_pan_mandatory_hindi
+
+- rule: Answer multiple PANs in Hindi
+  steps:
+    - intent: pan_multiple_hindi
+    - action: utter_pan_multiple_hindi
+
+- rule: Answer PAN apply process in Hindi
+  steps:
+    - intent: pan_apply_process_hindi
+    - action: utter_pan_apply_process_hindi
+
+- rule: Answer PAN documents required in Hindi
+  steps:
+    - intent: pan_documents_required_hindi
+    - action: utter_pan_documents_required_hindi
+
+- rule: Answer what is TAN in Hindi
+  steps:
+    - intent: tan_what_hindi
+    - action: utter_tan_what_hindi
+
+- rule: Answer who needs TAN in Hindi
+  steps:
+    - intent: tan_who_needs_hindi
+    - action: utter_tan_who_needs_hindi
+
+- rule: Answer TAN apply process in Hindi
+  steps:
+    - intent: tan_apply_process_hindi
+    - action: utter_tan_apply_process_hindi
+
+- rule: Answer general tax info in Hindi
+  steps:
+    - intent: general_tax_info_hindi
+    - action: utter_general_tax_info_hindi
+
+- rule: Answer general contact info in Hindi
+  steps:
+    - intent: general_contact_info_hindi
+    - action: utter_general_contact_info_hindi
+
+- rule: Show callback menu in Hindi
+  steps:
+    - intent: select_callback_assistance_hindi
+    - action: utter_callback_menu_hindi
+
+- rule: Show feedback menu in Hindi
+  steps:
+    - intent: select_feedback_assistance_hindi
+    - action: utter_feedback_menu_hindi
+
+- rule: Handle invalid selection in Hindi
+  steps:
+    - intent: invalid_selection_hindi
+    - action: utter_invalid_selection_hindi
+
+# Hindi Menu Selection Rules
+- rule: Show PAN menu in Hindi
+  steps:
+    - intent: select_pan_assistance_hindi
+    - action: utter_select_pan_assistance_hindi
+
+- rule: Show TAN menu in Hindi
+  steps:
+    - intent: select_tan_assistance_hindi
+    - action: utter_select_tan_assistance_hindi
+
+- rule: Show General menu in Hindi
+  steps:
+    - intent: select_general_assistance_hindi
+    - action: utter_select_general_assistance_hindi
