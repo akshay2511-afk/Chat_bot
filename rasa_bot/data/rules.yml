@@ -11,3 +11,34 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+
+- rule: Answer what is PAN
+  steps:
+    - intent: pan_what
+    - action: utter_pan_what
+
+- rule: Answer PAN importance
+  steps:
+    - intent: pan_importance
+    - action: utter_pan_importance
+
+- rule: Answer who needs PAN
+  steps:
+    - intent: pan_who_needs
+    - action: utter_pan_who_needs
+
+- rule: Answer PAN mandatory
+  steps:
+    - intent: pan_mandatory
+    - action: utter_pan_mandatory
+
+- rule: Answer multiple PANs
+  steps:
+    - intent: pan_multiple
+    - action: utter_pan_multiple
+
+- rule: Greet user
+  steps:
+    - intent: greet
+    - action: utter_greet

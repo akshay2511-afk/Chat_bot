@@ -8,6 +8,11 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - pan_what
+  - pan_importance
+  - pan_who_needs
+  - pan_mandatory
+  - pan_multiple
 
 responses:
   utter_greet:
@@ -28,6 +33,22 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_pan_what:
+  - text: "PAN stands for Permanent Account Number. It’s a unique 10-character alphanumeric ID issued by the Income Tax Department to individuals, firms, and organizations for tax purposes."
+
+
+  utter_pan_importance:
+    - text: "PAN is needed for filing income tax returns, opening bank accounts, high-value transactions, applying for loans, and financial identity verification."
+
+  utter_pan_who_needs:
+    - text: "Individuals and entities involved in financial transactions—salaried employees, business owners, NRIs, companiesandtrusts—generally need a PAN."
+
+  utter_pan_mandatory:
+    - text: "PAN isn’t mandatory for everyone. It’s mainly required if you earn taxable income, make high-value transactions, or need official identity verification."
+
+  utter_pan_multiple:
+    - text: "No. Holding more than one PAN is illegal and can attract penalties."
 
 session_config:
   session_expiration_time: 60

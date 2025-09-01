@@ -1,0 +1,6 @@
+__pycache__/
+*/__pycache__/
+
+# Ignore Rasa-specific files
+rasa_bot/.rasa/
+rasa_bot/models/

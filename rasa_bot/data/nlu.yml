@@ -89,3 +89,41 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: pan_what
+  examples: |
+    - what is pan
+    - what is a pan card
+    - pan full form
+    - meaning of pan
+    - tell me about pan
+
+- intent: pan_importance
+  examples: |
+    - why is pan important
+    - importance of pan
+    - why do we need a pan card
+    - use of pan
+    - pan required for what
+
+- intent: pan_who_needs
+  examples: |
+    - who needs a pan card
+    - who should have pan
+    - who must have pan
+    - is pan for companies or individuals
+    - do NRIs need pan
+
+- intent: pan_mandatory
+  examples: |
+    - is pan mandatory for everyone
+    - is pan compulsory for all
+    - do i need pan if my income is not taxable
+    - is it mandatory to have a pan card
+
+- intent: pan_multiple
+  examples: |
+    - can a person have more than one pan
+    - is it legal to have two pan cards
+    - can i hold multiple pan numbers
+    - can someone have 2 pans
