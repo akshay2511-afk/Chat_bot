@@ -1,0 +1,11 @@
+terminal1 :-
+rasa train
+rasa run actions --port 5055
+
+terminal2 :- 
+rasa run --enable-api --cors "*" --port 5005
+
+terminal3:- 
+
+uvicorn app:app --reload --port 8000
+
