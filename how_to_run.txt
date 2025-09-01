@@ -1,6 +1,6 @@
 terminal1 :-
 rasa train
-rasa run actions --port 5055
+rasa run actions --actions rasa_bot.actions.actions --port 5055
 
 terminal2 :- 
 rasa run --enable-api --cors "*" --port 5005
@@ -8,4 +8,9 @@ rasa run --enable-api --cors "*" --port 5005
 terminal3:- 
 
 uvicorn app:app --reload --port 8000
+
+terminal4 (or open in browser):-
+
+Open chat.html in your web browser to use the chat interface
+Or simply double-click chat.html file to open it in your default browser
 

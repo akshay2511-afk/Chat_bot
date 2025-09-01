@@ -2,6 +2,7 @@ import os
 import uuid
 from typing import Any, Dict, List, Optional
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import httpx
 
@@ -19,6 +20,14 @@ class ChatIn(BaseModel):
 class ChatOut(BaseModel):
     sender_id: str
     replies: List[Dict[str, Any]]  # Rasa returns list of messages (text/image/buttons/...)
+
+
+@app.get("/", response_class=FileResponse)
+def root():
+    index_path = os.path.join(os.path.dirname(__file__), "chat.html")
+    if not os.path.exists(index_path):
+        raise HTTPException(status_code=404, detail="chat.html not found")
+    return FileResponse(index_path, media_type="text/html")
 
 
 @app.get("/health")

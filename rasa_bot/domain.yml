@@ -42,13 +42,16 @@ responses:
     - text: "PAN is needed for filing income tax returns, opening bank accounts, high-value transactions, applying for loans, and financial identity verification."
 
   utter_pan_who_needs:
-    - text: "Individuals and entities involved in financial transactions—salaried employees, business owners, NRIs, companiesandtrusts—generally need a PAN."
+    - text: "Individuals and entities involved in financial transactions—salaried employees, business owners, NRIs, companies and trusts—generally need a PAN."
 
   utter_pan_mandatory:
     - text: "PAN isn’t mandatory for everyone. It’s mainly required if you earn taxable income, make high-value transactions, or need official identity verification."
 
   utter_pan_multiple:
     - text: "No. Holding more than one PAN is illegal and can attract penalties."
+
+actions:
+  - action_hello_world
 
 session_config:
   session_expiration_time: 60
