@@ -27,11 +27,7 @@
 <div class="container">
     <div class="header">🏛️ PAN Card Assistant</div>
 
-    <div class="phone-bar">
-        <span>📱 Phone:</span>
-        <input id="phoneInput" class="phone-input" placeholder="Enter 10-digit number (e.g., 9876543210)">
-        <button id="setPhoneBtn" class="btn">Set</button>
-    </div>
+    <!-- Phone bar removed. Number will be asked in-chat. -->
 
     <div id="error" class="error"></div>
 
@@ -48,38 +44,19 @@
   const messagesEl = document.getElementById('messages');
   const textInput = document.getElementById('textInput');
   const sendBtn = document.getElementById('sendBtn');
-  const phoneInput = document.getElementById('phoneInput');
-  const setPhoneBtn = document.getElementById('setPhoneBtn');
+  // Phone UI removed
   const errorEl = document.getElementById('error');
 
   const API_CHAT = '/chat';
   const API_HISTORY = (pn) => `/api/conversations/${encodeURIComponent(pn)}`;
+  const API_ENSURE = (pn) => `/api/conversations/ensure/${encodeURIComponent(pn)}`;
 
   let senderId = localStorage.getItem('sender_id') || `user_${Math.random().toString(36).slice(2, 10)}`;
   localStorage.setItem('sender_id', senderId);
 
-  let phoneNumber = localStorage.getItem('phone_number') || '';
-  if (phoneNumber) {
-    phoneInput.value = phoneNumber;
-    enableChat(true);
-    preloadHistory(phoneNumber);
-  } else {
-    addBot("👋 Welcome! Please provide your phone number to get started (e.g., 9876543210).");
-  }
-
-  setPhoneBtn.addEventListener('click', () => {
-    const pn = phoneInput.value.trim();
-    if (!/^\+?\d[\d\s]{8,}$/.test(pn) || pn.replace(/\s/g,'').length < 10) {
-      return showError('Please enter a valid phone number.');
-    }
-    phoneNumber = pn.replace(/\s/g,'');
-    localStorage.setItem('phone_number', phoneNumber);
-    showError('');
-    enableChat(true);
-    messagesEl.innerHTML = '';
-    addBot('✅ Thanks! Loading your previous conversations...');
-    preloadHistory(phoneNumber);
-  });
+  let phoneNumber = '';
+  addBot("👋 Hello! I'm here for your query. Please enter your phone number first.");
+  enableChat(true);
 
   sendBtn.addEventListener('click', sendMessage);
   textInput.addEventListener('keypress', (e)=>{ if(e.key==='Enter'){ sendMessage(); }});
@@ -133,9 +110,23 @@
 
   async function sendMessage(){
     const text = textInput.value.trim(); if(!text){ return; }
-    if(!phoneNumber){ return showError('Please set your phone number first.'); }
     showError('');
     addUser(text); textInput.value=''; enableChat(false);
+
+    // If phone number not known yet, try to extract from this message
+    if(!phoneNumber){
+      const m = text.replace(/\s+/g,'').match(/\+?\d{10,20}/);
+      if(m){
+        phoneNumber = m[0];
+        try { await fetch(API_ENSURE(phoneNumber), { method: 'POST' }); } catch(_e) {}
+        addBot('✅ Number received. Loading your previous conversations if any...');
+        await preloadHistory(phoneNumber);
+      } else {
+        addBot('Please enter a valid phone number to proceed.');
+        enableChat(true);
+        return;
+      }
+    }
 
     try{
       const res = await fetch(API_CHAT, {
