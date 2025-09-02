@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Optional
+from typing import Optional
 from pydantic import BaseModel, constr
 
 PhoneNumberStr = constr(strip_whitespace=True, min_length=8, max_length=20)
@@ -19,6 +19,6 @@ class ConversationOut(BaseModel):
     class Config:
         orm_mode = True
 
-class ConversationList(BaseModel):
+class ConversationSingle(BaseModel):
     phone_number: PhoneNumberStr
-    conversations: List[ConversationOut]
+    conversation: Optional[ConversationOut]

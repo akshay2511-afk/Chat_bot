@@ -104,7 +104,23 @@
       if(!res.ok){ throw new Error('Failed to load history'); }
       const data = await res.json();
       messagesEl.innerHTML = '';
-      if (data.conversations && data.conversations.length){
+      // New format: { phone_number, conversation: { message: "user: hi\nbot: hello", ... } }
+      if (data && data.conversation && data.conversation.message){
+        const text = String(data.conversation.message);
+        const lines = text.split(/\n+/);
+        lines.forEach(line => {
+          const m = /^(user|bot)\s*:\s*(.*)$/i.exec(line.trim());
+          if (m){
+            const who = m[1].toLowerCase() === 'user' ? 'user' : 'bot';
+            const content = m[2];
+            addMessage(content, who);
+          } else if(line.trim()) {
+            addBot(line.trim());
+          }
+        });
+      }
+      // Backward compatibility with old list format
+      else if (data && data.conversations && data.conversations.length){
         data.conversations.forEach(m => addMessage(m.message, m.role === 'user' ? 'user' : 'bot'));
       } else {
         addBot("History empty. Please type 'hi' to begin.");
