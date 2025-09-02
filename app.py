@@ -5,13 +5,15 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import httpx
+from fastapi.staticfiles import StaticFiles
+
 
 RASA_REST_URL = os.getenv(
     "RASA_REST_URL", "http://127.0.0.1:5005/webhooks/rest/webhook"
 )
 
 app = FastAPI(title="Rasa ↔ FastAPI Bridge")
-
+app.mount("/images", StaticFiles(directory="images"), name="images")
 # Conversations API routers
 try:
     from backend.routes.conversations import router as conversations_router
