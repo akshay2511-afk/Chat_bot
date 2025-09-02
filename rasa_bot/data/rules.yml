@@ -42,6 +42,11 @@ rules:
     - intent: greet
     - action: utter_greet
 
+- rule: Handle phone number provision
+  steps:
+    - intent: provide_phone_number
+    - action: utter_phone_number_received
+
 - rule: Handle English language selection
   steps:
     - intent: select_language_english
