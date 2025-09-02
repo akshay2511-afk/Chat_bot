@@ -1,6 +1,6 @@
-rasa==3.6.21
-rasa-sdk==3.6.2
-sqlalchemy==1.4.54
-fastapi==0.116.1
-uvicorn==0.35.0
-httpx==0.28.1
+fastapi
+uvicorn
+httpx
+pydantic
+SQLAlchemy>=2.0
+psycopg2-binary>=2.9

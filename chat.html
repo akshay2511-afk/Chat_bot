@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAN Card Chatbot</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f6fa; }
+        .container { max-width: 720px; margin: 0 auto; height: 100vh; display: flex; flex-direction: column; }
+        .header { background: #5b6be6; color: #fff; padding: 16px; font-weight: 600; }
+        .phone-bar { background: #eef1ff; padding: 10px 16px; display: flex; gap: 8px; align-items: center; }
+        .phone-input { flex: 1; padding: 8px 10px; border: 1px solid #cfd3ff; border-radius: 6px; }
+        .btn { background: #5b6be6; color: #fff; border: 0; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+        .btn:disabled { opacity: .6; cursor: not-allowed; }
+        .messages { flex: 1; overflow-y: auto; padding: 16px; background: #fafbff; }
+        .row { display: flex; margin-bottom: 10px; }
+        .row.user { justify-content: flex-end; }
+        .bubble { max-width: 70%; padding: 10px 12px; border-radius: 12px; border: 1px solid #e3e7ff; background: #fff; }
+        .row.user .bubble { background: #5b6be6; color: #fff; border-color: transparent; }
+        .footer { display: flex; gap: 8px; padding: 12px; border-top: 1px solid #e9ecf8; background: #fff; }
+        .input { flex: 1; padding: 10px 12px; border: 1px solid #dfe3f6; border-radius: 8px; }
+        .error { color: #e74c3c; text-align: center; font-size: 13px; padding: 6px 0; height: 20px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">🏛️ PAN Card Assistant</div>
+
+    <div class="phone-bar">
+        <span>📱 Phone:</span>
+        <input id="phoneInput" class="phone-input" placeholder="Enter 10-digit number (e.g., 9876543210)">
+        <button id="setPhoneBtn" class="btn">Set</button>
+    </div>
+
+    <div id="error" class="error"></div>
+
+    <div id="messages" class="messages"></div>
+
+    <div class="footer">
+        <input id="textInput" class="input" placeholder="Type a message..." disabled>
+        <button id="sendBtn" class="btn" disabled>Send</button>
+    </div>
+</div>
+
+<script>
+(function(){
+  const messagesEl = document.getElementById('messages');
+  const textInput = document.getElementById('textInput');
+  const sendBtn = document.getElementById('sendBtn');
+  const phoneInput = document.getElementById('phoneInput');
+  const setPhoneBtn = document.getElementById('setPhoneBtn');
+  const errorEl = document.getElementById('error');
+
+  const API_CHAT = '/chat';
+  const API_HISTORY = (pn) => `/api/conversations/${encodeURIComponent(pn)}`;
+
+  let senderId = localStorage.getItem('sender_id') || `user_${Math.random().toString(36).slice(2, 10)}`;
+  localStorage.setItem('sender_id', senderId);
+
+  let phoneNumber = localStorage.getItem('phone_number') || '';
+  if (phoneNumber) {
+    phoneInput.value = phoneNumber;
+    enableChat(true);
+    preloadHistory(phoneNumber);
+  } else {
+    addBot("👋 Welcome! Please provide your phone number to get started (e.g., 9876543210).");
+  }
+
+  setPhoneBtn.addEventListener('click', () => {
+    const pn = phoneInput.value.trim();
+    if (!/^\+?\d[\d\s]{8,}$/.test(pn) || pn.replace(/\s/g,'').length < 10) {
+      return showError('Please enter a valid phone number.');
+    }
+    phoneNumber = pn.replace(/\s/g,'');
+    localStorage.setItem('phone_number', phoneNumber);
+    showError('');
+    enableChat(true);
+    messagesEl.innerHTML = '';
+    addBot('✅ Thanks! Loading your previous conversations...');
+    preloadHistory(phoneNumber);
+  });
+
+  sendBtn.addEventListener('click', sendMessage);
+  textInput.addEventListener('keypress', (e)=>{ if(e.key==='Enter'){ sendMessage(); }});
+
+  function enableChat(enabled){
+    textInput.disabled = !enabled; sendBtn.disabled = !enabled;
+  }
+  function showError(msg){ errorEl.textContent = msg || ''; }
+
+  function addMessage(text, who){
+    const row = document.createElement('div'); row.className = `row ${who}`;
+    const bubble = document.createElement('div'); bubble.className = 'bubble';
+    bubble.textContent = text; row.appendChild(bubble); messagesEl.appendChild(row);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+  function addUser(text){ addMessage(text, 'user'); }
+  function addBot(text){ addMessage(text, 'bot'); }
+
+  async function preloadHistory(pn){
+    try{
+      const res = await fetch(API_HISTORY(pn));
+      if(!res.ok){ throw new Error('Failed to load history'); }
+      const data = await res.json();
+      messagesEl.innerHTML = '';
+      if (data.conversations && data.conversations.length){
+        data.conversations.forEach(m => addMessage(m.message, m.role === 'user' ? 'user' : 'bot'));
+      } else {
+        addBot("History empty. Please type 'hi' to begin.");
+      }
+    } catch(err){
+      addBot('Could not load history. You can still start chatting.');
+      console.error(err);
+    }
+  }
+
+  async function sendMessage(){
+    const text = textInput.value.trim(); if(!text){ return; }
+    if(!phoneNumber){ return showError('Please set your phone number first.'); }
+    showError('');
+    addUser(text); textInput.value=''; enableChat(false);
+
+    try{
+      const res = await fetch(API_CHAT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, sender_id: senderId, phone_number: phoneNumber })
+      });
+      if(!res.ok){ throw new Error('Chat error'); }
+      const data = await res.json();
+      if(Array.isArray(data.replies)){
+        let any = false;
+        data.replies.forEach(r=>{ if(r && r.text){ addBot(r.text); any = true; } });
+        if(!any){ addBot("I didn't understand that. Could you rephrase?"); }
+      } else { addBot('No reply received.'); }
+    } catch(err){
+      console.error(err); showError('Server error. Check servers and try again.');
+    } finally { enableChat(true); }
+  }
+})();
+</script>
+</body>
+</html>
