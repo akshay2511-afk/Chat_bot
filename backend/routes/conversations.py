@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
-from typing import List
 from sqlalchemy.orm import Session
 from backend.db.session import SessionLocal, Base, engine
-from backend.schemas.conversation import ConversationCreate, ConversationOut, ConversationList
+from backend.schemas.conversation import ConversationCreate, ConversationOut, ConversationSingle
 from backend.services.conversation_service import save_conversation, get_conversations
 
 # Ensure tables exist (simple bootstrap). In production use Alembic.
@@ -25,8 +24,8 @@ def api_save_conversation(payload: ConversationCreate, db: Session = Depends(get
     return ConversationOut.from_orm(conv)
 
 
-@router.get("/{phone_number}", response_model=ConversationList)
+@router.get("/{phone_number}", response_model=ConversationSingle)
 def api_get_conversations(phone_number: str, db: Session = Depends(get_db)):
-    rows = get_conversations(db, phone_number)
-    serialized: List[ConversationOut] = [ConversationOut.from_orm(r) for r in rows]
-    return ConversationList(phone_number=phone_number, conversations=serialized)
+    row = get_conversations(db, phone_number)
+    serialized = ConversationOut.from_orm(row) if row else None
+    return ConversationSingle(phone_number=phone_number, conversation=serialized)
