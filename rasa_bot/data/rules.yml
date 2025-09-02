@@ -122,6 +122,108 @@ rules:
     - intent: select_feedback_assistance
     - action: utter_feedback_menu
 
+
+- rule: Answer where to apply for PAN
+  steps:
+    - intent: ask_pan_where_apply
+    - action: utter_pan_where_apply
+
+- rule: Answer how to find IT PAN Service Center
+  steps:
+    - intent: ask_find_it_pan_service_center
+    - action: utter_find_it_pan_service_center
+
+- rule: Answer services at IT PAN Service Centers
+  steps:
+    - intent: ask_services_it_pan_centers
+    - action: utter_services_it_pan_centers
+
+- rule: Answer how to apply for PAN / plain paper
+  steps:
+    - intent: ask_how_to_apply_pan
+    - action: utter_how_to_apply_pan
+
+- rule: Answer how to find AO code
+  steps:
+    - intent: ask_find_ao_code
+    - action: utter_find_ao_code
+
+- rule: Answer photograph requirement
+  steps:
+    - intent: ask_photo_compulsory
+    - action: utter_photo_compulsory
+
+- rule: Answer procedure when applicant cannot sign
+  steps:
+    - intent: ask_cannot_sign_procedure
+    - action: utter_cannot_sign_procedure
+
+- rule: Answer father’s name requirement for females
+  steps:
+    - intent: ask_fathers_name_female
+    - action: utter_fathers_name_female
+
+- rule: Answer representative assessee applicability
+  steps:
+    - intent: ask_representative_assessee
+    - action: utter_representative_assessee
+
+- rule: Answer PAN charges
+  steps:
+    - intent: ask_pan_charges
+    - action: utter_pan_charges
+
+- rule: Provide PAN contact details
+  steps:
+    - intent: ask_pan_contact_details
+    - action: utter_pan_contact_details
+
+- rule: Answer about PAN when moving cities
+  steps:
+    - intent: ask_pan_move_city
+    - action: utter_pan_move_city
+
+- rule: Answer about multiple PANs
+  steps:
+    - intent: ask_multiple_pan_allowed
+    - action: utter_multiple_pan_allowed
+
+- rule: Answer validity of existing PAN cards
+  steps:
+    - intent: ask_existing_pan_validity
+    - action: utter_existing_pan_validity
+
+- rule: Answer new tamper-proof card (CSF)
+  steps:
+    - intent: ask_new_tamper_proof_card
+    - action: utter_new_tamper_proof_card
+
+- rule: Answer when to use correction/change form
+  steps:
+    - intent: ask_when_submit_change_correction
+    - action: utter_when_submit_change_correction
+
+- rule: Answer applied but no response
+  steps:
+    - intent: ask_applied_no_response
+    - action: utter_applied_no_response
+
+- rule: Answer PAN card delivery
+  steps:
+    - intent: ask_pan_delivery_process
+    - action: utter_pan_delivery_process
+
+- rule: Answer third party verification
+  steps:
+    - intent: ask_third_party_verification
+    - action: utter_third_party_verification
+
+- rule: Answer what to mention in PAN enquiries
+  steps:
+    - intent: ask_pan_enquiry_reference
+    - action: utter_pan_enquiry_reference
+
+
 # Hindi Intent Rules
 - rule: Answer what is PAN in Hindi
   steps:

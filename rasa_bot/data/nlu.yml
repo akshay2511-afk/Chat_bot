@@ -340,6 +340,175 @@ nlu:
     - review
     - comment
 
+
+- intent: ask_pan_where_apply
+  examples: |
+    - Where do I apply for PAN?
+    - How can I get a PAN card?
+    - Where should I submit a PAN application?
+    - PAN application location?
+    - Place to apply for PAN in my city
+    - Where to apply for IT PAN?
+    - PAN card apply center details
+    - Which office accepts PAN applications?
+
+
+- intent: ask_find_it_pan_service_center
+  examples: |
+    - How do I find an IT PAN Service Center?
+    - Where is the nearest IT PAN Service Center?
+    - IT PAN Service Center location in my city
+    - How to locate PAN service centres?
+    - PAN service center address lookup
+    - From where can I get the list of PAN centers?
+    - Website or office to know PAN service center locations?
+
+
+- intent: ask_services_it_pan_centers
+  examples: |
+    - What services are provided at IT PAN Service Centers?
+    - What can I do at a PAN service center?
+    - PAN center services list
+    - Do PAN centers help fill the form?
+    - Can I get Form 49A/49AA at the center?
+
+
+- intent: ask_how_to_apply_pan
+  examples: |
+    - How to apply for a PAN?
+    - Can I apply for PAN on plain paper?
+    - Where do I get Form 49A/49AA?
+    - Is there a specific form to apply for PAN?
+    - How do I submit PAN application form?
+
+
+- intent: ask_find_ao_code
+  examples: |
+    - How do I find my Assessing Officer code?
+    - Where can I get AO code for PAN?
+    - What is my AO code?
+    - I have never filed returns—how to know AO code?
+    - Is AO code mandatory for PAN application?
+
+
+- intent: ask_photo_compulsory
+  examples: |
+    - Is a photograph required for PAN?
+    - Do I need a photo for PAN application?
+    - Photo compulsory for individual PAN?
+    - PAN photo requirement
+
+
+- intent: ask_cannot_sign_procedure
+  examples: |
+    - What if I can’t sign the PAN form?
+    - PAN application for people who cannot sign
+    - Can I use thumb impression for PAN?
+    - How to attest thumb impression for PAN?
+    - Who can attest my thumb impression?
+
+
+- intent: ask_fathers_name_female
+  examples: |
+    - Is father’s name mandatory for female PAN applicants?
+    - For married women, is father’s name required in PAN?
+    - Do widows/divorcees need to give father’s name?
+    - PAN father name rule for females
+
+
+- intent: ask_representative_assessee
+  examples: |
+    - Who can apply for PAN on behalf of a minor?
+    - Can a representative apply for a non-resident’s PAN?
+    - PAN for lunatic/idiot/court of wards—who applies?
+    - What is a Representative Assessee for PAN?
+
+
+- intent: ask_pan_charges
+  examples: |
+    - What are the PAN application charges?
+    - PAN processing fee at UTIITSL center
+    - How much does a PAN card cost?
+    - Charges for dispatch outside India?
+
+
+- intent: ask_pan_contact_details
+  examples: |
+    - UTIITSL PAN customer care number
+    - PAN helpline and email
+    - Regional manager address for PAN
+    - PAN customer care timings
+    - How to contact UTIITSL for PAN?
+
+
+- intent: ask_pan_move_city
+  examples: |
+    - Do I need a new PAN if I move to another city?
+    - PAN change when transferred?
+    - Is PAN permanent?
+    - What to do if my Assessing Officer changes?
+
+
+- intent: ask_multiple_pan_allowed
+  examples: |
+    - Can I have more than one PAN?
+    - Is it legal to possess two PAN cards?
+    - Using multiple PAN numbers—is it allowed?
+
+
+- intent: ask_existing_pan_validity
+  examples: |
+    - Are old PAN cards still valid?
+    - My PAN was issued by Income Tax Department—still valid?
+    - Do I need to apply again if I already have PAN?
+
+
+- intent: ask_new_tamper_proof_card
+  examples: |
+    - How to get a new tamper proof PAN card?
+    - I have PAN; how to obtain a fresh card?
+    - Which form for reprinting PAN card?
+    - Fee for new tamper-proof PAN card?
+
+
+- intent: ask_when_submit_change_correction
+  examples: |
+    - When should I use the Changes/Correction PAN form?
+    - I want a new card with same PAN—what form?
+    - How to correct details in PAN?
+    - Which cases need the correction form?
+
+
+- intent: ask_applied_no_response
+  examples: |
+    - I applied for PAN but didn’t receive any update
+    - No communication after PAN application—what to do?
+    - Applied before 29-05-2003 and never got PAN
+    - Should I reapply in new Form 49A?
+
+
+- intent: ask_pan_delivery_process
+  examples: |
+    - How will my PAN card be delivered?
+    - PAN card dispatch method
+    - Who delivers the PAN card and where?
+
+
+- intent: ask_third_party_verification
+  examples: |
+    - Does UTIITSL do verification visits for PAN?
+    - Will an agent come to verify my address?
+    - How to check agent authorization for PAN verification?
+
+- intent: ask_pan_enquiry_reference
+  examples: |
+    - Whom should I contact about my PAN application?
+    - What details should I mention in PAN queries?
+    - PAN application number/coupon—where to refer?
+
+
+
+
 # Hindi Intent Examples
 - intent: pan_what_hindi
   examples: |
