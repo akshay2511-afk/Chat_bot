@@ -2,10 +2,12 @@ version: "3.1"
 
 stories:
 
-- story: User selects English language
+- story: User provides phone number and selects English language
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: provide_phone_number
+  - action: utter_phone_number_received
   - intent: select_language_english
   - action: utter_language_selected_english
   - intent: select_pan_assistance
@@ -13,14 +15,23 @@ stories:
   - intent: pan_what
   - action: utter_pan_what
 
-- story: User selects Hindi language
+- story: User provides phone number and selects Hindi language
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: provide_phone_number
+  - action: utter_phone_number_received
   - intent: select_language_hindi
   - action: utter_language_selected_hindi
   - intent: pan_what_hindi
   - action: utter_pan_what_hindi
+
+- story: User provides phone number
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: provide_phone_number
+  - action: utter_phone_number_received
 
 - story: User selects PAN assistance
   steps:
@@ -33,6 +44,8 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: provide_phone_number
+  - action: utter_phone_number_received
   - intent: select_tan_assistance
   - action: utter_tan_menu
   - intent: tan_what
@@ -42,6 +55,8 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: provide_phone_number
+  - action: utter_phone_number_received
   - intent: select_general_assistance
   - action: utter_general_menu
   - intent: general_tax_info
@@ -51,6 +66,8 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: provide_phone_number
+  - action: utter_phone_number_received
   - intent: invalid_selection
   - action: utter_invalid_selection
   - intent: select_pan_assistance
@@ -81,6 +98,8 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: provide_phone_number
+  - action: utter_phone_number_received
   - intent: select_callback_assistance
   - action: utter_callback_menu
 
@@ -88,6 +107,8 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: provide_phone_number
+  - action: utter_phone_number_received
   - intent: select_feedback_assistance
   - action: utter_feedback_menu
 

@@ -1,0 +1,6 @@
+version: "3.1"
+
+regex:
+  - phone_number: "\\b\\d{10}\\b"
+  - phone_number_with_country: "\\b\\+?91\\s*\\d{10}\\b"
+  - phone_number_with_spaces: "\\b\\d{2,4}\\s+\\d{3,4}\\s+\\d{4}\\b"

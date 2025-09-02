@@ -8,6 +8,7 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - provide_phone_number
   - select_language_english
   - select_language_hindi
   - select_pan_assistance
@@ -50,7 +51,7 @@ intents:
 
 responses:
   utter_greet:
-    - text: "👋 Welcome! I'm your Tax Assistant. Please select your preferred language:\n\n🌐 **भाषा चुनें / Choose Language:**\n\n🇮🇳 **हिंदी**\n🇺🇸 **English**\n\nType 'हिंदी' or 'Hindi' for Hindi, or 'English' for English to continue."
+    - text: "👋 Welcome! I'm your Tax Assistant. To get started, please provide your phone number:\n\n📱 **Please enter your phone number:**\n\nExample: 9876543210"
 
   utter_cheer_up:
     - text: "Here is something to cheer you up:"
@@ -67,6 +68,9 @@ responses:
 
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
+
+  utter_phone_number_received:
+    - text: "✅ Thank you! Your phone number has been recorded. Now please select your preferred language:\n\n🌐 **भाषा चुनें / Choose Language:**\n\n🇮🇳 **हिंदी**\n🇺🇸 **English**\n\nType 'हिंदी' or 'Hindi' for Hindi, or 'English' for English to continue."
 
   # English Responses
   utter_pan_what:
@@ -188,6 +192,12 @@ responses:
 
   utter_invalid_selection_hindi:
     - text: "❌ कृपया निम्नलिखित विकल्पों में से एक चुनें:\n\n1️⃣ पैन सहायता\n2️⃣ टैन सहायता\n3️⃣ सामान्य सहायता\n4️⃣ कॉलबैक शेड्यूल करें\n5️⃣ प्रतिक्रिया\n\nजारी रखने के लिए अपना विकल्प टाइप करें।"
+
+slots:
+  phone_number:
+    type: text
+    mappings:
+    - type: from_text
 
 actions:
   - action_hello_world
