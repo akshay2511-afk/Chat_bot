@@ -29,6 +29,27 @@ intents:
   - general_contact_info
   - select_callback_assistance
   - select_feedback_assistance
+  - ask_pan_where_apply
+  - ask_find_it_pan_service_center
+  - ask_services_it_pan_centers
+  - ask_how_to_apply_pan
+  - ask_find_ao_code
+  - ask_photo_compulsory
+  - ask_cannot_sign_procedure
+  - ask_fathers_name_female
+  - ask_representative_assessee
+  - ask_pan_charges
+  - ask_pan_contact_details
+  - ask_pan_move_city
+  - ask_multiple_pan_allowed
+  - ask_existing_pan_validity
+  - ask_new_tamper_proof_card
+  - ask_when_submit_change_correction
+  - ask_applied_no_response
+  - ask_pan_delivery_process
+  - ask_third_party_verification
+  - ask_pan_enquiry_reference
+
   # Hindi Intents
   - pan_what_hindi
   - pan_importance_hindi
@@ -74,7 +95,7 @@ responses:
 
   # English Responses
   utter_pan_what:
-    - text: "PAN stands for Permanent Account Number. It's a unique 10-character alphanumeric ID issued by the Income Tax Department to individuals, firms, and organizations for tax purposes."
+    - text: "PAN stands for Permanent Account Number. It's a unique 10-character alphanumeric ID issued by the Income Tax Department to individuals, firms, and organizations for tax purposes. A typical PAN is AFRPP1595D"
 
   utter_pan_importance:
     - text: "PAN is needed for filing income tax returns, opening bank accounts, high-value transactions, applying for loans, and financial identity verification."
@@ -126,6 +147,66 @@ responses:
 
   utter_invalid_selection:
     - text: "❌ Please choose one from the following options:\n\n1️⃣ PAN assistance\n2️⃣ TAN assistance\n3️⃣ General assistance\n4️⃣ Schedule callback\n5️⃣ Feedback\n\nType your choice to continue."
+
+  utter_pan_where_apply:
+    - text: "Apply for PAN through UTI Infrastructure Technology And Services Ltd. (UTIITSL).IT PAN Service Centers are set up in all cities/towns where there is an Income Tax Office; big cities may have multiple centers."
+
+  utter_find_it_pan_service_center:
+    - text: "You can find the location of IT PAN Service Centers from:• Your local Income Tax Office \n• Any UTIITSL office in your city \n• The Income Tax Department website (www.incometaxindia.gov.in)"
+
+  utter_services_it_pan_centers:
+    - text: "IT PAN Service Centers: supply Form 49A/49AA, assist in filling forms, collect applications, issue acknowledgement, and after PAN allotment print & deliver the PAN card."
+
+  utter_how_to_apply_pan:
+    - text: "Apply only on Form 49A (Indian citizens) or Form 49AA (non-individual/foreign categories).Forms are available free at IT PAN Service Centers. Applications on plain paper are not accepted."
+
+  utter_find_ao_code:
+    - text: "Get your Assessing Officer (AO) code from the Income Tax Office where you file returns. If you’ve never filed, ask the IT PAN Service Center or your jurisdictional Income Tax Office. AO code is mandatory for the PAN application."
+
+  utter_photo_compulsory:
+    - text: "A photograph is compulsory only for ‘Individual’ applicants."
+
+  utter_cannot_sign_procedure:
+    - text: "Affix your Left Hand Thumb impression in the signature box on Form 49A and have it attested by a Magistrate, Notary Public, or Gazetted Officer with official seal and stamp."
+
+  utter_fathers_name_female:
+    - text: "Yes. For Individual applicants, father’s name is mandatory. Female applicants, irrespective of marital status (married/divorced/widow), must provide father’s name."
+
+  utter_representative_assessee:
+    - text: "Under Section 160 of the Income-tax Act, a non-resident, minor, lunatic, idiot, or court of wards may apply through a Representative Assessee, who submits the PAN application on their behalf."
+
+  utter_pan_charges:
+    - text: "Processing charge: ₹107 (including GST) per PAN application, which includes the cost of the tamper-proof PAN card. For dispatch outside India, add ₹910."
+
+  utter_pan_contact_details:
+    - text: "PAN – All India Customer Care (UTIITSL)\n • Contact: +91 33 40802999, 033 40802999 \n• Timings: 9:00 AM–8:00 PM (open all days)\n• Email: utiitsl.gsd@utiitsl.com Regional Managers (UTIITSL):\n• Navi Mumbai: Plot No. 3, Sector-11, CBD Belapur, Navi Mumbai 400614 | Tel: 022-67931300 \n• Chennai: STC Trade Centre, A-29, Thiru-Vi-Ka Industrial Estate, Guindy, Chennai 600032 | Tel: 044-22500187 / 044-22500381"
+
+  utter_pan_move_city:
+    - text: "PAN is permanent and does not change when you move cities. However, your Assessing Officer may change—inform the nearest IT PAN Service Center so your address/AO details are updated in the ITD database."
+
+  utter_multiple_pan_allowed:
+    - text: "No. Obtaining or possessing more than one PAN is against the law."
+
+  utter_existing_pan_validity:
+    - text: "All PANs allotted and PAN cards issued by the Income Tax Department remain valid. If you already have a PAN, you do not need to apply again."
+
+  utter_new_tamper_proof_card:
+    - text: "To obtain a new tamper-proof PAN card (with the same PAN), submit a Composite Service Form (CSF) at an IT PAN Service Center, mention your existing PAN and attach a copy of the old card. Fee: ₹107 (incl. GST)."
+
+  utter_when_submit_change_correction:
+    - text: "Use the “Request for New PAN Card or/and Changes or Correction in PAN data” form when: \n A) you already have a PAN but want a new card, or \nB) you need to change/correct existing PAN details."
+
+  utter_applied_no_response:
+    - text: "If you applied before 29-05-2003 (old form) and never received PAN, reapply using the new Form 49A at any IT PAN Service Center."
+
+  utter_pan_delivery_process:
+    - text: "After allotment by the Income Tax Department, UTIITSL prints the PAN card and delivers it to the address you specified in Form 49A, against acknowledgement."
+
+  utter_third_party_verification:
+    - text: "Yes. As per ITD instructions, an authorized agency’s agent may visit to verify your identity/address based on the documents submitted. Ask for the agent’s authorization letter/ID card."
+
+  utter_pan_enquiry_reference:
+    - text: "For PAN enquiries, always mention your PAN application number, coupon number, and the IT PAN Service Center where you submitted the application."
 
   # Language Selection Responses
   utter_language_selected_english:
