@@ -1,6 +1,7 @@
 from typing import List, Optional
 from sqlalchemy.orm import Session
 from backend.models.conversation import PhoneNumber, Conversation
+from backend.models.history import NumberChatHistory, SessionChatHistory
 from backend.schemas.conversation import ConversationCreate
 
 
@@ -60,6 +61,27 @@ def save_conversation(db: Session, payload: ConversationCreate) -> Conversation:
 
     db.commit()
     db.refresh(conv)
+
+    # Mirror conversation into new history tables
+    # - number_chathistory: append full formatted line
+    # - session_chathistory: append if a session_id is provided in message header (optional convention)
+    formatted_line = formatted
+    nch: NumberChatHistory | None = db.get(NumberChatHistory, payload.phone_number)
+    if nch is None:
+        nch = NumberChatHistory(phone_number=payload.phone_number, history=formatted_line)
+        db.add(nch)
+    else:
+        nch.history = f"{nch.history}\n{formatted_line}" if nch.history else formatted_line
+
+    # Best-effort commit for histories (won't break original flow if fails)
+    try:
+        db.commit()
+    except Exception:
+        db.rollback()
+    try:
+        db.refresh(nch)
+    except Exception:
+        pass
     return conv
 
 

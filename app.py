@@ -18,13 +18,18 @@ app.mount("/images", StaticFiles(directory="images"), name="images")
 try:
     from backend.routes.conversations import router as conversations_router
     from backend.routes.otp import router as otp_router
+    from backend.routes.feedback import router as feedback_router
     from backend.db.session import SessionLocal, Base, engine
     from backend.schemas.conversation import ConversationCreate
-    from backend.services.conversation_service import save_conversation, get_conversations
+    from backend.services.conversation_service import save_conversation, get_conversations, ensure_phone_number
     from backend.services.otp_service import is_phone_verified, generate_otp, verify_otp
+    from backend.services.token_service import acquire_token
+    from backend.services.history_service import append_session_history
+    from backend.models.history import SessionChatHistory
     from backend.schemas.otp import OTPGenerateRequest, OTPVerifyRequest
     app.include_router(conversations_router, prefix="/api")
     app.include_router(otp_router, prefix="/api")
+    app.include_router(feedback_router, prefix="/api")
 
     @app.on_event("startup")
     def ensure_tables_created() -> None:
@@ -45,6 +50,7 @@ class ChatIn(BaseModel):
     text: str
     sender_id: Optional[str] = None  # keep stable per user/session
     phone_number: Optional[str] = None  # when provided, will be used to persist messages
+    session_id: Optional[str] = None  # for token/session control
 
 
 class ChatOut(BaseModel):
@@ -74,43 +80,63 @@ async def health():
 @app.post("/chat", response_model=ChatOut)
 async def chat(payload: ChatIn):
     sender = payload.sender_id or str(uuid.uuid4())
-    # If no phone number, do NOT call Rasa; ask for number first to enforce OTP later
+    session_id = payload.session_id or sender
+    # Greeting and request number on first contact (no phone number yet)
     if not payload.phone_number:
-        return {"sender_id": sender, "replies": [{"text": "Please enter your phone number to proceed."}]}
+        greeting = "Hello I'm here to assist you for PAN and TAN and i'm comfortable in both the languages Hindi and English."
+        ask_number = "Can you provide your number for the smooth conversation?"
+        return {"sender_id": sender, "replies": [{"text": greeting}, {"text": ask_number}]}
 
     # Handle OTP flow first when phone number provided; only talk to Rasa after verification
-    if payload.phone_number and SessionLocal and save_conversation and ConversationCreate and is_phone_verified:
+    # TEMP: Skip OTP flow; proceed directly with chat when phone provided.
+    # Keeping original OTP code commented for future re-enable.
+    if payload.phone_number and SessionLocal:
         db = SessionLocal()
         try:
             phone = payload.phone_number.strip()
-            # If not verified yet, handle OTP in backend
-            if not is_phone_verified(db, phone):
-                # If user sent 6-digit number, treat it as OTP attempt
-                if payload.text and payload.text.strip().isdigit() and len(payload.text.strip()) == 6 and verify_otp and OTPVerifyRequest:
-                    resp = verify_otp(db, OTPVerifyRequest(phone_number=phone, otp_code=payload.text.strip()))
-                    if resp.success:
-                        # On success, fetch previous conversation and return it as messages, instruct user to continue
-                        prev = get_conversations(db, phone)
-                        rendered: list[dict] = []
-                        if prev and prev.message:
-                            for line in str(prev.message).split("\n"):
-                                line = line.strip()
-                                if not line:
-                                    continue
-                                if line.lower().startswith("user:"):
-                                    rendered.append({"text": line.split(":",1)[1].strip()})
-                                elif line.lower().startswith("bot:"):
-                                    rendered.append({"text": line.split(":",1)[1].strip()})
-                                else:
-                                    rendered.append({"text": line})
-                        rendered.append({"text": "OTP verified. You can continue chatting now."})
-                        return {"sender_id": sender, "replies": rendered or [{"text":"OTP verified. Start chatting."}]}
-                    else:
-                        return {"sender_id": sender, "replies": [{"text": resp.message}]}
-                # Otherwise, send/generate OTP prompt
-                if generate_otp and OTPGenerateRequest:
-                    _ = generate_otp(db, OTPGenerateRequest(phone_number=phone))
-                return {"sender_id": sender, "replies": [{"text": "An OTP has been sent. Please enter the 6-digit code to proceed."}]}
+            # Ensure phone number stored in DB (without loading old history)
+            try:
+                ensure_phone_number(db, phone)
+            except Exception:
+                pass
+            # Acquire/verify session token before proceeding. If pool full, hold user.
+            try:
+                token_value, is_waiting = acquire_token(db, session_id)
+            except Exception:
+                token_value, is_waiting = 0, False
+            if is_waiting:
+                # Do not error; keep user waiting politely
+                return {"sender_id": sender, "replies": [{"text": "Please wait while we connect you..."}]}
+
+            # ORIGINAL OTP FLOW (DISABLED):
+            # If this is the first interaction after providing number, acknowledge and do not call Rasa yet
+            try:
+                existing_session = (
+                    db.query(SessionChatHistory)
+                    .filter(SessionChatHistory.session_id == session_id)
+                    .first()
+                )
+            except Exception:
+                existing_session = None
+            if existing_session is None or not (existing_session.history or '').strip():
+                try:
+                    if payload.text:
+                        append_session_history(db, session_id, f"user: {payload.text}", phone_number=phone)
+                    ack = f"Got your number: {phone}."
+                    append_session_history(db, session_id, f"bot: {ack}", phone_number=phone)
+                except Exception:
+                    pass
+                return {"sender_id": sender, "replies": [{"text": ack}]}
+            # if not is_phone_verified(db, phone):
+            #     if payload.text and payload.text.strip().isdigit() and len(payload.text.strip()) == 6 and verify_otp and OTPVerifyRequest:
+            #         resp = verify_otp(db, OTPVerifyRequest(phone_number=phone, otp_code=payload.text.strip()))
+            #         if resp.success:
+            #             return {"sender_id": sender, "replies": [{"text": "OTP verified. You can continue chatting now."}]}
+            #         else:
+            #             return {"sender_id": sender, "replies": [{"text": resp.message}]}
+            #     if generate_otp and OTPGenerateRequest:
+            #         _ = generate_otp(db, OTPGenerateRequest(phone_number=phone))
+            #     return {"sender_id": sender, "replies": [{"text": "An OTP has been sent. Please enter the 6-digit code to proceed."}]}
 
             # If verified: proceed to send to Rasa below; we will persist after reply
         finally:
@@ -127,27 +153,37 @@ async def chat(payload: ChatIn):
         raise HTTPException(status_code=502, detail=f"Rasa unreachable: {e!s}")
 
     # Persist conversation if verified and services available
-    if payload.phone_number and SessionLocal and save_conversation and ConversationCreate and is_phone_verified:
+    if payload.phone_number and SessionLocal and is_phone_verified:
         db = SessionLocal()
         try:
             phone = payload.phone_number.strip()
             if is_phone_verified(db, phone):
-                save_conversation(
-                    db,
-                    ConversationCreate(
-                        phone_number=phone, role="user", message=payload.text
-                    ),
-                )
+                # Old persistence to number-wide 'conversations' table disabled per new requirements
+                # save_conversation(
+                #     db,
+                #     ConversationCreate(
+                #         phone_number=phone, role="user", message=payload.text
+                #     ),
+                # )
+                try:
+                    append_session_history(db, session_id, f"user: {payload.text}", phone_number=phone)
+                except Exception:
+                    pass
                 for reply in replies:
                     if isinstance(reply, dict) and reply.get("text"):
-                        save_conversation(
-                            db,
-                            ConversationCreate(
-                                phone_number=phone,
-                                role="bot",
-                                message=reply["text"],
-                            ),
-                        )
+                        # Old persistence to number-wide 'conversations' table disabled per new requirements
+                        # save_conversation(
+                        #     db,
+                        #     ConversationCreate(
+                        #         phone_number=phone,
+                        #         role="bot",
+                        #         message=reply["text"],
+                        #     ),
+                        # )
+                        try:
+                            append_session_history(db, session_id, f"bot: {reply['text']}", phone_number=phone)
+                        except Exception:
+                            pass
         finally:
             db.close()
 
