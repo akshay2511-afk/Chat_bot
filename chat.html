@@ -95,11 +95,16 @@
   const API_CHAT = '/chat';
   const API_HISTORY = (pn) => `/api/conversations/${encodeURIComponent(pn)}`;
   const API_ENSURE = (pn) => `/api/conversations/ensure/${encodeURIComponent(pn)}`;
+  const API_GENERATE_OTP = '/api/otp/generate';
+  const API_VERIFY_OTP = '/api/otp/verify';
+  const API_CHECK_VERIFIED = (pn) => `/api/otp/verified/${encodeURIComponent(pn)}`;
 
   let senderId = localStorage.getItem('sender_id') || `user_${Math.random().toString(36).slice(2, 10)}`;
   localStorage.setItem('sender_id', senderId);
 
   let phoneNumber = '';
+  let isPhoneVerified = false;
+  let waitingForOTP = false;
   // Lazy-initialize messages when widget opens for the first time
   let initialized = false;
 
@@ -136,6 +141,63 @@
   }
   function addUser(text){ addMessage(text, 'user'); }
   function addBot(text){ addMessage(text, 'bot'); }
+
+  async function checkPhoneVerification(phoneNumber) {
+    try {
+      const res = await fetch(API_CHECK_VERIFIED(phoneNumber));
+      if (res.ok) {
+        const data = await res.json();
+        console.log(`DEBUG: Phone verification check for ${phoneNumber}:`, data);
+        return data.verified;
+      }
+    } catch (err) {
+      console.error('Error checking phone verification:', err);
+    }
+    return false;
+  }
+
+  async function generateOTP(phoneNumber) {
+    try {
+      const res = await fetch(API_GENERATE_OTP, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone_number: phoneNumber })
+      });
+      
+      if (res.ok) {
+        const data = await res.json();
+        return { success: true, message: data.message };
+      } else {
+        const error = await res.json();
+        return { success: false, message: error.detail || 'Failed to generate OTP' };
+      }
+    } catch (err) {
+      return { success: false, message: 'Network error while generating OTP' };
+    }
+  }
+
+  async function verifyOTP(phoneNumber, otpCode) {
+    try {
+      const res = await fetch(API_VERIFY_OTP, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone_number: phoneNumber, otp_code: otpCode })
+      });
+      
+      if (res.ok) {
+        const data = await res.json();
+        console.log(`DEBUG: OTP verification response for ${phoneNumber}:`, data);
+        return { success: true, message: data.message };
+      } else {
+        const error = await res.json();
+        console.log(`DEBUG: OTP verification error for ${phoneNumber}:`, error);
+        return { success: false, message: error.detail || 'Failed to verify OTP' };
+      }
+    } catch (err) {
+      console.error('Network error while verifying OTP:', err);
+      return { success: false, message: 'Network error while verifying OTP' };
+    }
+  }
 
   async function preloadHistory(pn){
     try{
@@ -175,19 +237,90 @@
     showError('');
     addUser(text); textInput.value=''; enableChat(false);
 
-    // If phone number not known yet, try to extract from this message
+    // If user sends a phone number at any time, (re)trigger OTP flow every time
+    const phoneMatch = text.replace(/\s+/g,'').match(/\+?\d{10,20}/);
+    if (phoneMatch) {
+      phoneNumber = phoneMatch[0];
+      try { await fetch(API_ENSURE(phoneNumber), { method: 'POST' }); } catch(_e) {}
+      isPhoneVerified = false;
+      waitingForOTP = false;
+      addBot('📱 Phone number received. Please verify with OTP to access your chat history.');
+      addBot('🔐 Generating OTP for verification...');
+      const otpResult = await generateOTP(phoneNumber);
+      if (otpResult.success) {
+        addBot(otpResult.message);
+        addBot('Please enter the 6-digit OTP code:');
+        waitingForOTP = true;
+      } else {
+        addBot('❌ ' + otpResult.message);
+      }
+      enableChat(true);
+      return;
+    }
+
+    // If phone number not known yet (and message wasn't a phone), stop and ask
     if(!phoneNumber){
       const m = text.replace(/\s+/g,'').match(/\+?\d{10,20}/);
       if(m){
         phoneNumber = m[0];
         try { await fetch(API_ENSURE(phoneNumber), { method: 'POST' }); } catch(_e) {}
-        addBot('✅ Number received. Loading your previous conversations if any...');
-        await preloadHistory(phoneNumber);
+        // Always require OTP before any chat or history load
+        isPhoneVerified = false;
+        addBot('📱 Phone number received. Please verify with OTP to access your chat history.');
+        addBot('🔐 Generating OTP for verification...');
+        const otpResult = await generateOTP(phoneNumber);
+        if (otpResult.success) {
+          addBot(otpResult.message);
+          addBot('Please enter the 6-digit OTP code:');
+          waitingForOTP = true;
+        } else {
+          addBot('❌ ' + otpResult.message);
+          enableChat(true);
+          return;
+        }
       } else {
         addBot('Please enter a valid phone number to proceed.');
         enableChat(true);
         return;
       }
+    }
+    // Handle OTP verification
+    else if (waitingForOTP) {
+      const otpMatch = text.match(/^\d{6}$/);
+      if (otpMatch) {
+        addBot('🔍 Verifying OTP...');
+        const verifyResult = await verifyOTP(phoneNumber, text);
+        
+        if (verifyResult.success) {
+          addBot('✅ ' + verifyResult.message);
+          isPhoneVerified = true;
+          waitingForOTP = false;
+          
+          // Double-check verification status from backend with a small delay
+          await new Promise(resolve => setTimeout(resolve, 500)); // 500ms delay
+          const backendVerified = await checkPhoneVerification(phoneNumber);
+          if (backendVerified) {
+            addBot('Loading your previous conversations...');
+            await preloadHistory(phoneNumber);
+          } else {
+            addBot('⚠️ Verification completed but backend status unclear. Please try again.');
+          }
+        } else {
+          addBot('❌ ' + verifyResult.message);
+          addBot('Please enter the correct 6-digit OTP:');
+        }
+      } else {
+        addBot('Please enter a valid 6-digit OTP code.');
+      }
+      enableChat(true);
+      return;
+    }
+
+    // Only proceed with chat if phone is verified
+    if (!isPhoneVerified) {
+      addBot('Please verify your phone number with OTP first to start chatting.');
+      enableChat(true);
+      return;
     }
 
     try{
