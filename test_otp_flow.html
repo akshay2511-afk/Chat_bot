@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OTP Flow Test</title>
+</head>
+<body>
+    <h1>OTP Flow Test</h1>
+    <div id="output"></div>
+    
+    <script>
+        const API_GENERATE_OTP = '/api/otp/generate';
+        const API_VERIFY_OTP = '/api/otp/verify';
+        const API_CHECK_VERIFIED = (pn) => `/api/otp/verified/${encodeURIComponent(pn)}`;
+        const API_CHAT = '/chat';
+        
+        function log(message) {
+            document.getElementById('output').innerHTML += '<div>' + message + '</div>';
+            console.log(message);
+        }
+        
+        async function testOTPFlow() {
+            const phoneNumber = "9876543210";
+            
+            log("=== Testing OTP Flow ===");
+            
+            // Step 1: Generate OTP
+            log("1. Generating OTP...");
+            try {
+                const res = await fetch(API_GENERATE_OTP, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phone_number: phoneNumber })
+                });
+                const data = await res.json();
+                log("Generate OTP Response: " + JSON.stringify(data));
+            } catch (err) {
+                log("Error generating OTP: " + err);
+                return;
+            }
+            
+            // Step 2: Verify OTP
+            log("2. Verifying OTP...");
+            try {
+                const res = await fetch(API_VERIFY_OTP, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phone_number: phoneNumber, otp_code: "000000" })
+                });
+                const data = await res.json();
+                log("Verify OTP Response: " + JSON.stringify(data));
+            } catch (err) {
+                log("Error verifying OTP: " + err);
+                return;
+            }
+            
+            // Step 3: Check verification status
+            log("3. Checking verification status...");
+            try {
+                const res = await fetch(API_CHECK_VERIFIED(phoneNumber));
+                const data = await res.json();
+                log("Verification Status: " + JSON.stringify(data));
+            } catch (err) {
+                log("Error checking verification: " + err);
+                return;
+            }
+            
+            // Step 4: Test chat
+            log("4. Testing chat...");
+            try {
+                const res = await fetch(API_CHAT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: "Hello", phone_number: phoneNumber })
+                });
+                const data = await res.json();
+                log("Chat Response: " + JSON.stringify(data));
+            } catch (err) {
+                log("Error in chat: " + err);
+                return;
+            }
+            
+            log("=== Test Complete ===");
+        }
+        
+        // Run test when page loads
+        window.onload = testOTPFlow;
+    </script>
+</body>
+</html>
