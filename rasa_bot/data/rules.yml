@@ -223,6 +223,83 @@ rules:
     - intent: ask_pan_enquiry_reference
     - action: utter_pan_enquiry_reference
 
+# TAN Question 
+
+- rule: Answer who needs TAN
+  steps:
+    - intent: who_needs_tan
+    - action: utter_who_needs_tan
+
+- rule: Answer PAN instead of TAN
+  steps:
+    - intent: can_use_pan_instead_of_tan
+    - action: utter_can_use_pan_instead_of_tan
+
+- rule: Answer why TAN necessary
+  steps:
+    - intent: why_tan_necessary
+    - action: utter_why_tan_necessary
+
+- rule: Answer how to apply TAN
+  steps:
+    - intent: how_to_apply_tan
+    - action: utter_how_to_apply_tan
+
+- rule: Answer TAN fee
+  steps:
+    - intent: tan_application_fee
+    - action: utter_tan_application_fee
+
+- rule: Answer know TAN details
+  steps:
+    - intent: know_tan_details
+    - action: utter_know_tan_details
+
+- rule: Answer track TAN status
+  steps:
+    - intent: track_tan_status
+    - action: utter_track_tan_status
+
+- rule: Answer government deductors / DDOs
+  steps:
+    - intent: tan_government_ddo
+    - action: utter_tan_government_ddo
+
+- rule: Answer separate TAN for TCS
+  steps:
+    - intent: separate_tan_for_tcs
+    - action: utter_separate_tan_for_tcs
+
+- rule: Answer different TAN for different payments
+  steps:
+    - intent: tan_for_different_payments
+    - action: utter_tan_for_different_payments
+
+- rule: Answer TAN required documents
+  steps:
+    - intent: tan_required_documents
+    - action: utter_tan_required_documents
+
+- rule: Answer duplicate TAN and cancellation
+  steps:
+    - intent: duplicate_tan_and_cancellation
+    - action: utter_duplicate_tan_and_cancellation
+
+- rule: Answer change/correct TAN details
+  steps:
+    - intent: change_tan_details
+    - action: utter_change_tan_details
+
+- rule: Answer e-TDS without TAN
+  steps:
+    - intent: etds_without_tan
+    - action: utter_etds_without_tan
+
+- rule: Answer TAN for branches
+  steps:
+    - intent: tan_for_branches
+    - action: utter_tan_for_branches
+
 
 # Hindi Intent Rules
 - rule: Answer what is PAN in Hindi
@@ -315,3 +392,106 @@ rules:
   steps:
     - intent: select_general_assistance_hindi
     - action: utter_select_general_assistance_hindi
+
+
+# PAN QUESTION hindi
+
+- rule: Respond to who must have PAN
+  steps:
+  - intent: pan_who_must_have_hindi
+  - action: utter_pan_who_must_have_hindi
+
+- rule: Respond to where to apply
+  steps:
+  - intent: pan_where_to_apply_hindi
+  - action: utter_pan_where_to_apply_hindi
+
+- rule: Respond to how to find center
+  steps:
+  - intent: pan_how_to_find_center_hindi
+  - action: utter_pan_how_to_find_center_hindi
+
+- rule: Respond to services at center
+  steps:
+  - intent: pan_services_at_center_hindi
+  - action: utter_pan_services_at_center_hindi
+
+- rule: Respond to how to apply / plain paper
+  steps:
+  - intent: pan_how_to_apply_plain_paper_hindi
+  - action: utter_pan_how_to_apply_plain_paper_hindi
+
+- rule: Respond to AO code
+  steps:
+  - intent: pan_ao_code_hindi
+  - action: utter_pan_ao_code_hindi
+
+- rule: Respond to photo required
+  steps:
+  - intent: pan_photo_required_hindi
+  - action: utter_pan_photo_required_hindi
+
+- rule: Respond to cannot sign
+  steps:
+  - intent: pan_cannot_sign_hindi
+  - action: utter_pan_cannot_sign_hindi
+
+- rule: Respond to father's name for female
+  steps:
+  - intent: pan_fathers_name_female_hindi
+  - action: utter_pan_fathers_name_female_hindi
+
+- rule: Respond to who can apply on behalf
+  steps:
+  - intent: pan_who_can_apply_on_behalf_hindi
+  - action: utter_pan_who_can_apply_on_behalf_hindi
+
+- rule: Respond to charges
+  steps:
+  - intent: pan_charges_hindi
+  - action: utter_pan_charges_hindi
+
+- rule: Respond to move city
+  steps:
+  - intent: pan_move_city_hindi
+  - action: utter_pan_move_city_hindi
+
+- rule: Respond to multiple PANs
+  steps:
+  - intent: pan_multiple_pans_hindi
+  - action: utter_pan_multiple_pans_hindi
+
+- rule: Respond to existing PAN valid
+  steps:
+  - intent: pan_existing_valid_hindi
+  - action: utter_pan_existing_valid_hindi
+
+- rule: Respond to new tamper proof card
+  steps:
+  - intent: pan_get_new_tamper_proof_hindi
+  - action: utter_pan_get_new_tamper_proof_hindi
+
+- rule: Respond to when submit change/correction form
+  steps:
+  - intent: pan_when_submit_change_form_hindi
+  - action: utter_pan_when_submit_change_form_hindi
+
+- rule: Respond to applied but not received
+  steps:
+  - intent: pan_applied_not_received_hindi
+  - action: utter_pan_applied_not_received_hindi
+
+- rule: Respond to card delivery
+  steps:
+  - intent: pan_card_delivery_hindi
+  - action: utter_pan_card_delivery_hindi
+
+- rule: Respond to third party verification
+  steps:
+  - intent: pan_third_party_verification_hindi
+  - action: utter_pan_third_party_verification_hindi
+
+- rule: Respond to enquiry contact
+  steps:
+  - intent: pan_enquiry_contact_hindi
+  - action: utter_pan_enquiry_contact_hindi

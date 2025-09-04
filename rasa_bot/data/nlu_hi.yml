@@ -1,0 +1,337 @@
+version: "3.1"
+
+nlu:
+
+- intent: select_language_hindi
+  examples: |
+    - hindi
+    - Hindi
+    - HINDI
+    - hindi language
+    - i want hindi
+    - hindi please
+    - in hindi
+    - hindi mein
+    - हिंदी
+    - हिंदी में
+    - हिंदी भाषा
+
+
+- intent: pan_what_hindi
+  examples: |
+    - पैन क्या है
+    - पैन कार्ड क्या है
+    - पैन का फुल फॉर्म
+    - पैन का मतलब
+    - पैन के बारे में बताएं
+    - पैन क्या होता है
+    - पैन कार्ड क्या होता है
+
+- intent: pan_importance_hindi
+  examples: |
+    - पैन क्यों जरूरी है
+    - पैन की जरूरत क्यों है
+    - पैन कार्ड क्यों चाहिए
+    - पैन का उपयोग
+    - पैन किस लिए चाहिए
+
+- intent: pan_who_needs_hindi
+  examples: |
+    - किसे पैन की जरूरत है
+    - कौन पैन ले सकता है
+    - किसे पैन कार्ड चाहिए
+    - पैन कौन ले सकता है
+    - क्या मुझे पैन चाहिए
+
+- intent: pan_mandatory_hindi
+  examples: |
+    - क्या पैन सभी के लिए जरूरी है
+    - क्या पैन अनिवार्य है
+    - क्या मुझे पैन लेना चाहिए
+    - पैन कब जरूरी होता है
+
+- intent: pan_multiple_hindi
+  examples: |
+    - क्या एक से ज्यादा पैन रख सकते हैं
+    - क्या दो पैन कार्ड रख सकते हैं
+    - क्या कई पैन नंबर रख सकते हैं
+    - क्या कोई दो पैन रख सकता है
+
+- intent: pan_apply_process_hindi
+  examples: |
+    - पैन के लिए कैसे आवेदन करें
+    - पैन आवेदन प्रक्रिया
+    - पैन कार्ड कैसे मिलेगा
+    - पैन के लिए क्या करना होगा
+    - पैन कार्ड आवेदन
+
+- intent: pan_documents_required_hindi
+  examples: |
+    - पैन के लिए कौन से दस्तावेज चाहिए
+    - पैन कार्ड के लिए क्या दस्तावेज चाहिए
+    - पैन आवेदन के लिए क्या चाहिए
+    - पैन कार्ड के लिए क्या पेपर्स चाहिए
+
+- intent: tan_what_hindi
+  examples: |
+    - टैन क्या है
+    - टैन नंबर क्या है
+    - टैन का फुल फॉर्म
+    - टैन का मतलब
+    - टैन के बारे में बताएं
+
+- intent: tan_who_needs_hindi
+  examples: |
+    - किसे टैन की जरूरत है
+    - कौन टैन ले सकता है
+    - किसे टैन चाहिए
+    - क्या मुझे टैन चाहिए
+
+- intent: tan_apply_process_hindi
+  examples: |
+    - टैन के लिए कैसे आवेदन करें
+    - टैन आवेदन प्रक्रिया
+    - टैन कैसे मिलेगा
+    - टैन के लिए क्या करना होगा
+
+- intent: general_tax_info_hindi
+  examples: |
+    - कर की जानकारी
+    - सामान्य कर जानकारी
+    - कर के बारे में बताएं
+    - कर की जानकारी दें
+    - आयकर की जानकारी
+
+- intent: general_contact_info_hindi
+  examples: |
+    - संपर्क जानकारी
+    - हेल्पलाइन नंबर
+    - कैसे संपर्क करें
+    - फोन नंबर
+    - सहायता संपर्क
+
+- intent: select_callback_assistance_hindi
+  examples: |
+    - कॉलबैक शेड्यूल करें
+    - कॉलबैक बुक करें
+    - 4
+    - विकल्प 4
+    - चौथा विकल्प
+    - कॉलबैक
+    - मुझे कॉल करें
+    - कॉल शेड्यूल करें
+    - कॉलबैक बुक करें
+
+- intent: select_feedback_assistance_hindi
+  examples: |
+    - प्रतिक्रिया
+    - फीडबैक
+    - 5
+    - विकल्प 5
+    - पांचवां विकल्प
+    - प्रतिक्रिया दें
+    - फीडबैक शेयर करें
+    - सेवा रेट करें
+    - रिव्यू
+    - टिप्पणी
+
+- intent: invalid_selection_hindi
+  examples: |
+    - कुछ और
+    - 6
+    - विकल्प 6
+    - रैंडम टेक्स्ट
+    - xyz
+    - अमान्य विकल्प
+    - अन्य
+    - मेरी मदद करें
+    - मुझे नहीं पता
+
+# Hindi Menu Selection Intents
+- intent: select_pan_assistance_hindi
+  examples: |
+    - पैन सहायता
+    - पैन मदद
+    - पैन के बारे में
+    - पैन कार्ड सहायता
+    - पैन कार्ड मदद
+    - 1
+    - विकल्प 1
+    - पहला विकल्प
+    - पैन
+    - पैन कार्ड
+
+- intent: select_tan_assistance_hindi
+  examples: |
+    - टैन सहायता
+    - टैन मदद
+    - टैन के बारे में
+    - टैन नंबर सहायता
+    - टैन नंबर मदद
+    - 2
+    - विकल्प 2
+    - दूसरा विकल्प
+    - टैन
+    - टैन नंबर
+
+- intent: select_general_assistance_hindi
+  examples: |
+    - सामान्य सहायता
+    - सामान्य मदद
+    - सामान्य जानकारी
+    - कर सहायता
+    - कर मदद
+    - 3
+    - विकल्प 3
+    - तीसरा विकल्प
+    - सामान्य
+    - कर
+
+# PAN QUESTION HINDI
+
+- intent: pan_who_must_have_hindi
+  examples: |
+    - किन्हें पैन लेना आवश्यक है
+    - किसे पैन लेना चाहिए
+    - पैन किसके लिए अनिवार्य है
+    - कौन लोग पैन ज़रूर लें
+    - किसे पैन अनिवार्य रूप से चाहिए
+
+- intent: pan_where_to_apply_hindi
+  examples: |
+    - पैन के लिए कहाँ आवेदन करें
+    - पैन आवेदन कहाँ करें
+    - पैन कार्ड कहाँ बनता है
+    - पैन के लिए कहाँ अप्लाई करें
+    - पैन के आवेदन का स्थान
+
+- intent: pan_how_to_find_center_hindi
+  examples: |
+    - आईटी पैन सेवा केंद्र कैसे ढूँढें
+    - पैन सेवा केंद्र का पता कैसे मिले
+    - IT PAN Service Center कहाँ है
+    - पैन सेंटर लोकेशन कैसे मिले
+    - नज़दीकी पैन केंद्र कैसे ढूंढे
+
+- intent: pan_services_at_center_hindi
+  examples: |
+    - आईटी पैन सेवा केंद्र कौन सी सेवाएँ देते हैं
+    - पैन केंद्र पर क्या सेवाएँ मिलती हैं
+    - पैन सेंटर क्या करता है
+    - PAN service center services
+    - पैन आवेदन में सेंटर क्या मदद करता है
+
+- intent: pan_how_to_apply_plain_paper_hindi
+  examples: |
+    - पैन के लिए आवेदन कैसे करें
+    - क्या साधारण कागज़ पर पैन आवेदन हो सकता है
+    - पैन फार्म कौन सा भरें
+    - Form 49A 49AA कहाँ से मिले
+    - पैन अप्लाई करने की प्रक्रिया
+
+- intent: pan_ao_code_hindi
+  examples: |
+    - असेसिंग ऑफिसर कोड कैसे ढूँढें
+    - AO code कहाँ से मिलेगा
+    - AO code क्या होता है
+    - AO code के बिना आवेदन चलेगा क्या
+    - असेसिंग ऑफिसर कोड किससे पता करें
+
+- intent: pan_photo_required_hindi
+  examples: |
+    - क्या पैन के लिए फोटो अनिवार्य है
+    - पैन आवेदन में फोटो जरूरी है क्या
+    - PAN photo requirement
+    - फोटो किसके लिए जरूरी है पैन में
+
+- intent: pan_cannot_sign_hindi
+  examples: |
+    - जो हस्ताक्षर नहीं कर सकते उनके लिए प्रक्रिया क्या है
+    - बिना सिग्नेचर पैन आवेदन कैसे करें
+    - thumb impression पैन में कैसे लगेगा
+    - पैन में अंगूठा निशान कैसे देंगे
+
+- intent: pan_fathers_name_female_hindi
+  examples: |
+    - महिला आवेदकों के लिए पिता का नाम अनिवार्य है क्या
+    - married महिला को पिता का नाम देना होगा क्या
+    - पैन में पिता का नाम जरूरी है क्या
+    - महिला applicants father name
+
+- intent: pan_who_can_apply_on_behalf_hindi
+  examples: |
+    - गैर निवासी या नाबालिग के लिए कौन आवेदन कर सकता है
+    - representative assessee कौन होता है
+    - court of wards के लिए पैन कौन भरेगा
+    - धारा 160 के अंतर्गत कौन आवेदन करेगा
+
+- intent: pan_charges_hindi
+  examples: |
+    - आईटी पैन सेवा केंद्र पर क्या शुल्क देना होता है
+    - पैन की फीस कितनी है
+    - PAN charges UTIITSL
+    - बाहर भेजने पर अतिरिक्त शुल्क कितना है
+
+- intent: pan_move_city_hindi
+  examples: |
+    - शहर बदलने पर क्या नया पैन लेना होगा
+    - ट्रांसफर होने पर पैन बदलता है क्या
+    - address बदलने पर पैन बदलना पड़ेगा क्या
+    - AO बदलने पर क्या करना है
+
+- intent: pan_multiple_pans_hindi
+  examples: |
+    - क्या एक व्यक्ति एक से अधिक पैन ले सकता है
+    - multiple PAN रखना कानूनी है क्या
+    - दो पैन कार्ड बनवा सकते हैं क्या
+    - more than one PAN allowed?
+
+- intent: pan_existing_valid_hindi
+  examples: |
+    - क्या मौजूदा पैन कार्ड मान्य रहेंगे
+    - पुराने पैन कार्ड वैलिड हैं क्या
+    - पहले से allotted PAN valid है क्या
+    - दोबारा आवेदन करना होगा क्या
+
+- intent: pan_get_new_tamper_proof_hindi
+  examples: |
+    - मेरे पास पैन है क्या नया टैंपर प्रूफ कार्ड मिल सकता है
+    - tamper proof PAN कैसे मिलेगा
+    - नया PAN कार्ड पाने की प्रक्रिया CSF
+    - पुराने पैन से नया कार्ड कैसे लें
+
+- intent: pan_when_submit_change_form_hindi
+  examples: |
+    - Request for New PAN Card or/and Changes form कब जमा करें
+    - PAN correction form कब भरें
+    - नए कार्ड या सुधार के लिए फॉर्म कब देना है
+    - PAN data correction cases
+
+- intent: pan_applied_not_received_hindi
+  examples: |
+    - आवेदन किया पर पैन नहीं मिला तो क्या करें
+    - 29.5.2003 से पहले आवेदन किया था पैन नहीं आया
+    - applied for PAN but no communication
+    - पुराने आवेदन का क्या करना है
+
+- intent: pan_card_delivery_hindi
+  examples: |
+    - नया पैन कार्ड कैसे डिलीवर होगा
+    - PAN card मुझे कैसे भेजा जाएगा
+    - कार्ड डिलीवरी प्रक्रिया
+    - Form 49A वाले पते पर डिलीवरी
+
+- intent: pan_third_party_verification_hindi
+  examples: |
+    - क्या UTIITSL third party verification करता है
+    - पैन आवेदन की पहचान और पते का सत्यापन कैसे होता है
+    - agent verification PAN
+    - authorized letter ID card दिखाना
+
+- intent: pan_enquiry_contact_hindi
+  examples: |
+    - पैन आवेदन संबंधी पूछताछ किससे करें
+    - PAN enquiry कहाँ करें
+    - आवेदन संख्या और कूपन से पूछताछ
+    - किस केंद्र पर आवेदन किया था पूछताछ
+

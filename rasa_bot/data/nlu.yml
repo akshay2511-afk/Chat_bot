@@ -14,19 +14,19 @@ nlu:
     - angrezi
     - अंग्रेजी
 
-- intent: select_language_hindi
-  examples: |
-    - hindi
-    - Hindi
-    - HINDI
-    - hindi language
-    - i want hindi
-    - hindi please
-    - in hindi
-    - hindi mein
-    - हिंदी
-    - हिंदी में
-    - हिंदी भाषा
+# - intent: select_language_hindi
+#   examples: |
+#     - hindi
+#     - Hindi
+#     - HINDI
+#     - hindi language
+#     - i want hindi
+#     - hindi please
+#     - in hindi
+#     - hindi mein
+#     - हिंदी
+#     - हिंदी में
+#     - हिंदी भाषा
 
 - intent: greet
   examples: |
@@ -507,175 +507,321 @@ nlu:
     - PAN application number/coupon—where to refer?
 
 
+#TAN DATA
 
-
-# Hindi Intent Examples
-- intent: pan_what_hindi
+# 1) Who needs TAN
+- intent: who_needs_tan
   examples: |
-    - पैन क्या है
-    - पैन कार्ड क्या है
-    - पैन का फुल फॉर्म
-    - पैन का मतलब
-    - पैन के बारे में बताएं
-    - पैन क्या होता है
-    - पैन कार्ड क्या होता है
+    - Who needs to obtain TAN?
+    - Who must apply for TAN?
+    - Do all TDS deductors need TAN?
+    - Is TAN mandatory for TDS/TCS?
+    - TAN किसे लेना जरूरी है?
+    - किसे TAN apply करना चाहिए?
+    - क्या हर deductor को TAN चाहिए?
+    - TCS करने वालों को TAN चाहिए क्या?
+    - TDS/TCS के लिए TAN mandatory है क्या?
 
-- intent: pan_importance_hindi
-  examples: |
-    - पैन क्यों जरूरी है
-    - पैन की जरूरत क्यों है
-    - पैन कार्ड क्यों चाहिए
-    - पैन का उपयोग
-    - पैन किस लिए चाहिए
 
-- intent: pan_who_needs_hindi
+- intent: can_use_pan_instead_of_tan
   examples: |
-    - किसे पैन की जरूरत है
-    - कौन पैन ले सकता है
-    - किसे पैन कार्ड चाहिए
-    - पैन कौन ले सकता है
-    - क्या मुझे पैन चाहिए
+    - Can I quote PAN instead of TAN?
+    - Is PAN allowed in place of TAN under any section?
+    - 194IA/194IB/194M/194S में PAN चलेगा क्या?
+    - कब PAN TAN की जगह इस्तेमाल कर सकते हैं?
+    - Do I need TAN if I deduct under section 194IA?
+    - 194S में TAN जरूरी है या PAN?
 
-- intent: pan_mandatory_hindi
-  examples: |
-    - क्या पैन सभी के लिए जरूरी है
-    - क्या पैन अनिवार्य है
-    - क्या मुझे पैन लेना चाहिए
-    - पैन कब जरूरी होता है
 
-- intent: pan_multiple_hindi
+- intent: why_tan_necessary
   examples: |
-    - क्या एक से ज्यादा पैन रख सकते हैं
-    - क्या दो पैन कार्ड रख सकते हैं
-    - क्या कई पैन नंबर रख सकते हैं
-    - क्या कोई दो पैन रख सकता है
+    - Why is TAN necessary?
+    - What happens if I don’t apply TAN?
+    - TAN not quoted penalty?
+    - TAN quote करना mandatory है क्या?
+    - TAN नहीं लिया तो penalty कितनी है?
 
-- intent: pan_apply_process_hindi
-  examples: |
-    - पैन के लिए कैसे आवेदन करें
-    - पैन आवेदन प्रक्रिया
-    - पैन कार्ड कैसे मिलेगा
-    - पैन के लिए क्या करना होगा
-    - पैन कार्ड आवेदन
 
-- intent: pan_documents_required_hindi
+- intent: how_to_apply_tan
   examples: |
-    - पैन के लिए कौन से दस्तावेज चाहिए
-    - पैन कार्ड के लिए क्या दस्तावेज चाहिए
-    - पैन आवेदन के लिए क्या चाहिए
-    - पैन कार्ड के लिए क्या पेपर्स चाहिए
+    - How to apply for TAN?
+    - TAN application process online
+    - TAN offline कहाँ से apply करें?
+    - Form 49B कैसे भरें?
+    - TAN apply करने का तरीका बताइए
+    - TAN के लिए online application possible है?
 
-- intent: tan_what_hindi
-  examples: |
-    - टैन क्या है
-    - टैन नंबर क्या है
-    - टैन का फुल फॉर्म
-    - टैन का मतलब
-    - टैन के बारे में बताएं
 
-- intent: tan_who_needs_hindi
+- intent: tan_application_fee
   examples: |
-    - किसे टैन की जरूरत है
-    - कौन टैन ले सकता है
-    - किसे टैन चाहिए
-    - क्या मुझे टैन चाहिए
+    - What is the TAN application fee?
+    - TAN fees कितना है?
+    - Fee for filing TAN application?
+    - TAN apply करने की cost क्या है?
+    - TAN fee with GST?
 
-- intent: tan_apply_process_hindi
-  examples: |
-    - टैन के लिए कैसे आवेदन करें
-    - टैन आवेदन प्रक्रिया
-    - टैन कैसे मिलेगा
-    - टैन के लिए क्या करना होगा
 
-- intent: general_tax_info_hindi
+- intent: know_tan_details
   examples: |
-    - कर की जानकारी
-    - सामान्य कर जानकारी
-    - कर के बारे में बताएं
-    - कर की जानकारी दें
-    - आयकर की जानकारी
+    - How to know TAN details?
+    - Verify TAN of employer
+    - Know your TAN by name
+    - TAN details कैसे check करें?
+    - नाम से TAN कैसे पता करें?
 
-- intent: general_contact_info_hindi
-  examples: |
-    - संपर्क जानकारी
-    - हेल्पलाइन नंबर
-    - कैसे संपर्क करें
-    - फोन नंबर
-    - सहायता संपर्क
 
-- intent: select_callback_assistance_hindi
+- intent: track_tan_status
   examples: |
-    - कॉलबैक शेड्यूल करें
-    - कॉलबैक बुक करें
-    - 4
-    - विकल्प 4
-    - चौथा विकल्प
-    - कॉलबैक
-    - मुझे कॉल करें
-    - कॉल शेड्यूल करें
-    - कॉलबैक बुक करें
+    - Track TAN application status
+    - TAN status कैसे देखें?
+    - How to check TAN application status online?
+    - TAN status link?
+    - Application status for TAN?
 
-- intent: select_feedback_assistance_hindi
+- intent: tan_government_ddo
   examples: |
-    - प्रतिक्रिया
-    - फीडबैक
-    - 5
-    - विकल्प 5
-    - पांचवां विकल्प
-    - प्रतिक्रिया दें
-    - फीडबैक शेयर करें
-    - सेवा रेट करें
-    - रिव्यू
-    - टिप्पणी
+    - Is TAN mandatory for government deductors?
+    - Multiple DDOs—do all need TAN?
+    - Government department TAN apply?
+    - DDOs को अलग TAN चाहिए क्या?
+    - Govt deductors TAN?
 
-- intent: invalid_selection_hindi
-  examples: |
-    - कुछ और
-    - 6
-    - विकल्प 6
-    - रैंडम टेक्स्ट
-    - xyz
-    - अमान्य विकल्प
-    - अन्य
-    - मेरी मदद करें
-    - मुझे नहीं पता
 
-# Hindi Menu Selection Intents
-- intent: select_pan_assistance_hindi
+- intent: separate_tan_for_tcs
   examples: |
-    - पैन सहायता
-    - पैन मदद
-    - पैन के बारे में
-    - पैन कार्ड सहायता
-    - पैन कार्ड मदद
-    - 1
-    - विकल्प 1
-    - पहला विकल्प
-    - पैन
-    - पैन कार्ड
+    - Do I need a separate TAN for TCS?
+    - Is different TAN required for tax collection at source?
+    - TCS के लिए अलग TAN लेना है क्या?
+    - Same TAN for TDS and TCS?
+    - TCS में TAN अलग होगा?
 
-- intent: select_tan_assistance_hindi
-  examples: |
-    - टैन सहायता
-    - टैन मदद
-    - टैन के बारे में
-    - टैन नंबर सहायता
-    - टैन नंबर मदद
-    - 2
-    - विकल्प 2
-    - दूसरा विकल्प
-    - टैन
-    - टैन नंबर
 
-- intent: select_general_assistance_hindi
+- intent: tan_for_different_payments
   examples: |
-    - सामान्य सहायता
-    - सामान्य मदद
-    - सामान्य जानकारी
-    - कर सहायता
-    - कर मदद
-    - 3
-    - विकल्प 3
-    - तीसरा विकल्प
-    - सामान्य
-    - कर
+    - Do I need different TAN for salary, interest, commission?
+    - Different TAN for different deductions?
+    - अलग payments के लिए अलग TAN?
+    - Same TAN across all TDS?
+    - One TAN for all deductions?
+
+
+- intent: tan_required_documents
+  examples: |
+    - What documents are required for TAN application?
+    - TAN documents list
+    - TAN apply करने के लिए कौन से documents चाहिए?
+    - Proofs needed for TAN?
+    - TAN KYC documents?
+
+
+- intent: duplicate_tan_and_cancellation
+  examples: |
+    - What is duplicate TAN?
+    - Duplicate TAN मिला तो क्या करें?
+    - Can TAN be surrendered or canceled?
+    - How to cancel extra TAN?
+    - Duplicate TAN illegal है?
+
+
+- intent: change_tan_details
+  examples: |
+    - How to change address or details in TAN?
+    - TAN correction process
+    - TAN data change कैसे करें?
+    - Correction in TAN after allotment?
+    - Form for change or correction in TAN?
+
+
+- intent: etds_without_tan
+  examples: |
+    - Can we file e-TDS return without TAN?
+    - eTDS without TAN possible?
+    - TAN के बिना TDS return file कर सकते हैं?
+    - Is TAN mandatory in e-TDS?
+    - Return reject if TAN missing?
+
+- intent: tan_for_branches
+  examples: |
+    - Can branches of companies/banks have separate TANs?
+    - Branch wise TAN possible?
+    - क्या branches को अलग TAN मिल सकता है?
+    - Division wise TAN?
+    - Separate TAN per branch?
+
+
+
+
+
+# # Hindi Intent Examples
+# - intent: pan_what_hindi
+#   examples: |
+#     - पैन क्या है
+#     - पैन कार्ड क्या है
+#     - पैन का फुल फॉर्म
+#     - पैन का मतलब
+#     - पैन के बारे में बताएं
+#     - पैन क्या होता है
+#     - पैन कार्ड क्या होता है
+
+# - intent: pan_importance_hindi
+#   examples: |
+#     - पैन क्यों जरूरी है
+#     - पैन की जरूरत क्यों है
+#     - पैन कार्ड क्यों चाहिए
+#     - पैन का उपयोग
+#     - पैन किस लिए चाहिए
+
+# - intent: pan_who_needs_hindi
+#   examples: |
+#     - किसे पैन की जरूरत है
+#     - कौन पैन ले सकता है
+#     - किसे पैन कार्ड चाहिए
+#     - पैन कौन ले सकता है
+#     - क्या मुझे पैन चाहिए
+
+# - intent: pan_mandatory_hindi
+#   examples: |
+#     - क्या पैन सभी के लिए जरूरी है
+#     - क्या पैन अनिवार्य है
+#     - क्या मुझे पैन लेना चाहिए
+#     - पैन कब जरूरी होता है
+
+# - intent: pan_multiple_hindi
+#   examples: |
+#     - क्या एक से ज्यादा पैन रख सकते हैं
+#     - क्या दो पैन कार्ड रख सकते हैं
+#     - क्या कई पैन नंबर रख सकते हैं
+#     - क्या कोई दो पैन रख सकता है
+
+# - intent: pan_apply_process_hindi
+#   examples: |
+#     - पैन के लिए कैसे आवेदन करें
+#     - पैन आवेदन प्रक्रिया
+#     - पैन कार्ड कैसे मिलेगा
+#     - पैन के लिए क्या करना होगा
+#     - पैन कार्ड आवेदन
+
+# - intent: pan_documents_required_hindi
+#   examples: |
+#     - पैन के लिए कौन से दस्तावेज चाहिए
+#     - पैन कार्ड के लिए क्या दस्तावेज चाहिए
+#     - पैन आवेदन के लिए क्या चाहिए
+#     - पैन कार्ड के लिए क्या पेपर्स चाहिए
+
+# - intent: tan_what_hindi
+#   examples: |
+#     - टैन क्या है
+#     - टैन नंबर क्या है
+#     - टैन का फुल फॉर्म
+#     - टैन का मतलब
+#     - टैन के बारे में बताएं
+
+# - intent: tan_who_needs_hindi
+#   examples: |
+#     - किसे टैन की जरूरत है
+#     - कौन टैन ले सकता है
+#     - किसे टैन चाहिए
+#     - क्या मुझे टैन चाहिए
+
+# - intent: tan_apply_process_hindi
+#   examples: |
+#     - टैन के लिए कैसे आवेदन करें
+#     - टैन आवेदन प्रक्रिया
+#     - टैन कैसे मिलेगा
+#     - टैन के लिए क्या करना होगा
+
+# - intent: general_tax_info_hindi
+#   examples: |
+#     - कर की जानकारी
+#     - सामान्य कर जानकारी
+#     - कर के बारे में बताएं
+#     - कर की जानकारी दें
+#     - आयकर की जानकारी
+
+# - intent: general_contact_info_hindi
+#   examples: |
+#     - संपर्क जानकारी
+#     - हेल्पलाइन नंबर
+#     - कैसे संपर्क करें
+#     - फोन नंबर
+#     - सहायता संपर्क
+
+# - intent: select_callback_assistance_hindi
+#   examples: |
+#     - कॉलबैक शेड्यूल करें
+#     - कॉलबैक बुक करें
+#     - 4
+#     - विकल्प 4
+#     - चौथा विकल्प
+#     - कॉलबैक
+#     - मुझे कॉल करें
+#     - कॉल शेड्यूल करें
+#     - कॉलबैक बुक करें
+
+# - intent: select_feedback_assistance_hindi
+#   examples: |
+#     - प्रतिक्रिया
+#     - फीडबैक
+#     - 5
+#     - विकल्प 5
+#     - पांचवां विकल्प
+#     - प्रतिक्रिया दें
+#     - फीडबैक शेयर करें
+#     - सेवा रेट करें
+#     - रिव्यू
+#     - टिप्पणी
+
+# - intent: invalid_selection_hindi
+#   examples: |
+#     - कुछ और
+#     - 6
+#     - विकल्प 6
+#     - रैंडम टेक्स्ट
+#     - xyz
+#     - अमान्य विकल्प
+#     - अन्य
+#     - मेरी मदद करें
+#     - मुझे नहीं पता
+
+# # Hindi Menu Selection Intents
+# - intent: select_pan_assistance_hindi
+#   examples: |
+#     - पैन सहायता
+#     - पैन मदद
+#     - पैन के बारे में
+#     - पैन कार्ड सहायता
+#     - पैन कार्ड मदद
+#     - 1
+#     - विकल्प 1
+#     - पहला विकल्प
+#     - पैन
+#     - पैन कार्ड
+
+# - intent: select_tan_assistance_hindi
+#   examples: |
+#     - टैन सहायता
+#     - टैन मदद
+#     - टैन के बारे में
+#     - टैन नंबर सहायता
+#     - टैन नंबर मदद
+#     - 2
+#     - विकल्प 2
+#     - दूसरा विकल्प
+#     - टैन
+#     - टैन नंबर
+
+# - intent: select_general_assistance_hindi
+#   examples: |
+#     - सामान्य सहायता
+#     - सामान्य मदद
+#     - सामान्य जानकारी
+#     - कर सहायता
+#     - कर मदद
+#     - 3
+#     - विकल्प 3
+#     - तीसरा विकल्प
+#     - सामान्य
+#     - कर
+
+
+
