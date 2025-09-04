@@ -1,6 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from backend.db.session import SessionLocal, Base, engine
+# Ensure all models are registered before creating tables
+from backend.models import history as _history_models  # noqa: F401
 from backend.schemas.conversation import ConversationCreate, ConversationOut, ConversationSingle
 from backend.services.conversation_service import save_conversation, get_conversations, ensure_phone_number
 
