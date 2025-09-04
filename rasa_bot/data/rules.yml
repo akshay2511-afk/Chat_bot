@@ -42,6 +42,27 @@ rules:
     - intent: greet
     - action: utter_greet
 
+# Minimal usage for common intents to silence warnings
+- rule: Handle affirm
+  steps:
+    - intent: affirm
+    - action: utter_cheer_up
+
+- rule: Handle deny
+  steps:
+    - intent: deny
+    - action: utter_goodbye
+
+- rule: Handle mood great
+  steps:
+    - intent: mood_great
+    - action: utter_happy
+
+- rule: Handle mood unhappy
+  steps:
+    - intent: mood_unhappy
+    - action: utter_did_that_help
+
 - rule: Handle phone number provision
   steps:
     - intent: provide_phone_number

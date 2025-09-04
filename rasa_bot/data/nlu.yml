@@ -244,10 +244,10 @@ nlu:
 - intent: invalid_selection
   examples: |
     - something else
-    - 4
-    - option 4
+    - 6
+    - option six
     - random text
-    - xyz
+    - xyz invalid
     - invalid option
     - other
     - help me
@@ -397,7 +397,7 @@ nlu:
     - Is a photograph required for PAN?
     - Do I need a photo for PAN application?
     - Photo compulsory for individual PAN?
-    - PAN photo requirement
+    - PAN photo requirement details
 
 
 - intent: ask_cannot_sign_procedure
