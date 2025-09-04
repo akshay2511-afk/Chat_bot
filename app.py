@@ -118,7 +118,14 @@ async def chat(payload: ChatIn):
                 )
             except Exception:
                 existing_session = None
-            if existing_session is None or not (existing_session.history or '').strip():
+            
+            # Check if this is the first message after phone number (no session history yet)
+            is_first_message = existing_session is None or not (existing_session.history or '').strip()
+            
+            # Also check if user just sent their phone number (10+ digits)
+            is_phone_number = payload.text and payload.text.strip().replace('+', '').isdigit() and len(payload.text.strip().replace('+', '')) >= 10
+            
+            if is_first_message or is_phone_number:
                 try:
                     if payload.text:
                         append_session_history(db, session_id, f"user: {payload.text}", phone_number=phone)
