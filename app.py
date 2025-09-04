@@ -19,6 +19,7 @@ try:
     from backend.routes.conversations import router as conversations_router
     from backend.routes.otp import router as otp_router
     from backend.routes.feedback import router as feedback_router
+    from backend.routes.consent import router as consent_router
     from backend.db.session import SessionLocal, Base, engine
     from backend.schemas.conversation import ConversationCreate
     from backend.services.conversation_service import save_conversation, get_conversations, ensure_phone_number
@@ -27,14 +28,22 @@ try:
     from backend.services.history_service import append_session_history, append_number_history
     from backend.models.history import SessionChatHistory
     from backend.schemas.otp import OTPGenerateRequest, OTPVerifyRequest
+    from backend.services.consent_service import seed_default_policies
     app.include_router(conversations_router, prefix="/api")
     app.include_router(otp_router, prefix="/api")
     app.include_router(feedback_router, prefix="/api")
+    app.include_router(consent_router, prefix="/api")
 
     @app.on_event("startup")
     def ensure_tables_created() -> None:
         try:
             Base.metadata.create_all(bind=engine)
+            # Seed default consent policies
+            db = SessionLocal()
+            try:
+                seed_default_policies(db)
+            finally:
+                db.close()
         except Exception:
             # If DB not reachable or PAN DB missing, we ignore here; errors will surface on use.
             pass
@@ -104,7 +113,8 @@ async def chat(payload: ChatIn):
     if not payload.phone_number:
         greeting = "Hello I'm here to assist you for PAN and TAN and i'm comfortable in both the languages Hindi and English."
         ask_number = "Can you provide your number for the smooth conversation?"
-        return {"sender_id": sender, "session_id": session_id, "replies": [{"text": greeting}, {"text": ask_number}]}
+        consent_note = "Please note: We need your consent to process your phone number for providing PAN/TAN assistance services."
+        return {"sender_id": sender, "session_id": session_id, "replies": [{"text": greeting}, {"text": ask_number}, {"text": consent_note}]}
 
     # Handle OTP flow first when phone number provided; only talk to Rasa after verification
     # TEMP: Skip OTP flow; proceed directly with chat when phone provided.

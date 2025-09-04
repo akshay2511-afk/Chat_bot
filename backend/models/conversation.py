@@ -10,6 +10,7 @@ class PhoneNumber(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     conversations = relationship("Conversation", back_populates="owner", cascade="all, delete-orphan")
+    consents = relationship("Consent", back_populates="phone_owner", cascade="all, delete-orphan")
 
 class Conversation(Base):
     __tablename__ = "conversations"
