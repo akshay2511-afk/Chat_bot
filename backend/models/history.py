@@ -1,15 +1,18 @@
 from datetime import datetime
-from sqlalchemy import Column, String, Integer, Text, DateTime, Boolean, UniqueConstraint
-from sqlalchemy.orm import validates
+from sqlalchemy import Column, String, Integer, Text, DateTime, Boolean, UniqueConstraint, ForeignKey
+from sqlalchemy.orm import validates, relationship
 from backend.db.session import Base
 
 
 class NumberChatHistory(Base):
     __tablename__ = "number_chathistory"
 
-    phone_number = Column(String(20), primary_key=True, index=True)
+    phone_number = Column(String(20), ForeignKey("phone_numbers.phone_number"), primary_key=True, index=True)
     history = Column(Text, nullable=False, default="")
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    # Link to phone_numbers
+    phone_owner = relationship("PhoneNumber", backref="number_chat_history", uselist=False)
 
     @validates("phone_number")
     def validate_phone(self, key, value):
@@ -21,10 +24,13 @@ class SessionChatHistory(Base):
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     session_id = Column(String(64), index=True, nullable=False)
-    phone_number = Column(String(20), index=True, nullable=True)
+    phone_number = Column(String(20), ForeignKey("phone_numbers.phone_number"), index=True, nullable=True)
     history = Column(Text, nullable=False, default="")
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    # Link back to phone_numbers
+    phone_owner = relationship("PhoneNumber", backref="session_chat_histories")
 
     __table_args__ = (
         UniqueConstraint("session_id", name="uq_session_chat_history_session"),
@@ -45,27 +51,36 @@ class Complaint(Base):
     __tablename__ = "complaint"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    phone_number = Column(String(20), index=True, nullable=True)
+    phone_number = Column(String(20), ForeignKey("phone_numbers.phone_number"), index=True, nullable=True)
     message = Column(Text, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    # Relationship to phone number
+    phone_owner = relationship("PhoneNumber", backref="complaints")
 
 
 class Feedback(Base):
     __tablename__ = "feedback"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    phone_number = Column(String(20), index=True, nullable=True)
+    phone_number = Column(String(20), ForeignKey("phone_numbers.phone_number"), index=True, nullable=True)
     message = Column(Text, nullable=False)
     rating = Column(Integer, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    # Relationship to phone number
+    phone_owner = relationship("PhoneNumber", backref="feedbacks")
 
 
 class Suggestion(Base):
     __tablename__ = "suggestion"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    phone_number = Column(String(20), index=True, nullable=True)
+    phone_number = Column(String(20), ForeignKey("phone_numbers.phone_number"), index=True, nullable=True)
     message = Column(Text, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    # Relationship to phone number
+    phone_owner = relationship("PhoneNumber", backref="suggestions")
 
 
