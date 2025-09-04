@@ -380,6 +380,7 @@ nlu:
     - Where do I get Form 49A/49AA?
     - Is there a specific form to apply for PAN?
     - How do I submit PAN application form?
+    - How to make PAN card
 
 
 - intent: ask_find_ao_code
@@ -550,6 +551,8 @@ nlu:
     - Form 49B कैसे भरें?
     - TAN apply करने का तरीका बताइए
     - TAN के लिए online application possible है?
+    - how to make TAN card
+    
 
 
 - intent: tan_application_fee

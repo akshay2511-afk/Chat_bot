@@ -23,7 +23,7 @@ try:
     from backend.schemas.conversation import ConversationCreate
     from backend.services.conversation_service import save_conversation, get_conversations, ensure_phone_number
     from backend.services.otp_service import is_phone_verified, generate_otp, verify_otp
-    from backend.services.token_service import acquire_token
+    from backend.services.token_service import acquire_token, release_token
     from backend.services.history_service import append_session_history, append_number_history
     from backend.models.history import SessionChatHistory
     from backend.schemas.otp import OTPGenerateRequest, OTPVerifyRequest
@@ -46,16 +46,29 @@ except Exception as _:
     generate_otp = None
     verify_otp = None
 
+def _normalize_phone(value: Optional[str]) -> Optional[str]:
+    if not value:
+        return value
+    # Keep only digits for a canonical phone representation
+    digits = ''.join(ch for ch in value if ch.isdigit())
+    return digits or value.strip()
+
+
 class ChatIn(BaseModel):
     text: str
     sender_id: Optional[str] = None  # keep stable per user/session
     phone_number: Optional[str] = None  # when provided, will be used to persist messages
     session_id: Optional[str] = None  # for token/session control
+    new_session: Optional[bool] = False  # force creation of a new session id
 
 
 class ChatOut(BaseModel):
     sender_id: str
+    session_id: str
     replies: List[Dict[str, Any]]  # Rasa returns list of messages (text/image/buttons/...)
+
+class ReleaseIn(BaseModel):
+    session_id: str
 
 
 @app.get("/", response_class=FileResponse)
@@ -80,12 +93,18 @@ async def health():
 @app.post("/chat", response_model=ChatOut)
 async def chat(payload: ChatIn):
     sender = payload.sender_id or str(uuid.uuid4())
-    session_id = payload.session_id or sender
+    # Normalize phone for storage
+    normalized_phone = _normalize_phone(payload.phone_number)
+    # Session handling: if client requests new session or does not provide one, generate a new id.
+    if payload.new_session or not (payload.session_id and payload.session_id.strip()):
+        session_id = str(uuid.uuid4())
+    else:
+        session_id = payload.session_id.strip()
     # Greeting and request number on first contact (no phone number yet)
     if not payload.phone_number:
         greeting = "Hello I'm here to assist you for PAN and TAN and i'm comfortable in both the languages Hindi and English."
         ask_number = "Can you provide your number for the smooth conversation?"
-        return {"sender_id": sender, "replies": [{"text": greeting}, {"text": ask_number}]}
+        return {"sender_id": sender, "session_id": session_id, "replies": [{"text": greeting}, {"text": ask_number}]}
 
     # Handle OTP flow first when phone number provided; only talk to Rasa after verification
     # TEMP: Skip OTP flow; proceed directly with chat when phone provided.
@@ -93,12 +112,17 @@ async def chat(payload: ChatIn):
     if payload.phone_number and SessionLocal:
         db = SessionLocal()
         try:
-            phone = payload.phone_number.strip()
+            phone = normalized_phone or payload.phone_number.strip()
             # Ensure phone number stored in DB (without loading old history)
             try:
                 ensure_phone_number(db, phone)
             except Exception:
                 pass
+            # If user just sent a phone number and no session_id was provided, start a brand-new session automatically
+            normalized_text = _normalize_phone(payload.text) if payload.text else None
+            looks_like_phone = bool(normalized_text and normalized_text.isdigit() and len(normalized_text) >= 10)
+            if looks_like_phone and not (payload.session_id and payload.session_id.strip()):
+                session_id = str(uuid.uuid4())
             # Acquire/verify session token before proceeding. If pool full, hold user.
             try:
                 token_value, is_waiting = acquire_token(db, session_id)
@@ -106,7 +130,7 @@ async def chat(payload: ChatIn):
                 token_value, is_waiting = 0, False
             if is_waiting:
                 # Do not error; keep user waiting politely
-                return {"sender_id": sender, "replies": [{"text": "Please wait while we connect you..."}]}
+                return {"sender_id": sender, "session_id": session_id, "replies": [{"text": "Please wait while we connect you..."}]}
 
             # ORIGINAL OTP FLOW (DISABLED):
             # If this is the first interaction after providing number, acknowledge and do not call Rasa yet
@@ -123,7 +147,7 @@ async def chat(payload: ChatIn):
             is_first_message = existing_session is None or not (existing_session.history or '').strip()
             
             # Also check if user just sent their phone number (10+ digits)
-            is_phone_number = payload.text and payload.text.strip().replace('+', '').isdigit() and len(payload.text.strip().replace('+', '')) >= 10
+            is_phone_number = payload.text and _normalize_phone(payload.text) and _normalize_phone(payload.text).isdigit() and len(_normalize_phone(payload.text)) >= 10
             
             if is_first_message or is_phone_number:
                 try:
@@ -135,7 +159,7 @@ async def chat(payload: ChatIn):
                     append_number_history(db, phone, f"bot: {ack}")
                 except Exception:
                     pass
-                return {"sender_id": sender, "replies": [{"text": ack}]}
+                return {"sender_id": sender, "session_id": session_id, "replies": [{"text": ack}]}
             # if not is_phone_verified(db, phone):
             #     if payload.text and payload.text.strip().isdigit() and len(payload.text.strip()) == 6 and verify_otp and OTPVerifyRequest:
             #         resp = verify_otp(db, OTPVerifyRequest(phone_number=phone, otp_code=payload.text.strip()))
@@ -165,7 +189,7 @@ async def chat(payload: ChatIn):
     if payload.phone_number and SessionLocal:
         db = SessionLocal()
         try:
-            phone = payload.phone_number.strip()
+            phone = normalized_phone or payload.phone_number.strip()
             # Old persistence to number-wide 'conversations' table disabled per new requirements
             # save_conversation(
             #     db,
@@ -197,6 +221,23 @@ async def chat(payload: ChatIn):
         finally:
             db.close()
 
-    return {"sender_id": sender, "replies": replies}
+    return {"sender_id": sender, "session_id": session_id, "replies": replies}
 
+
+@app.post("/chat/release")
+async def chat_release(payload: ReleaseIn):
+    if not SessionLocal:
+        return {"released": False}
+    db = SessionLocal()
+    try:
+        sid = (payload.session_id or "").strip()
+        if not sid:
+            return {"released": False}
+        try:
+            release_token(db, sid)
+            return {"released": True}
+        except Exception:
+            return {"released": False}
+    finally:
+        db.close()
 

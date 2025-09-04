@@ -99,7 +99,7 @@
   localStorage.setItem('sender_id', senderId);
 
   let phoneNumber = '';
-  let sessionId = senderId; // reuse sender id as session id
+  let sessionId = null; // obtain from server; new session per phone submission
   // Lazy-initialize messages when widget opens for the first time
   let initialized = false;
 
@@ -116,6 +116,7 @@
         body: JSON.stringify({ text: '', sender_id: senderId })
       }).then(async res => {
         const data = await res.json().catch(()=>({}));
+        if (data && data.session_id) { sessionId = data.session_id; }
         if (data && Array.isArray(data.replies)) {
           data.replies.forEach(r=>{ if(r && r.text){ addBot(r.text); } });
         } else {
@@ -134,12 +135,25 @@
   function closeWidget(){
     widget.style.display = 'none';
     toggle.style.display = 'inline-flex';
+    // Release session token when chat is closed
+    if (sessionId) {
+      try { navigator.sendBeacon('/chat/release', new Blob([JSON.stringify({ session_id: sessionId })], { type: 'application/json' })); } catch(_) {}
+      sessionId = null;
+    }
   }
 
   sendBtn.addEventListener('click', sendMessage);
   textInput.addEventListener('keypress', (e)=>{ if(e.key==='Enter'){ sendMessage(); }});
   toggle.addEventListener('click', openWidget);
   closeBtn.addEventListener('click', closeWidget);
+
+  // Release token on page unload/refresh
+  window.addEventListener('beforeunload', function(){
+    if (sessionId) {
+      try { navigator.sendBeacon('/chat/release', new Blob([JSON.stringify({ session_id: sessionId })], { type: 'application/json' })); } catch(_) {}
+      sessionId = null;
+    }
+  });
 
   function enableChat(enabled){
     textInput.disabled = !enabled; sendBtn.disabled = !enabled;
@@ -174,13 +188,26 @@
     }
 
     try{
+      // Build payload
+      const payload = { text, sender_id: senderId };
+      if (phoneNumber) { payload.phone_number = phoneNumber; }
+      // If the message looks like a phone number, force a new session
+      const normalized = text.replace(/\D+/g, '');
+      const looksLikePhone = normalized.length >= 10;
+      if (looksLikePhone) {
+        payload.new_session = true;
+        sessionId = null; // allow backend to issue a fresh session id
+      }
+      if (sessionId) { payload.session_id = sessionId; }
+
       const res = await fetch(API_CHAT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text, sender_id: senderId, phone_number: phoneNumber, session_id: sessionId })
+        body: JSON.stringify(payload)
       });
       if(!res.ok){ throw new Error('Chat error'); }
       const data = await res.json();
+      if (data && data.session_id) { sessionId = data.session_id; }
       if(Array.isArray(data.replies)){
         let any = false;
         data.replies.forEach(r=>{ if(r && r.text){ addBot(r.text); any = true; } });
