@@ -11,6 +11,9 @@ intents:
   - provide_phone_number
   - select_language_english
   - select_language_hindi
+  - check_pan_status
+  - provide_pan_number
+  - provide_dob
   - select_pan_assistance
   - select_tan_assistance
   - select_general_assistance
@@ -72,6 +75,9 @@ intents:
   - select_pan_assistance_hindi
   - select_tan_assistance_hindi
   - select_general_assistance_hindi
+  - check_pan_status_hindi
+  - provide_pan_number_hindi
+  - provide_dob_hindi
 
   - pan_who_must_have_hindi
   - pan_where_to_apply_hindi
@@ -149,6 +155,12 @@ responses:
 
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
+
+  utter_ask_pan_number:
+    - text: "Please enter your 10-character PAN (e.g., ABCDE1234F)."
+
+  utter_ask_dob:
+    - text: "Thanks. Now enter your date of birth (DD-MM-YYYY or DD/MM/YYYY)."
 
   utter_phone_number_received:
     - text: "Thank you! Your phone number has been recorded. Now please select your preferred language:\n\n **भाषा चुनें / Choose Language:**\n\n🇮🇳 **हिंदी**\n🇺🇸 **English**\n\nType 'हिंदी' or 'Hindi' for Hindi, or 'English' for English to continue."
@@ -314,6 +326,13 @@ responses:
 
   utter_language_selected_hindi:
     - text: "🇮🇳 हिंदी चुनी गई!\n\nस्वागत है! मैं आपका कर सहायक हूं। कृपया निम्नलिखित विकल्पों में से एक चुनें:\n\n1️⃣ पैन सहायता\n2️⃣टैन सहायता\n3️⃣ सामान्य सहायता\n4️⃣ कॉलबैक शेड्यूल करें\n5️⃣ प्रतिक्रिया\n\nअपना विकल्प टाइप करें (जैसे 'पैन सहायता' या '1') शुरू करने के लिए!"
+
+  # Hindi prompts for PAN status flow
+  utter_ask_pan_number_hindi:
+    - text: "कृपया अपना 10-अक्षरों वाला पैन दर्ज करें (जैसे ABCDE1234F)।"
+
+  utter_ask_dob_hindi:
+    - text: "धन्यवाद। अब अपनी जन्मतिथि दर्ज करें (DD-MM-YYYY या DD/MM/YYYY)।"
 
   # Hindi Menu Selection Responses
   utter_select_pan_assistance_hindi:
