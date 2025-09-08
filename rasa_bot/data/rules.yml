@@ -68,6 +68,21 @@ rules:
     - intent: provide_phone_number
     - action: utter_phone_number_received
 
+- rule: Start PAN status flow (EN)
+  steps:
+    - intent: check_pan_status
+    - action: utter_ask_pan_number
+
+- rule: Collect PAN number (EN)
+  steps:
+    - intent: provide_pan_number
+    - action: utter_ask_dob
+
+- rule: Collect DOB then continue to normal flow (EN)
+  steps:
+    - intent: provide_dob
+    - action: utter_pan_menu
+
 - rule: Handle English language selection
   steps:
     - intent: select_language_english
@@ -77,6 +92,21 @@ rules:
   steps:
     - intent: select_language_hindi
     - action: utter_language_selected_hindi
+
+- rule: Start PAN status flow (HI)
+  steps:
+    - intent: check_pan_status_hindi
+    - action: utter_ask_pan_number_hindi
+
+- rule: Collect PAN number (HI)
+  steps:
+    - intent: provide_pan_number_hindi
+    - action: utter_ask_dob_hindi
+
+- rule: Collect DOB then continue to normal flow (HI)
+  steps:
+    - intent: provide_dob_hindi
+    - action: utter_select_pan_assistance_hindi
 
 - rule: Handle invalid selection
   steps:

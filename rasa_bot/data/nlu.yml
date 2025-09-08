@@ -173,6 +173,48 @@ nlu:
     - 9876543229
     - 9876543230
 
+- intent: check_pan_status
+  examples: |
+    - check my pan status
+    - check pan status
+    - i want to check my pan status
+    - please check my pan status
+    - can you check my pan status
+    - status of my pan
+    - pan status
+    - track my pan status
+    - verify my pan status
+    - what is the status of my pan
+    - check the status of my pan card
+    - i want pan status
+    - please tell my pan status
+    - check status of pan card
+    - pan card status
+
+- intent: provide_pan_number
+  examples: |
+    - ABCDE1234F
+    - AAAAA1111A
+    - AAAAB1234C
+    - My PAN is ABCDE1234F
+    - pan number ABCDE1234F
+    - here is my pan ABCDE1234F
+    - PAN: ABCDE1234F
+    - my pan number is ABCDE1234F
+    - [ABCDE1234F](pan_number)
+
+- intent: provide_dob
+  examples: |
+    - 01-01-1990
+    - 01/01/1990
+    - 1990-01-01
+    - 1 Jan 1990
+    - 01 Jan 1990
+    - 1 January 1990
+    - my date of birth is 01-01-1990
+    - dob 01/01/1990
+    - [01-01-1990](dob)
+
 - intent: pan_what
   examples: |
     - what is pan
