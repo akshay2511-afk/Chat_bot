@@ -244,6 +244,16 @@ rules:
     - intent: ask_pan_enquiry_reference
     - action: utter_pan_enquiry_reference
 
+- rule: Answer PAN vs TAN 
+  steps:
+    - intent: pan_vs_tan
+    - action: utter_pan_vs_tan
+
+- rule: Answer if TAN can be used instead of PAN
+  steps:
+    - intent: can_use_tan_instead_of_pan
+    - action: utter_can_use_tan_instead_of_pan
+
 # TAN Question 
 
 - rule: Answer who needs TAN
@@ -516,3 +526,84 @@ rules:
   steps:
   - intent: pan_enquiry_contact_hindi
   - action: utter_pan_enquiry_contact_hindi
+
+# TAN question hindi 
+# - rule: उत्तर दें - कौन TAN लेना चाहिए
+#   steps:
+#     - intent: tan_who_needs
+#     - action: utter_tan_who_needs
+
+- rule: उत्तर दें - Know TAN Details लॉगिन
+  steps:
+    - intent: tan_know_tan_details_portal_login
+    - action: utter_tan_know_tan_details_portal_login
+
+- rule: उत्तर दें - डिडक्टर TAN विवरण का उपयोग
+  steps:
+    - intent: tan_use_of_deductor_tan_details
+    - action: utter_tan_use_of_deductor_tan_details
+
+- rule: उत्तर दें - नियोक्ता के पास TAN नहीं
+  steps:
+    - intent: tan_employer_no_tan
+    - action: utter_tan_employer_no_tan
+
+- rule: उत्तर दें - सरकारी डिडक्टर/DDO
+  steps:
+    - intent: tan_government_deductors_mandatory
+    - action: utter_tan_government_deductors_mandatory
+
+- rule: उत्तर दें - TCS के लिए अलग TAN
+  steps:
+    - intent: tan_separate_for_tcs
+    - action: utter_tan_separate_for_tcs
+
+- rule: उत्तर दें - TAN क्यों आवश्यक
+  steps:
+    - intent: tan_why_necessary
+    - action: utter_tan_why_necessary
+
+- rule: उत्तर दें - TAN आवेदन कैसे करें
+  steps:
+    - intent: tan_how_to_apply
+    - action: utter_tan_how_to_apply
+
+- rule: उत्तर दें - TAN कौन अलॉट करता है
+  steps:
+    - intent: tan_allotment_authority
+    - action: utter_tan_allotment_authority
+
+- rule: उत्तर दें - TAN आवेदन बेसिक्स
+  steps:
+      - intent: tan_application_basics
+      - action: utter_tan_application_basics
+
+- rule: उत्तर दें - सभी भुगतानों के लिए एक TAN
+  steps:
+    - intent: tan_same_tan_all_payments
+    - action: utter_tan_same_tan_all_payments
+
+- rule: उत्तर दें - शाखाएँ/DDO और TAN
+  steps:
+    - intent: tan_branches_and_ddo
+    - action: utter_tan_branches_and_ddo
+
+- rule: उत्तर दें - e-TDS बिना TAN
+  steps:
+    - intent: tan_etds_without_tan
+    - action: utter_tan_etds_without_tan
+
+- rule: उत्तर दें - डुप्लिकेट TAN और कैंसलेशन
+  steps:
+    - intent: tan_duplicate_and_cancellation
+    - action: utter_tan_duplicate_and_cancellation
+
+- rule: उत्तर दें - PAN की जगह TAN
+  steps:
+    - intent: tan_pan_instead_of_tan
+    - action: utter_tan_pan_instead_of_tan
+
+- rule: उत्तर दें - TAN परिवर्तन/सुधार
+  steps:
+    - intent: tan_change_correction
+    - action: utter_tan_change_correction

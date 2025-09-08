@@ -19,7 +19,7 @@ nlu:
 #     - hindi
 #     - Hindi
 #     - HINDI
-#     - hindi language
+#     - hindi languageminor
 #     - i want hindi
 #     - hindi please
 #     - in hindi
@@ -180,6 +180,19 @@ nlu:
     - pan full form
     - meaning of pan
     - tell me about pan
+    - what does pan stand for
+    - pan meaning in india
+    - define pan card
+    - pan card kya hai
+    - explain pan
+    - pan card full meaning
+    - what do you mean by pan
+    - what is the purpose of pan
+    - pan card information
+    - pan card ka matlab
+    - pan card definition
+    - what exactly is a pan card
+    - pan in banking means what
 
 - intent: pan_importance
   examples: |
@@ -188,6 +201,20 @@ nlu:
     - why do we need a pan card
     - use of pan
     - pan required for what
+    - why is a pan card necessary
+    - need of pan card in india
+    - need of pan card
+    - what is the use of pan card
+    - why should i have a pan card
+    - benefits of pan card
+    - where is pan card required
+    - importance of pan in banking
+    - why do people apply for pan card
+    - purpose of pan card
+    - pan card mandatory for which things
+    - why do we need pan for transactions
+    - pan card significance
+    - role of pan card in financial activities
 
 - intent: pan_who_needs
   examples: |
@@ -196,6 +223,16 @@ nlu:
     - who must have pan
     - is pan for companies or individuals
     - do NRIs need pan
+    - who all are required to have a pan card
+    - who is eligible for a pan card
+    - is pan card only for indian citizens
+    - do foreigners need a pan card in india
+    - should minors have a pan card
+    - do students need a pan card
+    - is pan card required for salaried employees
+    - does every business need a pan card
+    - is pan compulsory for partnerships or firms
+    - who should apply for a pan card in india
 
 - intent: pan_mandatory
   examples: |
@@ -203,6 +240,17 @@ nlu:
     - is pan compulsory for all
     - do i need pan if my income is not taxable
     - is it mandatory to have a pan card
+    - is pan card compulsory in india
+    - is pan card compulsory for opening a bank account
+    - do i need a pan card for filing income tax
+    - is pan card mandatory for students
+    - is pan compulsory for buying property
+    - do i need a pan card for mutual funds
+    - is it mandatory to link pan with aadhaar
+    - is pan card required for cash transactions
+    - do housewives need a pan card
+    - is pan compulsory for companies
+    - is it necessary to have a pan card for all financial dealings
 
 - intent: select_pan_assistance
   examples: |
@@ -259,6 +307,26 @@ nlu:
     - is it legal to have two pan cards
     - can i hold multiple pan numbers
     - can someone have 2 pans
+    - can i have two pan cards in my name
+    - is it possible to own more than one pan card
+    - is it legal to keep multiple pan numbers
+    - what if i have two pan cards
+    - can one person hold more than one pan card
+    - can i use two pan cards
+    - is it wrong to have multiple pan cards
+    - can a single person apply for more than one pan
+    - can an individual keep two pan numbers
+    - what happens if someone has multiple pan cards
+    - can i apply for another pan while having one already
+    - can a person maintain two different pan cards
+    - is it punishable to hold more than one pan card
+    - is having duplicate pan card against the law
+    - can someone register multiple pan numbers
+    - is it ok to own two pan cards
+    - can a company take more than one pan card
+    - can a person hold multiple pan cards legally
+    - am i allowed to have more than one pan number
+    - what is the rule about having two pan cards
 
 - intent: pan_apply_process
   examples: |
@@ -267,6 +335,26 @@ nlu:
     - how can i get a pan card
     - steps to apply pan
     - pan card application
+    - How can i make pan card
+    - what is the procedure to apply for a pan card
+    - how do i apply for a new pan card
+    - steps to get a pan card in india
+    - pan card banwane ka process kya hai
+    - how to make pan card online
+    - how can i apply for pan card offline
+    - what is the process to get pan card
+    - how to fill pan card application form
+    - how to register for a pan card
+    - how to apply for pan card through nsdl
+    - pan card apply karne ka tarika
+    - how do i make a pan card easily
+    - how to apply for pan card for the first time
+    - process for applying pan card online
+    - how to apply for pan card at uti
+    - how to apply for pan card step by step
+    - where to apply for a pan card
+    - pan card application procedure in india
+    - how can students apply for a pan card
 
 - intent: pan_documents_required
   examples: |
@@ -275,6 +363,16 @@ nlu:
     - documents for pan application
     - pan card requirements
     - what papers needed for pan
+    - which documents are required to apply for pan card
+    - pan card ke liye kya documents chahiye
+    - what are the papers required for pan card application
+    - documents needed for new pan card
+    - pan card apply karne ke liye konsi documents lagti hai
+    - what proof is required for pan card
+    - list of documents for pan card application
+    - kya pan card banwane ke liye id proof chahiye
+    - pan card documents list
+    - which id proof and address proof are needed for pan
 
 - intent: tan_what
   examples: |
@@ -283,6 +381,20 @@ nlu:
     - tan full form
     - meaning of tan
     - tell me about tan
+    - what does tan stand for
+    - tan number meaning in india
+    - define tan
+    - explain tan number
+    - tan ka full form kya hai
+    - what do you mean by tan
+    - why is it called tan
+    - what exactly is a tan number
+    - tan number definition
+    - tan card kya hota hai
+    - significance of tan number
+    - tan number ka matlab
+    - in banking what is tan
+    - what is tan used for
 
 - intent: tan_who_needs
   examples: |
@@ -290,6 +402,16 @@ nlu:
     - who should have tan
     - who must have tan
     - do i need tan
+    - who is eligible for tan
+    - which entities need tan
+    - do companies need tan
+    - does every business need tan
+    - is tan required for individuals
+    - who should apply for tan
+    - do government offices need tan
+    - do partnership firms require tan
+    - does a salaried person need tan
+    - who all are required to have tan
 
 - intent: tan_apply_process
   examples: |
@@ -297,6 +419,28 @@ nlu:
     - tan application process
     - how can i get tan
     - steps to apply tan
+    - what is the procedure to apply for tan
+    - how do i apply for a tan number
+    - steps to get a tan in india
+    - tan registration process
+    - how to make tan online
+    - what is the process to get a tan number
+    - what is the process to get a tan number
+    - how to fill tan application form
+    - how to register for tan number
+    - how to apply for tan through nsdl
+    - tan number banwane ka process kya hai
+    - process for applying tan online
+    - where to apply for a tan number
+    - tan application procedure in india
+    - how to get tan number step by step
+    - how do businesses apply for tan
+    - how to apply tan card through uti
+    - how to apply for new tan registration
+    - how can i generate tan number
+    - How to make tan card
+    - how can i get tan card
+
 
 - intent: general_tax_info
   examples: |
@@ -305,6 +449,16 @@ nlu:
     - tell me about taxes
     - tax details
     - income tax information
+    - basics of income tax
+    - give me general information on tax
+    - what are taxes in india
+    - provide details about income tax system
+    - overview of taxation in india
+    - explain tax in simple words
+    - what is income tax
+    - guide me about taxes
+    - general knowledge about tax
+    - introduction to taxes
 
 - intent: general_contact_info
   examples: |
@@ -351,6 +505,26 @@ nlu:
     - Where to apply for IT PAN?
     - PAN card apply center details
     - Which office accepts PAN applications?
+    - where should i go to apply for a pan card
+    - pan card apply karne ke liye kahan jana hota hai
+    - pan card application center near me
+    - where to apply for pan offline
+    - place to get pan card in india
+    - which office issues pan card
+    - pan card banwane ke liye kahan apply karun
+    - where can i submit pan card form
+    - nearest pan card office
+    - pan card apply karne ki jagah
+    - pan card application submission center
+    - where is pan card application accepted
+    - uti pan application center
+    - nsdl pan apply center near me
+    - how do i find pan card office in my city
+    - pan card apply location details
+    - where should i submit documents for pan
+    - government office for pan card application
+    - pan card kahan se banega
+    - which place accepts pan applications
 
 
 - intent: ask_find_it_pan_service_center
@@ -362,6 +536,26 @@ nlu:
     - PAN service center address lookup
     - From where can I get the list of PAN centers?
     - Website or office to know PAN service center locations?
+    - how can i search for a pan service center near me
+    - nearest pan service center address
+    - where to check pan service center location
+    - pan service center list in india
+    - pan card kendra kahan milega
+    - how do i find nsdl pan service center
+    - uti pan service center near my area
+    - website to find pan service centers
+    - pan service center location finder
+    - pan card office location near me
+    - where is the closest pan service center
+    - how do i locate a pan application center
+    - pan service center address in my city
+    - pan seva kendra location kaise pata kare
+    - where can i check pan card center details
+    - list of pan service centers in my state
+    - pan service center office address lookup
+    - how to find pan facilitation center nearby
+    - pan service center location search
+    - which place is the pan card service center near me
 
 
 - intent: ask_services_it_pan_centers
@@ -371,11 +565,25 @@ nlu:
     - PAN center services list
     - Do PAN centers help fill the form?
     - Can I get Form 49A/49AA at the center?
+    - what facilities are available at a pan service center
+    - services offered at pan card centers
+    - what help can i get at a pan service center
+    - do pan centers issue pan application forms
+    - can pan centers help with corrections
+    - what is done at a pan card service center
+    - do pan centers provide pan card updates
+    - can i submit documents at a pan service center
+    - list of services provided at pan facilitation centers
+    - do pan centers help with duplicate pan card requests
+    - can i apply for tan at a pan service center
+    - do pan centers assist with e-pan download
+    - what official work is handled at pan service centers
+    - can i track my pan application at a service center
+    - do pan centers provide aadhaar-pan linking service
 
 
 - intent: ask_how_to_apply_pan
   examples: |
-    - How to apply for a PAN?
     - Can I apply for PAN on plain paper?
     - Where do I get Form 49A/49AA?
     - Is there a specific form to apply for PAN?
@@ -390,6 +598,18 @@ nlu:
     - What is my AO code?
     - I have never filed returns—how to know AO code?
     - Is AO code mandatory for PAN application?
+    - how can i check my ao code
+    - where to look for ao code in pan application
+    - how do i know my ao code for income tax
+    - ao code kaise pata kare
+    - what is the procedure to find ao code
+    - where can i search my ao code online
+    - how to get ao code without filing returns
+    - how do i find the correct ao code for my city
+    - ao code information for pan card
+    - can i know my ao code from income tax website
+    - how do i identify my assessing officer code
+    - what is the ao code for my area
 
 
 - intent: ask_photo_compulsory
@@ -398,6 +618,20 @@ nlu:
     - Do I need a photo for PAN application?
     - Photo compulsory for individual PAN?
     - PAN photo requirement details
+    - is photo mandatory for pan card application
+    - do i have to submit a photograph for pan
+    - pan card ke liye photo chahiye kya
+    - is it necessary to give photo for pan card
+    - photo requirement for pan application
+    - can pan card be made without photograph
+    - do i need to attach photo with pan form
+    - is a recent passport photo required for pan
+    - pan card photo size requirement
+    - kya pan card ke liye passport size photo compulsory hai
+    - do i need colored photo for pan card
+    - is photograph needed for online pan application
+    - is photography is compulsory for applying pan card
+    - is photography is compulsory for pan card 
 
 
 - intent: ask_cannot_sign_procedure
@@ -407,7 +641,17 @@ nlu:
     - Can I use thumb impression for PAN?
     - How to attest thumb impression for PAN?
     - Who can attest my thumb impression?
-
+    - how do physically challenged people apply for pan without signature
+    - can i give left thumb impression for pan card
+    - is thumb impression valid instead of signature for pan
+    - who should verify my thumb impression for pan application
+    - pan card ke liye bina sign kaise apply kare
+    - can illiterate persons apply for pan using thumb impression
+    - do i need gazetted officer attestation for thumb impression
+    - what if applicant cannot sign pan documents
+    - pan card application without signature procedure
+    - how to fill pan form if i can’t sign
+    
 
 - intent: ask_fathers_name_female
   examples: |
@@ -415,6 +659,18 @@ nlu:
     - For married women, is father’s name required in PAN?
     - Do widows/divorcees need to give father’s name?
     - PAN father name rule for females
+    - do women have to mention father’s name in pan card form
+    - is father’s name compulsory for married women in pan application
+    - for females, is it necessary to give father’s name in pan
+    - can a woman use husband’s name instead of father’s name in pan
+    - is father’s name required for widow pan applicants
+    - is father’s name required for divorced women in pan card
+    - kya mahila applicants ke liye father ka naam dena zaroori hai
+    - can female pan applicants leave father’s name blank
+    - is it mandatory to mention father’s name for women in pan form
+    - do female applicants need to provide father’s name details in pan
+    - pan application rule for father’s name for women
+    - can married women give spouse name instead of father’s name in pan
 
 
 - intent: ask_representative_assessee
@@ -423,6 +679,18 @@ nlu:
     - Can a representative apply for a non-resident’s PAN?
     - PAN for lunatic/idiot/court of wards—who applies?
     - What is a Representative Assessee for PAN?
+    - who is eligible to be a representative assessee in pan application
+    - can guardian apply for pan on behalf of minor child
+    - who applies for pan if the applicant is mentally challenged
+    - can parents sign pan form for their kids
+    - representative assessee meaning in pan card
+    - who can file pan application for non-residents
+    - can legal guardian apply pan card for minor
+    - pan application by representative assessee process
+    - who can represent a person of unsound mind in pan application
+    - is representative assessee required for court wards pan card
+    - can mother or father be representative assessee for pan
+    - who has the authority to apply for pan on behalf of others
 
 
 - intent: ask_pan_charges
@@ -431,6 +699,26 @@ nlu:
     - PAN processing fee at UTIITSL center
     - How much does a PAN card cost?
     - Charges for dispatch outside India?
+    - what is the cost of making a pan card
+    - pan card application fee in india
+    - how much do i need to pay for pan card
+    - pan card processing charges
+    - pan card fee structure
+    - pan card banwane ki fees kitni hai
+    - what is the government fee for pan card
+    - pan card charges for nri applicants
+    - pan card application cost through nsdl
+    - pan card fee at uti center
+    - how much does a duplicate pan card cost
+    - charges for reprint of pan card
+    - pan card correction fee
+    - pan card update charges
+    - pan card apply karne ki cost kya hai
+    - pan card fee for foreigners
+    - pan card express dispatch charges
+    - what are the pan card charges including gst
+    - pan card service center application charges
+    - cost of pan card delivery outside india
 
 
 - intent: ask_pan_contact_details
@@ -440,6 +728,28 @@ nlu:
     - Regional manager address for PAN
     - PAN customer care timings
     - How to contact UTIITSL for PAN?
+    - Tell me PAN helpine number
+    - I want pan helpline number
+    - how can i contact pan customer care
+    - give me the pan helpline number
+    - what is the toll free number for pan card
+    - pan customer care email id please
+    - how to reach utiitsl for pan queries
+    - nsdl pan helpline number kya hai
+    - can you share pan card support contact
+    - i need customer care number for pan card
+    - whom should i call for pan card help
+    - how do i talk to pan card customer service
+    - contact details of pan card office
+    - pan card enquiry number please
+    - how to connect with pan support team
+    - pan card ka helpline number batao
+    - email id for pan card complaints
+    - can you give me uti pan customer care details
+    - what is nsdl pan customer care email
+    - pan help desk contact number
+    - how can i reach pan card office
+    - i want to contact someone for pan card issue
 
 
 - intent: ask_pan_move_city
@@ -448,6 +758,21 @@ nlu:
     - PAN change when transferred?
     - Is PAN permanent?
     - What to do if my Assessing Officer changes?
+    - do i need to update pan card after shifting to another city
+    - is a new pan required if i change my address
+    - what happens to pan if i move to a different state
+    - pan card address change on relocation
+    - do i need fresh pan for new city job
+    - will my pan number change if i move to another city
+    - do i have to reapply for pan when i transfer location
+    - does pan remain same if i change state
+    - do i need to inform income tax about city change for pan
+    - is pan card linked to city of residence
+    - what to do with pan when i shift house permanently
+    - if i move cities, does my ao code change
+    - pan card details update after relocation
+    - do i need to surrender pan after shifting state
+    - will my pan card be valid in any city of india
 
 
 - intent: ask_multiple_pan_allowed
@@ -455,13 +780,27 @@ nlu:
     - Can I have more than one PAN?
     - Is it legal to possess two PAN cards?
     - Using multiple PAN numbers—is it allowed?
-
+    - how many pan card i can have
+    - how many pan card a person can have
+    - for a person how many pan card is legal in india
 
 - intent: ask_existing_pan_validity
   examples: |
     - Are old PAN cards still valid?
     - My PAN was issued by Income Tax Department—still valid?
     - Do I need to apply again if I already have PAN?
+    - is my old pan card still usable
+    - do i need a new pan if i already have one
+    - are old laminated pan cards valid
+    - my pan card was made years ago, is it still valid
+    - does pan card expire after some time
+    - do i have to reapply for pan if i already got it earlier
+    - is there any expiry date for pan card
+    - is the old paper pan card still acceptable
+    - are previously issued pan numbers still active
+    - if i already have a pan, should i get a new one
+    - are old format pan cards valid in banks
+    - do i need to replace my existing pan card
 
 
 - intent: ask_new_tamper_proof_card
@@ -470,7 +809,19 @@ nlu:
     - I have PAN; how to obtain a fresh card?
     - Which form for reprinting PAN card?
     - Fee for new tamper-proof PAN card?
-
+    - how can i apply for a reprint of my pan card
+    - steps to obtain tamper proof pan card
+    - how to replace old pan card with new one
+    - can i get a fresh pan card with same number
+    - what is the process for reissuing pan card
+    - how to apply for a duplicate pan card if original is damaged
+    - procedure to get new style tamper proof pan card
+    - do i need to fill form 49a again for new pan card
+    - where can i apply for pan card reprint
+    - how much does it cost to get a duplicate pan card
+    - how to request fresh pan card online
+    - reprint pan card application process
+    - can i get tamper proof pan card without changing pan number
 
 - intent: ask_when_submit_change_correction
   examples: |
@@ -478,6 +829,20 @@ nlu:
     - I want a new card with same PAN—what form?
     - How to correct details in PAN?
     - Which cases need the correction form?
+    - in which cases should i fill the pan correction form
+    - when do i need to submit change request in pan
+    - which form is used for updating pan details
+    - how to apply for correction in pan card data
+    - when should i apply for pan card correction
+    - which situations require pan change form
+    - how do i update wrong details in pan card
+    - what form is needed to change name in pan card
+    - when to request for pan data modification
+    - how can i correct spelling mistake in pan
+    - when is pan correction application required
+    - what is the procedure to rectify errors in pan
+    - for correction in pan details, which form should i use
+    - How can i correct the pan mistake 
 
 
 - intent: ask_applied_no_response
@@ -486,6 +851,16 @@ nlu:
     - No communication after PAN application—what to do?
     - Applied before 29-05-2003 and never got PAN
     - Should I reapply in new Form 49A?
+    - i applied for pan card long ago but still no response
+    - what to do if pan application status is not updated
+    - i haven’t received my pan card after applying
+    - pan card not delivered even after application
+    - no update from income tax department after pan application
+    - i applied for pan before but never got the card
+    - pan application submitted but no acknowledgement received
+    - should i apply again if my pan didn’t come
+    - how to check if my old pan application was processed
+    - i applied through uti but never got pan card
 
 
 - intent: ask_pan_delivery_process
@@ -493,19 +868,87 @@ nlu:
     - How will my PAN card be delivered?
     - PAN card dispatch method
     - Who delivers the PAN card and where?
-
+    - how is pan card sent to applicants
+    - who sends the pan card after approval
+    - pan card delivery process details
+    - where will my pan card be delivered
+    - pan card dispatch procedure
+    - is pan card delivered by post or courier
+    - how do i receive my pan card
+    - will pan card come to my home address
+    - who handles pan card delivery in india
+    - what is the mode of pan card dispatch
+    - pan card delivery method in india
+    - does pan card get delivered to correspondence address
 
 - intent: ask_third_party_verification
   examples: |
     - Does UTIITSL do verification visits for PAN?
     - Will an agent come to verify my address?
     - How to check agent authorization for PAN verification?
+    - does pan application need home verification
+    - will someone visit my house for pan verification
+    - does utiitsl send agents to check documents
+    - do i need physical verification for pan card
+    - will a representative come for pan card verification
+    - how is address verified for pan card
+    - does nsdl conduct field verification for pan
+    - is personal visit required for pan application verification
+    - does pan process involve third party verification
+    - will officials come to confirm my pan details
+    - is doorstep verification done for pan card
+    - do pan centers send people for verification
 
 - intent: ask_pan_enquiry_reference
   examples: |
     - Whom should I contact about my PAN application?
     - What details should I mention in PAN queries?
     - PAN application number/coupon—where to refer?
+    - what reference number is needed for pan enquiry
+    - whom should i mention while asking about my pan card
+    - do i need coupon number for pan enquiry
+    - which details to provide for pan application query
+    - what information is required to raise a pan enquiry
+    - should i give acknowledgement number for pan enquiry
+    - what to mention in emails about pan card application
+    - pan card query reference details
+    - do i need application number for pan enquiry
+    - which number is used for tracking pan queries
+    - whom do i approach for pan related enquiries
+    - what details are required when contacting pan office
+
+- intent: pan_vs_tan
+  examples: |
+      - What is the difference between PAN and TAN?
+      - PAN vs TAN difference
+      - How is PAN different from TAN?
+      - Tell me the difference between PAN card and TAN
+      - Explain PAN and TAN in simple words
+      - PAN or TAN, what is used for what?
+      - Is PAN the same as TAN?
+      - PAN vs TAN meaning
+      - What does PAN do and what does TAN do?
+      - Compare PAN and TAN
+      - When do we use PAN and when TAN?      
+      - Are PAN and TAN both required?
+      - Difference between PAN number and TAN number
+      - What is TAN and how is it different from PAN?
+      - Simple difference between PAN and TAN please
+
+- intent: can_use_tan_instead_of_pan
+  examples: |
+      - I don’t have a PAN card, can I use TAN instead?
+      - Can I use TAN in place of PAN?
+      - Is TAN valid instead of PAN?
+      - Can I give TAN number instead of PAN number?
+      - I don’t have PAN, can I provide TAN?
+      - Is TAN accepted where PAN is needed?
+      - Can TAN be used as a replacement for PAN?
+      - Is PAN mandatory or can I use TAN instead?
+      - Can I show TAN when PAN is asked?
+      - TAN in place of PAN possible?
+      - Can TAN card be used instead of PAN card?
+      - Is it okay to use TAN if PAN is not available?
 
 
 #TAN DATA
@@ -522,6 +965,16 @@ nlu:
     - क्या हर deductor को TAN चाहिए?
     - TCS करने वालों को TAN चाहिए क्या?
     - TDS/TCS के लिए TAN mandatory है क्या?
+    - who is required to have a tan number
+    - is tan compulsory for companies deducting tds
+    - do partnership firms need tan
+    - is tan needed for government offices deducting tax
+    - should individuals who deduct tds apply for tan
+    - does every organization doing tcs require tan
+    - who should apply for tan in ind   
+    - is tan mandatory for salary deductors
+    - do banks need tan for tds deduction
+    - can an individual without business need tan
 
 
 - intent: can_use_pan_instead_of_tan
@@ -532,6 +985,19 @@ nlu:
     - कब PAN TAN की जगह इस्तेमाल कर सकते हैं?
     - Do I need TAN if I deduct under section 194IA?
     - 194S में TAN जरूरी है या PAN?
+    - can i use pan instead of tan
+    - is pan valid in place of tan
+    - can pan replace tan
+    - pan ya tan dono chalte hain kya
+    - kab pan tan ki jagah use ho sakta hai
+    - i don't have pan card, so can i use tan card
+    - do i need tan or is pan enough
+    - pan chalega kya tan ki jagah
+    - can i quote pan where tan is asked
+    - is pan accepted instead of tan in tds
+    - pan ki jagah tan lagana zaroori hai kya
+    - tan ki jagah pan number de sakte hain kya
+    - pan vs tan – kab kaunsa use karna hai
 
 
 - intent: why_tan_necessary
@@ -541,6 +1007,16 @@ nlu:
     - TAN not quoted penalty?
     - TAN quote करना mandatory है क्या?
     - TAN नहीं लिया तो penalty कितनी है?
+    - why is tan needed
+    - is tan important
+    - do i need tan
+    - why should i have tan
+    - is tan required
+    - what is the use of tan
+    - is tan compulsory
+    - why is tan mandatory
+    - do all deductors need tan
+    - what happens without tan
 
 
 - intent: how_to_apply_tan
@@ -552,6 +1028,20 @@ nlu:
     - TAN apply करने का तरीका बताइए
     - TAN के लिए online application possible है?
     - how to make TAN card
+    - how can i get tan card
+    - how can i apply for tan
+    - what is the process to apply for tan
+    - where to apply for tan
+    - how to get tan number
+    - steps to apply for tan
+    - how to make tan card
+    - how do i make a tan
+    - procedure to apply for tan    
+    - how can i register for tan
+    - how to fill tan application
+    - how to apply for tan online
+    - can i apply for tan offline
+    - what form is used to apply for tan
     
 
 
@@ -562,6 +1052,18 @@ nlu:
     - Fee for filing TAN application?
     - TAN apply करने की cost क्या है?
     - TAN fee with GST?
+    - what is the cost of tan application
+    - how much is the tan fee
+    - what is the government fee for tan
+    - tan registration charges
+    - fee for applying tan number
+    - what is the tan processing fee
+    - how much does it cost to get tan
+    - tan application fee details
+    - charges for tan application
+    - what is the total fee for tan
+    - is there any gst on tan fee
+    - tan card apply cost
 
 
 - intent: know_tan_details
@@ -571,7 +1073,18 @@ nlu:
     - Know your TAN by name
     - TAN details कैसे check करें?
     - नाम से TAN कैसे पता करें?
-
+    - how to check tan details    
+    - how can i know my tan
+    - how to verify tan
+    - how to find tan number
+    - how do i get my tan details
+    - how to search tan
+    - how to look up tan number
+    - how can i see tan details online
+    - how to confirm tan number
+    - where can i find my tan
+    - how to check employer tan
+    - how to know tan by name
 
 - intent: track_tan_status
   examples: |
@@ -580,6 +1093,18 @@ nlu:
     - How to check TAN application status online?
     - TAN status link?
     - Application status for TAN?
+    - how to track tan status
+    - check tan application status
+    - how can i see my tan status
+    - where to check tan status
+    - how do i know my tan application status
+    - status of my tan application
+    - how to find tan status online
+    - track my tan number status
+    - how to check tan progress
+    - how to know tan status
+    - check status of tan request
+    - how to get tan application status
 
 - intent: tan_government_ddo
   examples: |
@@ -588,7 +1113,18 @@ nlu:
     - Government department TAN apply?
     - DDOs को अलग TAN चाहिए क्या?
     - Govt deductors TAN?
-
+    - is tan required for government offices
+    - do government deductors need tan
+    - should every ddo have a separate tan
+    - is tan mandatory for govt departments deducting tds
+    - does each ddo need its own tan
+    - tan requirement for government ddo
+    - do state government offices require tan
+    - should central government departments apply for tan
+    - is one tan enough for all ddo in a department
+    - do multiple ddo need different tan numbers
+    - tan for government tds deduction
+    - who applies for tan in government offices
 
 - intent: separate_tan_for_tcs
   examples: |
@@ -597,6 +1133,16 @@ nlu:
     - TCS के लिए अलग TAN लेना है क्या?
     - Same TAN for TDS and TCS?
     - TCS में TAN अलग होगा?
+    - do i need a different tan for tcs
+    - is separate tan required for tcs
+    - can i use same tan for tds and tcs
+    - is tan for tcs different from tds
+    - do i need another tan for tax collection at source
+    - is one tan enough for both tds and tcs
+    - separate tan needed for tcs or not
+    - can tcs be done with existing tan
+    - do collectors need a new tan for tcs
+    - is there a separate tan for tcs purpose
 
 
 - intent: tan_for_different_payments
@@ -606,6 +1152,16 @@ nlu:
     - अलग payments के लिए अलग TAN?
     - Same TAN across all TDS?
     - One TAN for all deductions?
+    - do i need separate tan for salary and interest
+    - is different tan required for different payments
+    - can one tan be used for all deductions
+    - do i need new tan for commission payments
+    - is tan same for salary and contractor tds
+    - should i apply for multiple tans for different expenses
+    - one tan for all types of tds
+    - do i need different tan for rent and salary deductions
+    - is tan common for all tds categories
+    - can i use the same tan across all payments
 
 
 - intent: tan_required_documents
@@ -624,6 +1180,18 @@ nlu:
     - Can TAN be surrendered or canceled?
     - How to cancel extra TAN?
     - Duplicate TAN illegal है?
+    - what documents are needed for tan
+    - list of documents required for tan
+    - which proofs are needed for tan application
+    - documents required to apply for tan
+    - what are the papers needed for tan
+    - tan kyc documents list
+    - what id proof is required for tan
+    - what address proof is needed for tan
+    - do i need pan card copy for tan
+    - documents checklist for tan application
+    - which certificates are valid for tan application
+    - what are the required documents for tan registration
 
 
 - intent: change_tan_details
@@ -633,6 +1201,18 @@ nlu:
     - TAN data change कैसे करें?
     - Correction in TAN after allotment?
     - Form for change or correction in TAN?
+    - how to correct details in tan
+    - process to change tan information
+    - how to update address in tan
+    - which form is used for tan correction
+    - how can i modify my tan details
+    - correction procedure for tan
+    - how to make changes in tan application
+    - can i update contact details in tan
+    - how to fix errors in tan data
+    - form for tan change request
+    - how to apply for correction in tan
+    - steps to update tan information
 
 
 - intent: etds_without_tan
@@ -642,6 +1222,22 @@ nlu:
     - TAN के बिना TDS return file कर सकते हैं?
     - Is TAN mandatory in e-TDS?
     - Return reject if TAN missing?
+    - can i file etds without tan
+    - is tan required for etds filing
+    - do we need tan to file etds return
+    - can etds return be filed without tan number
+    - is it possible to submit etds without tan
+    - will etds return be accepted without tan
+    - can we upload etds return without tan
+    - is tan compulsory in etds
+    - what happens if etds filed without tan
+    - do all etds returns need tan
+    - can etds be filed using pan instead of tan
+    - is etds rejected if tan is not quoted
+    - can deductor submit etds return without tan
+    - is valid tan mandatory for etds return filing
+    - can we do tds filing online without tan
+
 
 - intent: tan_for_branches
   examples: |
@@ -650,6 +1246,18 @@ nlu:
     - क्या branches को अलग TAN मिल सकता है?
     - Division wise TAN?
     - Separate TAN per branch?
+    - can each branch have its own tan
+    - do branches need separate tan
+    - is tan required branch wise
+    - can bank branches apply for different tan numbers
+    - does every branch need a tan
+    - can company divisions get separate tan
+    - do multiple offices need separate tan
+    - can different branches use different tan
+    - is one tan enough for all branches
+    - separate tan for each branch or not
+    - should branches of a company apply for tan separately
+    - can divisions of firms have separate tan numbers
 
 
 
