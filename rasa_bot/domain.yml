@@ -13,6 +13,8 @@ intents:
   - select_language_hindi
   - check_pan_status
   - provide_pan_number
+  - check_tan_status
+  - provide_tan_number
   - provide_dob
   - select_pan_assistance
   - select_tan_assistance
@@ -77,6 +79,8 @@ intents:
   - select_general_assistance_hindi
   - check_pan_status_hindi
   - provide_pan_number_hindi
+  - check_tan_status_hindi
+  - provide_tan_number_hindi
   - provide_dob_hindi
 
   - pan_who_must_have_hindi
@@ -161,6 +165,9 @@ responses:
 
   utter_ask_dob:
     - text: "Thanks. Now enter your date of birth (DD-MM-YYYY or DD/MM/YYYY)."
+
+  utter_ask_tan_number:
+    - text: "Please enter your 10-character TAN (e.g., AAAA12345A)."
 
   utter_phone_number_received:
     - text: "Thank you! Your phone number has been recorded. Now please select your preferred language:\n\n **भाषा चुनें / Choose Language:**\n\n🇮🇳 **हिंदी**\n🇺🇸 **English**\n\nType 'हिंदी' or 'Hindi' for Hindi, or 'English' for English to continue."
@@ -333,6 +340,10 @@ responses:
 
   utter_ask_dob_hindi:
     - text: "धन्यवाद। अब अपनी जन्मतिथि दर्ज करें (DD-MM-YYYY या DD/MM/YYYY)।"
+
+  # Hindi prompt for TAN status flow
+  utter_ask_tan_number_hindi:
+    - text: "कृपया अपना 10-अक्षरों वाला टैन दर्ज करें (जैसे AAAA12345A)।"
 
   # Hindi Menu Selection Responses
   utter_select_pan_assistance_hindi:
