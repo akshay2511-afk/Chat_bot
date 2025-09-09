@@ -73,14 +73,10 @@ rules:
     - intent: check_pan_status
     - action: utter_ask_pan_number
 
-- rule: Start TAN status flow (EN)
-  steps:
-    - intent: check_tan_status
-    - action: utter_ask_tan_number
-
 - rule: Collect PAN number (EN)
   steps:
     - intent: provide_pan_number
+    - action: action_check_pan_status
     - action: utter_ask_dob
 
 - rule: Collect DOB then continue to normal flow (EN)
@@ -103,14 +99,10 @@ rules:
     - intent: check_pan_status_hindi
     - action: utter_ask_pan_number_hindi
 
-- rule: Start TAN status flow (HI)
-  steps:
-    - intent: check_tan_status_hindi
-    - action: utter_ask_tan_number_hindi
-
 - rule: Collect PAN number (HI)
   steps:
     - intent: provide_pan_number_hindi
+    - action: action_check_pan_status
     - action: utter_ask_dob_hindi
 
 - rule: Collect DOB then continue to normal flow (HI)

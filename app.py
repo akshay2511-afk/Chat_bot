@@ -20,6 +20,7 @@ try:
     from backend.routes.otp import router as otp_router
     from backend.routes.feedback import router as feedback_router
     from backend.routes.consent import router as consent_router
+    from backend.routes.pan import router as pan_router
     from backend.db.session import SessionLocal, Base, engine
     from backend.schemas.conversation import ConversationCreate
     from backend.services.conversation_service import save_conversation, get_conversations, ensure_phone_number
@@ -33,6 +34,7 @@ try:
     app.include_router(otp_router, prefix="/api")
     app.include_router(feedback_router, prefix="/api")
     app.include_router(consent_router, prefix="/api")
+    app.include_router(pan_router, prefix="/api")
 
     @app.on_event("startup")
     def ensure_tables_created() -> None:
@@ -184,6 +186,61 @@ async def chat(payload: ChatIn):
             # If verified: proceed to send to Rasa below; we will persist after reply
         finally:
             db.close()
+
+    # Only now talk to Rasa
+    # Special handling: if user input looks like a PAN, call our PAN status API directly
+    if payload.text and isinstance(payload.text, str):
+        txt = payload.text.strip()
+        try:
+            import re  # local to avoid global scope pollution
+            if re.fullmatch(r"[A-Za-z]{5}\d{4}[A-Za-z]", txt):
+                pan_upper = txt.upper()
+                # Call internal PAN status API (static response for now)
+                base_url = os.getenv("FASTAPI_BASE_URL", "http://127.0.0.1:8000")
+                try:
+                    async with httpx.AsyncClient(timeout=10) as c:
+                        r2 = await c.post(f"{base_url}/api/pan/status", json={"pan_number": pan_upper})
+                        r2.raise_for_status()
+                        data2 = r2.json()
+                        status_msg = data2.get("message") or f"Your PAN {pan_upper} status is in progress."
+                except Exception:
+                    status_msg = "Your PAN application is in progress. Please check back later."
+
+                # Persist conversation and histories
+                if payload.phone_number and SessionLocal:
+                    db2 = SessionLocal()
+                    try:
+                        phone = normalized_phone or payload.phone_number.strip()
+                        try:
+                            save_conversation(
+                                db2,
+                                ConversationCreate(
+                                    phone_number=phone, role="user", message=payload.text
+                                ),
+                            )
+                        except Exception:
+                            pass
+                        try:
+                            save_conversation(
+                                db2,
+                                ConversationCreate(
+                                    phone_number=phone, role="bot", message=status_msg
+                                ),
+                            )
+                        except Exception:
+                            pass
+                        try:
+                            append_session_history(db2, session_id, f"user: {payload.text}", phone_number=phone)
+                            append_number_history(db2, phone, f"user: {payload.text}")
+                            append_session_history(db2, session_id, f"bot: {status_msg}", phone_number=phone)
+                            append_number_history(db2, phone, f"bot: {status_msg}")
+                        except Exception:
+                            pass
+                    finally:
+                        db2.close()
+                return {"sender_id": sender, "session_id": session_id, "replies": [{"text": status_msg}]}
+        except Exception:
+            pass
 
     # Only now talk to Rasa
     data = {"sender": sender, "message": payload.text}
