@@ -196,6 +196,9 @@ nlu:
     - ABCDE1234F
     - AAAAA1111A
     - AAAAB1234C
+    - abcde1234f
+    - aaaaa1111a
+    - aaaab1234c
     - My PAN is ABCDE1234F
     - pan number ABCDE1234F
     - here is my pan ABCDE1234F
