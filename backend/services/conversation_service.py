@@ -1,4 +1,5 @@
 from typing import List, Optional
+import re
 from sqlalchemy.orm import Session
 from backend.models.conversation import PhoneNumber, Conversation
 from backend.models.history import NumberChatHistory, SessionChatHistory
@@ -12,6 +13,36 @@ def ensure_phone_number(db: Session, phone_number: str) -> PhoneNumber:
         db.add(entity)
         db.commit()
         db.refresh(entity)
+    return entity
+
+
+def save_pan_number(db: Session, phone_number: str, pan_number: str) -> PhoneNumber:
+    """Upsert PAN number for a given phone number.
+
+    - Normalizes case to uppercase
+    - Overwrites previously saved value when new valid PAN is provided
+    """
+    entity = ensure_phone_number(db, phone_number)
+    normalized_pan = (pan_number or "").strip().upper()
+    entity.pan_number = normalized_pan or None
+    db.add(entity)
+    db.commit()
+    db.refresh(entity)
+    return entity
+
+
+def save_tan_number(db: Session, phone_number: str, tan_number: str) -> PhoneNumber:
+    """Upsert TAN number for a given phone number.
+
+    - Normalizes case to uppercase
+    - Overwrites previously saved value when new valid TAN is provided
+    """
+    entity = ensure_phone_number(db, phone_number)
+    normalized_tan = (tan_number or "").strip().upper()
+    entity.tan_number = normalized_tan or None
+    db.add(entity)
+    db.commit()
+    db.refresh(entity)
     return entity
 
 
@@ -58,6 +89,20 @@ def save_conversation(db: Session, payload: ConversationCreate) -> Conversation:
         )
         for extra in extras:
             db.delete(extra)
+
+    # If user message contains a PAN/TAN, persist it on the phone_numbers row
+    try:
+        if payload.role.lower() == "user":
+            message_text = (payload.message or "").strip().upper()
+            pan_match = re.search(r"\b[A-Z]{5}\d{4}[A-Z]\b", message_text)
+            if pan_match:
+                save_pan_number(db, payload.phone_number, pan_match.group(0))
+            tan_match = re.search(r"\b[A-Z]{4}\d{5}[A-Z]\b", message_text)
+            if tan_match:
+                save_tan_number(db, payload.phone_number, tan_match.group(0))
+    except Exception:
+        # Do not block conversation saving if PAN save fails
+        pass
 
     db.commit()
     db.refresh(conv)

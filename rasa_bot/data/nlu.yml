@@ -995,6 +995,34 @@ nlu:
 
 #TAN DATA
 
+# New intents for TAN status and TAN number collection
+- intent: check_tan_status
+  examples: |
+    - check my tan status
+    - check tan status
+    - i want to check my tan status
+    - please check my tan status
+    - can you check my tan status
+    - status of my tan
+    - tan status
+    - track my tan status
+    - verify my tan status
+    - what is the status of my tan
+    - check the status of my tan number
+    - I want tan status
+    - please tell my tan status
+    - check status of tan application
+    - tan application status
+
+- intent: provide_tan_number
+  examples: |
+    - AAAA12345A
+    - BBBB54321Z
+    - TAN: AAAA12345A
+    - my tan is AAAA12345A
+    - here is my tan AAAA12345A
+    - tan number AAAA12345A
+    - my tan number is AAAA12345A
 # 1) Who needs TAN
 - intent: who_needs_tan
   examples: |

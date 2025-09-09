@@ -7,6 +7,8 @@ class PhoneNumber(Base):
     __tablename__ = "phone_numbers"
 
     phone_number = Column(String(20), primary_key=True, index=True)
+    pan_number = Column(String(10), nullable=True, index=True)
+    tan_number = Column(String(10), nullable=True, index=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     conversations = relationship("Conversation", back_populates="owner", cascade="all, delete-orphan")

@@ -30,6 +30,19 @@ nlu:
     - पैन का स्टेटस क्या है
     - पैन कार्ड का स्टेटस बताओ
 
+- intent: check_tan_status_hindi
+  examples: |
+    - मेरा टैन स्टेटस चेक करो
+    - टैन स्टेटस चेक करो
+    - प्लीज मेरा टैन स्टेटस चेक करें
+    - क्या आप मेरा टैन स्टेटस देख सकते हैं
+    - टैन की स्थिति बताएं
+    - टैन स्टेटस
+    - टैन कार्ड स्टेटस
+    - मेरे टैन की स्थिति क्या है
+    - टैन का स्टेटस क्या है
+    - टैन कार्ड का स्टेटस बताओ
+
 - intent: provide_pan_number_hindi
   examples: |
     - ABCDE1234F
@@ -40,6 +53,16 @@ nlu:
     - यह रहा मेरा पैन ABCDE1234F
     - पैन: ABCDE1234F
     - मेरा पैन नंबर ABCDE1234F है
+
+- intent: provide_tan_number_hindi
+  examples: |
+    - AAAA12345A
+    - BBBB54321Z
+    - मेरा टैन AAAA12345A है
+    - टैन नंबर AAAA12345A
+    - यह रहा मेरा टैन AAAA12345A
+    - टैन: AAAA12345A
+    - मेरा टैन नंबर AAAA12345A है
 
 - intent: provide_dob_hindi
   examples: |

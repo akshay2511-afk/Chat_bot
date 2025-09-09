@@ -9,6 +9,14 @@ class ConversationCreate(BaseModel):
     role: str  # 'user' or 'bot'
     message: str
 
+class SavePANRequest(BaseModel):
+    phone_number: PhoneNumberStr
+    pan_number: constr(strip_whitespace=True, min_length=10, max_length=10)
+
+class SaveTANRequest(BaseModel):
+    phone_number: PhoneNumberStr
+    tan_number: constr(strip_whitespace=True, min_length=10, max_length=10)
+
 class ConversationOut(BaseModel):
     id: int
     phone_number: PhoneNumberStr

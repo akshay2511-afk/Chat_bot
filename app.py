@@ -200,13 +200,17 @@ async def chat(payload: ChatIn):
         db = SessionLocal()
         try:
             phone = normalized_phone or payload.phone_number.strip()
-            # Old persistence to number-wide 'conversations' table disabled per new requirements
-            # save_conversation(
-            #     db,
-            #     ConversationCreate(
-            #         phone_number=phone, role="user", message=payload.text
-            #     ),
-            # )
+            # Save user message into consolidated conversations table
+            # This also triggers PAN extraction/storage when a PAN is present in the message
+            try:
+                save_conversation(
+                    db,
+                    ConversationCreate(
+                        phone_number=phone, role="user", message=payload.text
+                    ),
+                )
+            except Exception:
+                pass
             try:
                 append_session_history(db, session_id, f"user: {payload.text}", phone_number=phone)
                 append_number_history(db, phone, f"user: {payload.text}")
@@ -214,15 +218,18 @@ async def chat(payload: ChatIn):
                 pass
             for reply in replies:
                 if isinstance(reply, dict) and reply.get("text"):
-                    # Old persistence to number-wide 'conversations' table disabled per new requirements
-                    # save_conversation(
-                    #     db,
-                    #     ConversationCreate(
-                    #         phone_number=phone,
-                    #         role="bot",
-                    #         message=reply["text"],
-                    #     ),
-                    # )
+                    # Persist bot reply as well to maintain complete conversation context
+                    try:
+                        save_conversation(
+                            db,
+                            ConversationCreate(
+                                phone_number=phone,
+                                role="bot",
+                                message=reply["text"],
+                            ),
+                        )
+                    except Exception:
+                        pass
                     try:
                         append_session_history(db, session_id, f"bot: {reply['text']}", phone_number=phone)
                         append_number_history(db, phone, f"bot: {reply['text']}")
