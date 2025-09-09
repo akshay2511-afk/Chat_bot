@@ -483,8 +483,8 @@ nlu:
     - how to apply tan card through uti
     - how to apply for new tan registration
     - how can i generate tan number
-    - How to make tan card
-    - how can i get tan card
+    - TAN apply instructions
+    - where to file TAN application
 
 
 - intent: general_tax_info
@@ -1082,7 +1082,7 @@ nlu:
     - TAN नहीं लिया तो penalty कितनी है?
     - why is tan needed
     - is tan important
-    - do i need tan
+    - is tan required for deductors
     - why should i have tan
     - is tan required
     - what is the use of tan
@@ -1100,8 +1100,8 @@ nlu:
     - Form 49B कैसे भरें?
     - TAN apply करने का तरीका बताइए
     - TAN के लिए online application possible है?
-    - how to make TAN card
-    - how can i get tan card
+    - getting TAN from portal
+    - steps on TAN application site
     - how can i apply for tan
     - what is the process to apply for tan
     - where to apply for tan

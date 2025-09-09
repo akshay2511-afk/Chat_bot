@@ -45,9 +45,9 @@ nlu:
 
 - intent: provide_pan_number_hindi
   examples: |
-    - ABCDE1234F
-    - AAAAA1111A
-    - AAAAB1234C
+    - मेरा पैन है ABCDE1234F
+    - कृपया AAAAA1111A दर्ज करें
+    - मेरे पैन का नंबर AAAAB1234C है
     - मेरा पैन ABCDE1234F है
     - पैन नंबर ABCDE1234F
     - यह रहा मेरा पैन ABCDE1234F
@@ -66,14 +66,14 @@ nlu:
 
 - intent: provide_dob_hindi
   examples: |
-    - 01-01-1990
-    - 01/01/1990
-    - 1990-01-01
-    - 1 Jan 1990
-    - 01 Jan 1990
-    - 1 January 1990
     - मेरी जन्मतिथि 01-01-1990 है
-    - dob 01/01/1990
+    - जन्म तिथि 01/01/1990
+    - जन्मतिथि 1990-01-01
+    - मेरी DOB 1 Jan 1990
+    - जन्म तारीख 01 Jan 1990
+    - जन्म तिथि 1 January 1990
+    - मेरी जन्मतिथि 01-01-1990 है
+    - मेरी डीओबी 01/01/1990
 
 
 - intent: pan_what_hindi

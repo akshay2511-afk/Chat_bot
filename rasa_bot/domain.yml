@@ -13,6 +13,8 @@ intents:
   - select_language_hindi
   - check_pan_status
   - provide_pan_number
+  - check_tan_status
+  - provide_tan_number
   - provide_dob
   - select_pan_assistance
   - select_tan_assistance
@@ -77,6 +79,8 @@ intents:
   - select_general_assistance_hindi
   - check_pan_status_hindi
   - provide_pan_number_hindi
+  - check_tan_status_hindi
+  - provide_tan_number_hindi
   - provide_dob_hindi
 
   - pan_who_must_have_hindi
@@ -508,6 +512,7 @@ slots:
 
 actions:
   - action_hello_world
+  - action_check_pan_status
 
 session_config:
   session_expiration_time: 60
