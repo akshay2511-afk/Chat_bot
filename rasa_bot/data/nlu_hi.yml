@@ -85,6 +85,16 @@ nlu:
     - पैन के बारे में बताएं
     - पैन क्या होता है
     - पैन कार्ड क्या होता है
+    - पैन नंबर क्या है?
+    - पैन का उपयोग किसलिए होता है?
+    - पैन कार्ड किसे कहते हैं?
+    - पैन की परिभाषा बताएं।
+    - पैन का महत्व क्या है?
+    - पैन कब से लागू हुआ?
+    - पैन की जानकारी दीजिए।
+    - पैन क्यों जरूरी है?
+    - पैन की खासियतें क्या हैं?
+    - पैन को यूनिक क्यों कहा जाता है?
 
 - intent: pan_importance_hindi
   examples: |
@@ -93,6 +103,16 @@ nlu:
     - पैन कार्ड क्यों चाहिए
     - पैन का उपयोग
     - पैन किस लिए चाहिए
+    - पैन कार्ड का महत्व क्या है?
+    - पैन किन कामों में जरूरी है?
+    - पैन कार्ड के फायदे क्या हैं?
+    - पैन कहाँ-कहाँ इस्तेमाल होता है?
+    - पैन कार्ड क्यों बनवाना चाहिए?
+    - पैन कब जरूरी हो जाता है?
+    - बिना पैन के कौन से काम नहीं होते?
+    - पैन कार्ड का उपयोग किन जगहों पर अनिवार्य है?
+    - पैन क्यों अनिवार्य है?
+    - पैन कार्ड की आवश्यकता कब पड़ती है?
 
 - intent: pan_who_needs_hindi
   examples: |
@@ -101,6 +121,21 @@ nlu:
     - किसे पैन कार्ड चाहिए
     - पैन कौन ले सकता है
     - क्या मुझे पैन चाहिए
+    - किन लोगों को पैन लेना अनिवार्य है?
+    - पैन कार्ड किनके लिए जरूरी है?
+    - किस उम्र से पैन बन सकता है?
+    - क्या बच्चों को भी पैन चाहिए?
+    - क्या NRI को पैन लेना जरूरी है?
+    - क्या कंपनियों को भी पैन चाहिए?
+    - क्या हर taxpayer को पैन बनवाना पड़ता है?
+    - क्या बैंकों को पैन कार्ड चाहिए होता है?
+    - पैन किन संस्थाओं के लिए अनिवार्य है?
+    - क्या किसान को पैन की जरूरत है?
+    - किसे पैन लेना चाहिए और किसे नहीं?
+    - क्या विदेशी नागरिक पैन ले सकते हैं?
+    - क्या ट्रस्ट या सोसाइटी को पैन जरूरी है?
+    - क्या पैन कार्ड बिना इनकम वाले को भी बन सकता है?
+    - किसे पैन कार्ड के लिए आवेदन करना अनिवार्य है?
 
 - intent: pan_mandatory_hindi
   examples: |
@@ -108,6 +143,18 @@ nlu:
     - क्या पैन अनिवार्य है
     - क्या मुझे पैन लेना चाहिए
     - पैन कब जरूरी होता है
+    - क्या हर भारतीय नागरिक के लिए पैन अनिवार्य है?
+    - क्या टैक्स देने वालों के लिए पैन जरूरी है?
+    - क्या बैंक खाता खोलने के लिए पैन चाहिए?
+    - क्या 18 साल से ऊपर सभी के लिए पैन जरूरी है?
+    - क्या नौकरी करने वालों के लिए पैन लेना अनिवार्य है?
+    - क्या पैन के बिना ITR फाइल हो सकता है?
+    - क्या पैन के बिना संपत्ति खरीदी जा सकती है?
+    - क्या पैन बड़े लेन-देन में अनिवार्य है?
+    - क्या पैन कार्ड सभी लेनदेन में जरूरी है?
+    - क्या बिना पैन के शेयर बाजार में निवेश कर सकते हैं?
+    - क्या पैन बनवाना हर किसी के लिए जरूरी है?
+    - क्या पैन कार्ड सरकार ने सबके लिए अनिवार्य किया है?
 
 - intent: pan_multiple_hindi
   examples: |
@@ -115,6 +162,21 @@ nlu:
     - क्या दो पैन कार्ड रख सकते हैं
     - क्या कई पैन नंबर रख सकते हैं
     - क्या कोई दो पैन रख सकता है
+    - क्या एक व्यक्ति के पास multiple PAN हो सकते हैं?
+    - क्या एक से अधिक PAN रखना कानूनी है?
+    - क्या कंपनी दो PAN ले सकती है?
+    - क्या अलग-अलग काम के लिए अलग PAN मिल सकता है?
+    - क्या NRI दूसरा PAN बना सकता है?
+    - क्या PAN खो जाए तो नया बनवाने पर दो PAN हो जाएंगे?
+    - क्या duplicate PAN बनवाना allowed है?
+    - क्या गलती से दो PAN allot हो सकते हैं?
+    - क्या multiple PAN रखने पर penalty लगती है?
+    - क्या PAN surrender करना पड़ता है अगर duplicate हो जाए?
+    - क्या individual और business के लिए अलग-अलग PAN रखा जा सकता है?
+    - क्या पुराना PAN deactivate कर नया PAN use कर सकते हैं?
+    - क्या joint PAN card बन सकता है?
+    - क्या दो नामों से PAN बनाए जा सकते हैं?
+    - क्या PAN correction कराने पर नया PAN बनता है या वही चलता है?
 
 - intent: pan_apply_process_hindi
   examples: |
@@ -123,6 +185,21 @@ nlu:
     - पैन कार्ड कैसे मिलेगा
     - पैन के लिए क्या करना होगा
     - पैन कार्ड आवेदन
+    - पैन कार्ड बनाने की प्रक्रिया क्या है?
+    - पैन कार्ड कहाँ से बनवाएं?
+    - पैन कार्ड ऑनलाइन कैसे अप्लाई करें?
+    - पैन कार्ड ऑफलाइन कहाँ से मिलेगा?
+    - पैन कार्ड अप्लिकेशन फॉर्म कहाँ मिलता है?
+    - पैन कार्ड कैसे बनवाएं?
+    - पैन कार्ड के लिए कौन सा फॉर्म भरना होता है?
+    - पैन कार्ड आवेदन कहाँ जमा करें?
+    - पैन कार्ड बनवाने के लिए कौन से डॉक्यूमेंट चाहिए?
+    - पैन कार्ड कितने दिनों में बनकर आता है?
+    - पैन कार्ड अप्लाई करने का आसान तरीका क्या है?
+    - पैन कार्ड आवेदन की फीस कितनी है?
+    - क्या पैन कार्ड को Aadhaar से apply कर सकते हैं?
+    - पैन कार्ड अप्लिकेशन की status कैसे चेक करें?
+    - पैन कार्ड allotment का acknowledgement कैसे मिलेगा?
 
 - intent: pan_documents_required_hindi
   examples: |
@@ -130,6 +207,21 @@ nlu:
     - पैन कार्ड के लिए क्या दस्तावेज चाहिए
     - पैन आवेदन के लिए क्या चाहिए
     - पैन कार्ड के लिए क्या पेपर्स चाहिए
+    - पैन कार्ड बनवाने के लिए कौन-कौन से डॉक्यूमेंट लगते हैं?
+    - पैन अप्लिकेशन में कौन से प्रूफ देने होते हैं?
+    - पैन के लिए identity proof क्या मान्य है?
+    - पैन कार्ड के लिए address proof क्या देना होगा?
+    - पैन कार्ड आवेदन में फोटो जरूरी है क्या?
+    - पैन कार्ड के लिए date of birth proof क्या-क्या चलेंगे?
+    - पैन कार्ड के लिए Aadhaar अनिवार्य है क्या?
+    - पैन बनवाने के लिए कौन सा ID card valid है?
+    - क्या पैन आवेदन के लिए राशन कार्ड चलेगा?
+    - क्या पैन कार्ड बनवाने के लिए voter ID देना जरूरी है?
+    - पैन कार्ड बनवाने के लिए documents की list बताइए।
+    - क्या NRI के लिए अलग documents चाहिए?
+    - पैन कार्ड अप्लाई करने में कौन-कौन से original papers दिखाने होते हैं?
+    - minors के PAN application के लिए कौन से documents लगते हैं?
+    - पैन कार्ड आवेदन के लिए क्या self-attested copies जरूरी हैं    
 
 - intent: tan_what_hindi
   examples: |
@@ -138,6 +230,16 @@ nlu:
     - टैन का फुल फॉर्म
     - टैन का मतलब
     - टैन के बारे में बताएं
+    - टैन क्या होता है?
+    - टैन नंबर किसे कहते हैं?
+    - टैन का महत्व क्या है?
+    - टैन क्यों जरूरी है?
+    - टैन कब से लागू है?
+    - टैन की परिभाषा बताइए।
+    - टैन किसे जारी किया जाता है?
+    - टैन किस काम में आता है?
+    - टैन और पैन में क्या अंतर है?
+    - टैन की जानकारी दीजिए।
 
 - intent: tan_who_needs_hindi
   examples: |
@@ -145,6 +247,21 @@ nlu:
     - कौन टैन ले सकता है
     - किसे टैन चाहिए
     - क्या मुझे टैन चाहिए
+    - किन लोगों को टैन लेना अनिवार्य है?
+    - टैन कार्ड किनके लिए जरूरी है?
+    - क्या हर deductor को टैन लेना पड़ता है?
+    - क्या कंपनियों को टैन चाहिए?
+    - क्या सरकारी विभाग को भी टैन लेना होता है?
+    - क्या individuals को भी टैन की जरूरत होती है?
+    - किसे टैन अलॉट किया जाता है?
+    - क्या TDS deduct करने वालों को टैन जरूरी है?
+    - क्या TCS collectors को भी टैन लेना अनिवार्य है?
+    - क्या freelancers को टैन लेना चाहिए?
+    - किस स्थिति में टैन जरूरी हो जाता है?
+    - क्या salary pay करने वाले employer को टैन चाहिए?
+    - क्या partnership firms को टैन लेना अनिवार्य है?
+    - क्या trust या society को टैन चाहिए?
+    - क्या NRI deductor को भी टैन लेना पड़ता है?
 
 - intent: tan_apply_process_hindi
   examples: |
@@ -152,6 +269,21 @@ nlu:
     - टैन आवेदन प्रक्रिया
     - टैन कैसे मिलेगा
     - टैन के लिए क्या करना होगा
+    - टैन कार्ड कैसे बनवाएं?
+    - टैन आवेदन कहाँ करें?
+    - टैन ऑनलाइन कैसे अप्लाई करें?
+    - टैन ऑफलाइन कैसे लिया जा सकता है?
+    - टैन आवेदन फॉर्म कहाँ मिलता है?
+    - टैन के लिए कौन सा फॉर्म भरना पड़ता है?
+    - टैन आवेदन कहाँ जमा करना होगा?
+    - टैन लेने की प्रक्रिया क्या है?
+    - टैन कब और कैसे जारी होता है?
+    - टैन आवेदन करने के लिए कौन-कौन से दस्तावेज चाहिए?
+    - टैन अप्लिकेशन की फीस कितनी है?
+    - टैन अलॉटमेंट का समय कितना लगता है?
+    - टैन acknowledgment कैसे मिलेगा?
+    - टैन application status कैसे चेक करें?
+    - कंपनी या संस्था टैन के लिए कैसे अप्लाई करे?
 
 - intent: general_tax_info_hindi
   examples: |
@@ -160,6 +292,21 @@ nlu:
     - कर के बारे में बताएं
     - कर की जानकारी दें
     - आयकर की जानकारी
+    - टैक्स क्या होता है?
+    - भारत में कितने प्रकार के कर हैं?
+    - डायरेक्ट टैक्स और इनडायरेक्ट टैक्स क्या है?
+    - टैक्स क्यों देना पड़ता है?
+    - कर प्रणाली के बारे में बताइए।
+    - आयकर कब लागू हुआ?
+    - टैक्स किसे देना पड़ता है?
+    - टैक्स जमा करने की प्रक्रिया क्या है?
+    - टैक्स चुकाने के फायदे क्या हैं?
+    - कर और शुल्क में क्या अंतर है?
+    - सरकार कर क्यों वसूलती है?
+    - आयकर स्लैब क्या है?
+    - टैक्स चुकाने की अंतिम तिथि क्या है?
+    - टैक्स किस विभाग के अंतर्गत आता है?
+    - कर निर्धारण (Tax Assessment) क्या होता है?
 
 - intent: general_contact_info_hindi
   examples: |
@@ -168,6 +315,21 @@ nlu:
     - कैसे संपर्क करें
     - फोन नंबर
     - सहायता संपर्क
+    - आयकर विभाग से संपर्क कैसे करें?
+    - टोल-फ्री हेल्पलाइन नंबर क्या है?
+    - कस्टमर केयर नंबर बताइए।
+    - ईमेल से संपर्क कैसे करें?
+    - TAN/PAN हेल्पडेस्क का नंबर क्या है?
+    - कर संबंधी शिकायत कहाँ दर्ज करें?
+    - सहायता के लिए किससे संपर्क करें?
+    - Protean (NSDL) का कॉन्टैक्ट नंबर क्या है?
+    - UTIITSL हेल्पलाइन कैसे मिलेगी?
+    - grievance redressal contact कहाँ मिलेगा?
+    - ऑनलाइन सहायता कैसे प्राप्त करें?
+    - क्या 24x7 हेल्पलाइन उपलब्ध है?
+    - regional आयकर कार्यालय का संपर्क विवरण चाहिए।
+    - हेल्पडेस्क से लाइव चैट कैसे करें?
+    - nearest TIN-FC का address कहाँ से मिलेगा?
 
 - intent: select_callback_assistance_hindi
   examples: |
@@ -180,6 +342,8 @@ nlu:
     - मुझे कॉल करें
     - कॉल शेड्यूल करें
     - कॉलबैक बुक करें
+
+
 
 - intent: select_feedback_assistance_hindi
   examples: |
@@ -255,6 +419,16 @@ nlu:
     - पैन किसके लिए अनिवार्य है
     - कौन लोग पैन ज़रूर लें
     - किसे पैन अनिवार्य रूप से चाहिए
+    - पैन कार्ड किनके लिए ज़रूरी है
+    - पैन कार्ड किसे बनवाना पड़ता है
+    - किस व्यक्ति को पैन कार्ड लेना चाहिए
+    - पैन कार्ड किसे लेना अनिवार्य है
+    - किन लोगों के लिए पैन कार्ड बनवाना जरूरी है
+    - पैन कार्ड किसे ज़रूर बनवाना चाहिए
+    - किस स्थिति में पैन कार्ड लेना ज़रूरी है
+    - किसे पैन कार्ड बनाना चाहिए
+    - पैन कार्ड लेना किन पर लागू होता है
+    - किन्हें पैन कार्ड रखना अनिवार्य है
 
 - intent: pan_where_to_apply_hindi
   examples: |
@@ -263,6 +437,17 @@ nlu:
     - पैन कार्ड कहाँ बनता है
     - पैन के लिए कहाँ अप्लाई करें
     - पैन के आवेदन का स्थान
+    -  पैन कार्ड कहाँ से बनवाएँ
+    -  पैन कार्ड के लिए आवेदन कहाँ किया जाता है
+    -  पैन कार्ड कहाँ अप्लाई होता है
+    -  पैन कार्ड बनवाने की जगह कहाँ है
+    -  पैन कार्ड कहाँ से बनता है
+    -  पैन कार्ड कहाँ से अप्लाई करें
+    -  पैन कार्ड बनाने के लिए कहाँ जाना होगा
+    -  पैन कार्ड के लिए कहाँ से आवेदन करें
+    -  पैन कार्ड कहाँ पर बनवाया जा सकता है
+    -  पैन कार्ड कहाँ से बनवाना चाहिए
+
 
 - intent: pan_how_to_find_center_hindi
   examples: |
@@ -271,6 +456,16 @@ nlu:
     - IT PAN Service Center कहाँ है
     - पैन सेंटर लोकेशन कैसे मिले
     - नज़दीकी पैन केंद्र कैसे ढूंढे
+    - पैन कार्ड बनवाने का केंद्र कैसे खोजें
+    - नजदीकी पैन सेवा केंद्र कहाँ मिलेगा
+    - पैन कार्ड केंद्र का पता कैसे पता करें
+    - पैन कार्ड ऑफिस कहाँ ढूँढें
+    - पास का पैन कार्ड केंद्र कैसे पता चलेगा
+    - पैन सेवा केंद्र कैसे खोजा जाए
+    - पैन कार्ड बनाने का नजदीकी सेंटर कहाँ है
+    - पैन केंद्र का लोकेशन कैसे पता करें
+    - पैन कार्ड सुविधा केंद्र कहाँ मिलेगा
+    - पैन कार्ड के लिए सर्विस सेंटर कैसे ढूँढें
 
 - intent: pan_services_at_center_hindi
   examples: |
@@ -279,6 +474,18 @@ nlu:
     - पैन सेंटर क्या करता है
     - PAN service center services
     - पैन आवेदन में सेंटर क्या मदद करता है
+    - पैन सेवा केंद्र पर कौन-कौन सी सुविधाएँ मिलती हैं
+    - पैन कार्ड सेंटर से क्या काम हो सकते हैं
+    - पैन कार्ड केंद्र पर कौन सी मदद मिलती है
+    - पैन सर्विस सेंटर किस काम के लिए होता है
+    - पैन कार्ड सेवा केंद्र से कौन सी सुविधा मिलती है
+    - पैन आवेदन में केंद्र क्या सुविधा देता है
+    - पैन कार्ड सेंटर पर कौन से कार्य किए जाते हैं
+    - पैन सेवा केंद्र किन सेवाओं के लिए उपयोगी है
+    - पैन केंद्र पर क्या-क्या कार्य हो सकते हैं
+    - पैन कार्ड सेवा केंद्र क्या सुविधा प्रदान करता है
+    - पैन कार्ड सेंटर पर कौन सी प्रोसेस पूरी की जा सकती है
+    - पैन सेवा केंद्र में क्या काम करवाए जा सकते हैं
 
 - intent: pan_how_to_apply_plain_paper_hindi
   examples: |
@@ -287,6 +494,18 @@ nlu:
     - पैन फार्म कौन सा भरें
     - Form 49A 49AA कहाँ से मिले
     - पैन अप्लाई करने की प्रक्रिया
+    - पैन कार्ड बनाने के लिए कैसे अप्लाई करें
+    - क्या पैन कार्ड का आवेदन साधारण पेपर पर किया जा सकता है
+    - पैन आवेदन की प्रक्रिया क्या है
+    - पैन कार्ड के लिए कौन सा फॉर्म भरना पड़ता है
+    - पैन कार्ड का फॉर्म कहाँ से डाउनलोड करें
+    - पैन कार्ड अप्लाई करने का तरीका क्या है
+    - पैन कार्ड बनाने के लिए क्या प्रक्रिया है
+    - पैन आवेदन कैसे जमा करें
+    - पैन कार्ड आवेदन फॉर्म कहाँ मिलेगा
+    - क्या बिना फॉर्म के पैन कार्ड के लिए आवेदन हो सकता है
+    - पैन कार्ड के लिए कौन-कौन से फॉर्म उपलब्ध हैं
+    - पैन आवेदन फॉर्म कैसे भरें
 
 - intent: pan_ao_code_hindi
   examples: |
@@ -295,6 +514,26 @@ nlu:
     - AO code क्या होता है
     - AO code के बिना आवेदन चलेगा क्या
     - असेसिंग ऑफिसर कोड किससे पता करें
+    - AO code?
+    - AO code kya h
+    - AO code ka matlab
+    - AO code kahan milega
+    - AO code kidhar se check kare
+    - AO code kaise dhunde
+    - AO code kaha likhna h
+    - AO code ke bina chalega kya
+    - AO code compulsory h kya
+    - AO code kaise bharna hai PAN me
+    - AO code ka detail batao
+    - AO code kaise find kare online
+    - PAN AO code kahan se mile
+    - PAN ke liye AO code kaise lena h
+    - AO code ki info kaha se milegi
+    - AO code search karna h
+    - AO code kaun batata h
+    - AO code ki requirement kyu hai
+    - AO code kaise pata chalega PAN form me
+    - AO code kya fill karna zaroori h
 
 - intent: pan_photo_required_hindi
   examples: |
@@ -302,6 +541,21 @@ nlu:
     - पैन आवेदन में फोटो जरूरी है क्या
     - PAN photo requirement
     - फोटो किसके लिए जरूरी है पैन में
+    - PAN me photo chahiye kya
+    - PAN card ke liye photo mandatory h kya
+    - PAN ke form me photo lagana padega kya
+    - PAN card photo requirement kya h
+    - PAN ke liye kitne photo lagenge
+    - PAN application me photo dena zaroori hai kya
+    - PAN me photo compulsory hai kya
+    - PAN banwane ke liye photo jaruri h kya
+    - PAN photo ke bina ban sakta hai kya
+    - PAN me photo kyu chahiye
+    - PAN card form me photo ka size kya hona chahiye
+    - PAN ke liye applicant ki photo lagegi kya
+    - PAN card me photo lagani hoti h kya
+    - PAN application photo specifications kya h
+    - PAN photo ka format kya hai
 
 - intent: pan_cannot_sign_hindi
   examples: |
@@ -309,6 +563,21 @@ nlu:
     - बिना सिग्नेचर पैन आवेदन कैसे करें
     - thumb impression पैन में कैसे लगेगा
     - पैन में अंगूठा निशान कैसे देंगे
+    - अगर कोई हस्ताक्षर नहीं कर सकता तो पैन कार्ड कैसे बनेगा
+    - बिना हस्ताक्षर पैन कार्ड बनवाने की प्रक्रिया क्या है
+    - पैन कार्ड में अंगूठे का निशान कैसे दिया जाता है
+    - क्या पैन आवेदन में केवल अंगूठा लगाया जा सकता है
+    - हस्ताक्षर न करने वालों के लिए पैन कार्ड का नियम क्या है
+    - अगर मैं साइन नहीं कर सकता तो पैन कार्ड कैसे मिलेगा
+    - पैन फॉर्म में सिग्नेचर की जगह अंगूठा चलेगा क्या
+    - बिना सिग्नेचर पैन कार्ड बन पाएगा क्या
+    - पैन आवेदन में अंगूठे का निशान कहाँ लगाना होता है
+    - अपंग व्यक्ति के लिए पैन कार्ड कैसे अप्लाई करें
+    - क्या पैन कार्ड के लिए अंगूठे का निशान मान्य है
+    - हस्ताक्षर न होने पर पैन कार्ड की प्रक्रिया क्या होगी
+    - पैन फॉर्म में दाएँ हाथ का अंगूठा लगाना है या बाएँ का
+    - अगर साइन नहीं होता तो क्या केवल thumb impression से पैन बन जाएगा
+    - पैन कार्ड आवेदन बिना सिग्नेचर कैसे स्वीकार होग   - 
 
 - intent: pan_fathers_name_female_hindi
   examples: |
@@ -316,6 +585,14 @@ nlu:
     - married महिला को पिता का नाम देना होगा क्या
     - पैन में पिता का नाम जरूरी है क्या
     - महिला applicants father name
+    - पैन फॉर्म में father name लिखना ज़रूरी है क्या
+    - महिला applicants को पिता का नाम देना होगा क्या
+    - पैन कार्ड में पिता का नाम compulsory है क्या
+    - married महिला applicants को father name देना होगा क्या
+    - पैन आवेदन में father name / पिता का नाम भरना अनिवार्य है क्या
+    - क्या सभी applicants को पैन फॉर्म में पिता का नाम लिखना पड़ता है
+    - पैन कार्ड के लिए father name देना जरूरी है क्या
+    - महिला आवेदक (applicants) को पिता का नाम देना पड़ेगा क्या
 
 - intent: pan_who_can_apply_on_behalf_hindi
   examples: |
@@ -323,6 +600,21 @@ nlu:
     - representative assessee कौन होता है
     - court of wards के लिए पैन कौन भरेगा
     - धारा 160 के अंतर्गत कौन आवेदन करेगा
+    - नाबालिग की तरफ से पैन आवेदन कौन करेगा
+    - अगर applicant नाबालिग है तो पैन कौन भर सकता है
+    - mentally incapacitated व्यक्ति के लिए पैन कौन अप्लाई करेगा
+    - गैर निवासी की ओर से पैन कार्ड कौन बनवाएगा
+    - representative assessee पैन आवेदन कैसे करता है
+    - court appointed guardian पैन कार्ड के लिए apply कर सकता है क्या
+    - धारा 160 के हिसाब से पैन किसे भरना चाहिए
+    - minor के PAN के लिए parent apply कर सकता है क्या
+    - अगर व्यक्ति खुद पैन आवेदन नहीं कर सकता तो उसकी जगह कौन कर सकता है
+    - ward of court के लिए पैन आवेदन कौन सबमिट करेगा
+    - representative assessee की जिम्मेदारी पैन में क्या होती है
+    - guardian या parent पैन बना सकते हैं क्या
+    - किसी और की तरफ से पैन कार्ड के लिए आवेदन कैसे करें
+    - non-resident के behalf पर PAN application कौन करेगा
+    - पैन आवेदन में representative assessee का role क्या ह   - 
 
 - intent: pan_charges_hindi
   examples: |
@@ -330,13 +622,43 @@ nlu:
     - पैन की फीस कितनी है
     - PAN charges UTIITSL
     - बाहर भेजने पर अतिरिक्त शुल्क कितना है
+    - पैन कार्ड बनवाने का खर्चा कितना है
+    - पैन के लिए कितनी फीस लगेगी
+    - पैन कार्ड शुल्क की जानकारी दें
+    - पैन कार्ड बनाने का चार्ज कितना है
+    - पैन कार्ड की official fees कितनी है
+    - पैन आवेदन शुल्क कितना भरना पड़ता है
+    - पैन कार्ड की price कितनी है
+    - पैन कार्ड बनाने की cost क्या है
+    - विदेश भेजने पर पैन कार्ड का extra charge कितना है
+    - पैन कार्ड के लिए total charges कितने लगेंगे
+    - पैन कार्ड apply करने की government fees क्या है
+    - पैन कार्ड शुल्क online और offline अलग-अलग है क्या
+    - पैन की application fees कितनी fixed है
+    - पैन कार्ड के लिए payment कितना करना होता है
+    - UTIITSL पर पैन कार्ड का charge कितना है
+    - NSDL पैन application charges क्या हैं
 
 - intent: pan_move_city_hindi
   examples: |
     - शहर बदलने पर क्या नया पैन लेना होगा
     - ट्रांसफर होने पर पैन बदलता है क्या
     - address बदलने पर पैन बदलना पड़ेगा क्या
-    - AO बदलने पर क्या करना है
+    - AO बदलने पर क्या करना है   
+    - नई सिटी में shift होने पर क्या पैन कार्ड बदलना पड़ेगा
+    - transfer होने पर पैन card का process क्या है
+    - शहर बदलने पर नया पैन बनवाना पड़ेगा क्या
+    - अगर पता बदल जाए तो पैन कार्ड में क्या बदलाव करना होगा
+    - दूसरे शहर जाने पर AO code बदलना पड़ेगा क्या
+    - address update करने के लिए नया PAN बनवाना पड़ेगा क्या
+    - move hone par PAN change karna hoga kya
+    - नई जगह पर जाने से पैन नंबर बदलता है क्या
+    - पैन कार्ड address बदलवाने की प्रक्रिया क्या है
+    - अगर AO बदल जाए तो PAN card पर क्या असर होगा
+    - relocation होने पर PAN फिर से बनवाना पड़ेगा क्या
+    - शहर बदलने के बाद PAN card वही रहेगा या नया लेना होगा
+    - PAN move to new city pe update karna hai kya
+    - address shift होने पर PAN application दोबारा करना पड़ेगा क्या
 
 - intent: pan_multiple_pans_hindi
   examples: |
@@ -344,6 +666,22 @@ nlu:
     - multiple PAN रखना कानूनी है क्या
     - दो पैन कार्ड बनवा सकते हैं क्या
     - more than one PAN allowed?
+    - क्या किसी के पास दो PAN हो सकते हैं
+    - एक आदमी के लिए multiple PAN valid है क्या
+    - क्या more than one PAN रखना जुर्म है
+    - किसी व्यक्ति को एक से ज़्यादा PAN लेना चाहिए क्या
+    - दो पैन कार्ड बनाना लीगल है या नहीं
+    - PAN duplicate बनवा सकते हैं क्या
+    - क्या एक ही नाम पर multiple PAN issue होंगे
+    - more than one PAN रखना allow है क्या
+    - क्या किसी को गलती से दो PAN मिल सकते हैं
+    - multiple PAN रखने पर penalty लगती है क्या
+    - एक इंसान के पास कितने PAN हो सकते हैं
+    - क्या law के हिसाब से second PAN रखना गलत है
+    - दो PAN cards एक ही व्यक्ति के नाम से बन सकते हैं क्या
+    - multiple PAN रखना punishable offence है क्या
+    - क्या एक citizen के लिए only one PAN allowed है
+
 
 - intent: pan_existing_valid_hindi
   examples: |
@@ -351,6 +689,22 @@ nlu:
     - पुराने पैन कार्ड वैलिड हैं क्या
     - पहले से allotted PAN valid है क्या
     - दोबारा आवेदन करना होगा क्या
+    - पहले से बना हुआ पैन कार्ड अभी भी चलेगा क्या
+    - existing PAN card valid है क्या
+    - पुराने PAN cards इस्तेमाल किए जा सकते हैं क्या
+    - क्या allotted PAN अभी भी मान्य है
+    - पहले से जो PAN है, उसे बदलना पड़ेगा क्या
+    - क्या पुराने पैन कार्ड रद्द हो जाएंगे
+    - already issued PAN valid है या नहीं
+    - क्या पुराने PAN अब भी use कर सकते हैं
+    - existing PAN cancel तो नहीं होगा
+    - पहले से allotted PAN को फिर से बनवाना पड़ेगा क्या
+    - क्या पुराने PAN को जारी रखा जाएगा
+    - already allotted PAN को valid माना जाएगा क्या
+    - existing PAN अभी भी काम करेगा क्या
+    - क्या नए नियमों में पुराने PAN चलेंगे
+    - क्या पहले से बना PAN automatically valid है
+
 
 - intent: pan_get_new_tamper_proof_hindi
   examples: |
@@ -358,13 +712,44 @@ nlu:
     - tamper proof PAN कैसे मिलेगा
     - नया PAN कार्ड पाने की प्रक्रिया CSF
     - पुराने पैन से नया कार्ड कैसे लें
+    - क्या पुराने PAN को बदलकर नया टैंपर प्रूफ कार्ड मिल सकता है
+    - नया tamper proof PAN card लेने की process क्या है
+    - पुराने PAN holders को नया कार्ड मिलेगा क्या
+    - मेरे पास पहले से PAN है, नया कार्ड कैसे बनवाऊँ
+    - tamper proof PAN card apply करने का तरीका क्या है
+    - क्या existing PAN से नया tamper proof card issue होगा
+    - नया PAN card बनवाने के लिए कौन सा form भरना है
+    - tamper proof PAN कहाँ से मिलेगा
+    - पुराने पैन कार्ड को बदलकर नया card लेना जरूरी है क्या
+    - क्या duplicate PAN के बजाय नया tamper proof card बन सकता है
+    - नया tamper proof PAN banwane ki process kya hai
+    - PAN correction form भरने से नया card मिलेगा क्या
+    - क्या हर applicant को नया tamper proof PAN लेना होगा
+    - पुराने PAN के बदले updated tamper proof card कैसे लें
+    - नया secure PAN card apply करने का process बताइ    - 
 
 - intent: pan_when_submit_change_form_hindi
   examples: |
     - Request for New PAN Card or/and Changes form कब जमा करें
     - PAN correction form कब भरें
     - नए कार्ड या सुधार के लिए फॉर्म कब देना है
-    - PAN data correction cases
+    - PAN data correction cases  
+    - PAN details बदलने हों तो form कब देना चाहिए
+    - correction form भरने का सही समय कब है
+    - PAN में गलती होने पर नया form कब जमा करें
+    - address change होने पर PAN form कब भरना होगा
+    - नाम में सुधार के लिए PAN correction form कब submit करें
+    - PAN में गलत जानकारी हो तो correction form कब देना है
+    - नया PAN कार्ड चाहिए तो form कब जमा करना होगा
+    - PAN correction form भरने की ज़रूरत कब पड़ती है
+    - डेटा बदलने के लिए PAN form कब देना होगा
+    - PAN update form कब भरना चाहिए
+    - Request for changes form किस situation में submit करना है
+    - PAN card सुधार के लिए application form कब देना होगा
+    - PAN correction / reissue form कब apply करना चाहिए
+    - PAN record बदलने का form कब देना है
+    - कब PAN correction form भरना आवश्यक है
+
 
 - intent: pan_applied_not_received_hindi
   examples: |
@@ -372,6 +757,21 @@ nlu:
     - 29.5.2003 से पहले आवेदन किया था पैन नहीं आया
     - applied for PAN but no communication
     - पुराने आवेदन का क्या करना है
+    - पैन के लिए apply किया था लेकिन अभी तक नहीं मिला, क्या करें
+    - आवेदन किए हुए काफी समय हो गया, पैन कार्ड नहीं आया
+    - PAN apply kiya but abhi tak receive nahi hua
+    - पुराने PAN application का status कैसे check करें
+    - पैन कार्ड के लिए आवेदन किया था, कोई जवाब नहीं मिला
+    - PAN apply karne ke baad card deliver nahi hua, kya karna chahiye
+    - बहुत पहले पैन के लिए आवेदन किया था, अभी तक कार्ड नहीं आया
+    - PAN application दिया था पर communication नहीं आया
+    - अगर पैन कार्ड नहीं पहुंचे तो next step क्या है
+    - applied for PAN long back, still not received
+    - पुराने आवेदन से पैन कब तक मिलेगा
+    - पैन कार्ड नहीं आने पर किससे संपर्क करें
+    - पैन के लिए आवेदन किया था पर allotment letter नहीं मिला
+    - application diya but PAN allot nahi hua
+    - पैन कार्ड की डिलीवरी नहीं हुई तो क्या करना होगा
 
 - intent: pan_card_delivery_hindi
   examples: |
@@ -379,6 +779,21 @@ nlu:
     - PAN card मुझे कैसे भेजा जाएगा
     - कार्ड डिलीवरी प्रक्रिया
     - Form 49A वाले पते पर डिलीवरी
+    - पैन कार्ड घर पर कैसे पहुंचेगा
+    - PAN card किस address पर भेजा जाएगा
+    - नया PAN किस तरह deliver होता है
+    - PAN card speed post से आएगा या courier से
+    - कार्ड किसे receive करना होगा
+    - PAN card delivery process क्या है
+    - PAN card भेजने का तरीका क्या है
+    - PAN card किस पते पर deliver होगा
+    - PAN card पोस्ट से मिलेगा या खुद collect करना पड़ेगा
+    - PAN card किस समय तक deliver होता है
+    - पैन कार्ड की डिलीवरी कौन करेगा
+    - Form 49A में दिया गया पता ही delivery address होगा क्या
+    - PAN card किसे handover किया जाएगा
+    - PAN card घर तक आएगा या office में मिलेगा
+    - PAN card dispatch होने के बाद कैसे track करें
 
 - intent: pan_third_party_verification_hindi
   examples: |
@@ -386,6 +801,21 @@ nlu:
     - पैन आवेदन की पहचान और पते का सत्यापन कैसे होता है
     - agent verification PAN
     - authorized letter ID card दिखाना
+    - पैन कार्ड में third party verification कैसे होता है
+    - क्या पैन आवेदन में एजेंट ID चेक करता है
+    - PAN application verification process क्या है
+    - पैन कार्ड बनवाने में third party की भूमिका क्या है
+    - UTIITSL verification procedure क्या है
+    - पैन आवेदन के लिए पहचान और पते का सत्यापन कौन करता है
+    - agent ke through PAN verify hota hai kya
+    - क्या पैन verification के लिए authorized letter देना पड़ता है
+    - पैन कार्ड verification के लिए कौन-कौन से डॉक्युमेंट चाहिए
+    - third party PAN verification valid है क्या
+    - पैन कार्ड apply करने पर field verification होता है क्या
+    - PAN verification agent ID card दिखाता है क्या
+    - पैन आवेदन की third party जांच कब होती है
+    - पैन कार्ड verification घर आकर भी किया जाता है क्या
+    - क्या बिना verification के PAN allot होग   - 
 
 - intent: pan_enquiry_contact_hindi
   examples: |
@@ -393,6 +823,21 @@ nlu:
     - PAN enquiry कहाँ करें
     - आवेदन संख्या और कूपन से पूछताछ
     - किस केंद्र पर आवेदन किया था पूछताछ
+    - पैन से जुड़ी enquiry कहाँ की जा सकती है
+    - PAN application status पूछने के लिए किससे संपर्क करें
+    - पैन कार्ड की जानकारी के लिए helpline number क्या है
+    - PAN enquiry center कहाँ है
+    - आवेदन की स्थिति जानने के लिए कहाँ call करें
+    - पैन से संबंधित शिकायत कहाँ दर्ज करें
+    - coupon number से PAN enquiry कैसे करें
+    - पैन आवेदन से जुड़ा सवाल किसे पूछें
+    - PAN enquiry किस office में होगी
+    - पैन कार्ड पूछताछ के लिए toll free number क्या है
+    - PAN status enquiry कहाँ से करें
+    - आवेदन संख्या डालकर पैन enquiry कैसे करें
+    - पैन की जानकारी customer care से मिलेगी क्या
+    - पैन application की detail जानने के लिए किससे बात करें
+    - PAN enquiry के लिए किस office में जाना होगा
 
 # TAN QUESTIONS
 
@@ -411,6 +856,18 @@ nlu:
     - क्या 194IA/194IB/194M में PAN TAN की जगह चलेगा?
     - क्या TCS करने वालों को भी TAN चाहिए?
     - TAN कब अनिवार्य होता है?
+    - TAN लेना किनके लिए जरूरी है?
+    - कौन-कौन से deductor को TAN लेना होता है?
+    - क्या employer को TAN लेना चाहिए?
+    - TAN किस प्रकार के लोगों पर लागू होता है?
+    - क्या हर company को TAN की जरूरत होती है?
+    - individuals को कब TAN लेना पड़ता है?
+    - क्या केवल deductor को TAN चाहिए या collector को भी?
+    - salary पर TDS deduct करने वाले को TAN लेना होगा क्या?
+    - क्या tenant को TDS काटने पर TAN लेना होगा?
+    - TAN की requirement किन situations में होती है?
+    - क्या partnership firm को TAN लेना जरूरी है?
+    - government deductor को भी TAN चाहिए क्या    - 
 
 - intent: tan_know_tan_details_portal_login
   examples: |
@@ -424,6 +881,13 @@ nlu:
       - Know TAN Details के लिए साइन इन जरूरी है?
       - क्या रजिस्टर्ड और अनरजिस्टर्ड दोनों यूज़र यह सेवा ले सकते हैं?
       - Know TAN Details कहाँ क्लिक करें?
+      - क्या TAN details देखने के लिए पहले लॉगिन करना पड़ेगा?
+      - Know TAN Details लेने के लिए user ID password चाहिए क्या?
+      - बिना अकाउंट बनाए TAN details मिल सकती हैं क्या?
+      - e-Filing portal पर TAN details कैसे चेक करें?
+      - क्या guest user भी Know TAN Details access कर सकता है?
+      - TAN details जानने के लिए e-Filing पर sign up जरूरी है क्या?
+      - Know TAN Details option login के बाद available होता है क्या?
 
 - intent: tan_use_of_deductor_tan_details
   examples: |
@@ -437,6 +901,16 @@ nlu:
       - TDS के लिए TAN क्यों जरूरी है?
       - TAN details किस काम आती हैं?
       - TAN से TDS सत्यापन कैसे करें?
+      - TAN details check करने का फायदा क्या है?
+      - TAN number verify करना क्यों जरूरी है?
+      - क्या TAN details TDS certificate में दिखनी चाहिए?
+      - Form 26AS में TAN से matching क्यों करनी चाहिए?
+      - क्या deductor TAN details गलत होने पर ITR reject हो सकता है?
+      - TAN का सही उपयोग कहाँ-कहाँ होता है?
+      - TAN से deductor की पहचान कैसे confirm करें?
+      - क्या TDS credit check करने के लिए TAN जरूरी है?
+      - ITR filing में TAN details का क्या महत्व है?
+      - TAN verify करने से tax records accurate रहते हैं क्या?
 
 - intent: tan_employer_no_tan
   examples: |
@@ -463,6 +937,16 @@ nlu:
       - मल्टीपल DDO हों तो क्या करें?
       - विभाग/ब्रांच के नाम कैसे लिखें TAN आवेदन में?
       - DDOs के लिए TAN नियम क्या हैं?
+      - क्या हर सरकारी deductor को TAN लेना जरूरी है?
+      - गवर्नमेंट department के लिए TAN compulsory है क्या?
+      - क्या राज्य सरकार के deductors को भी TAN चाहिए?
+      - क्या एक ही विभाग के अलग-अलग DDO को अलग TAN लेना होगा?
+      - Government deductors के लिए TAN का नियम क्या है?
+      - क्या central government offices को भी TAN चाहिए?
+      - अगर department में multiple DDO हैं तो TAN कैसे allot होगा?
+      - क्या government deductor बिना TAN के TDS कर सकता है?
+      - DDOs को TAN लेने की प्रक्रिया क्या है?
+      - TAN application में government branch का नाम कैसे देना है?
 
 - intent: tan_separate_for_tcs
   examples: |
@@ -476,6 +960,16 @@ nlu:
       - TCS सर्टिफिकेट में TAN कैसे दें?
       - TCS के लिए सेपरेट TAN जरूरी है?
       - TCS दस्तावेज़ों में TAN कोटिंग नियम?
+      - क्या TCS collectors को नया TAN लेना पड़ेगा?
+      - TDS और TCS के लिए TAN अलग-अलग होता है क्या?
+      - क्या existing TAN TCS के लिए use कर सकते हैं?
+      - TCS return file करने के लिए TAN जरूरी है क्या?
+      - TCS के documents में कौन सा TAN लिखना है?
+      - क्या TCS के लिए नया TAN allot होता है?
+      - TCS के चालान में TAN अलग देना होगा क्या?
+      - क्या TCS purpose के लिए separate TAN compulsory है?
+      - TCS certificate issue करने में TAN quoting कैसे करें?
+      - TCS के लिए अलग से registration करवाना होगा क्या      - 
 
 - intent: tan_why_necessary
   examples: |
@@ -489,6 +983,21 @@ nlu:
       - TAN allotment की कानूनी आवश्यकता क्या है?
       - TAN का कानूनी आधार क्या है?
       - TAN न कोट करने पर क्या होता है?
+      - TAN नंबर की ज़रूरत क्यों पड़ती है?
+      - क्या TAN सिर्फ TDS/TCS deductors के लिए ही जरूरी है?
+      - TAN न होने पर TDS कैसे जमा होगा?
+      - TAN का उपयोग कहाँ-कहाँ करना अनिवार्य है?
+      - क्या बिना TAN के TDS return file हो सकता है?
+      - TAN की legal requirement क्या है?
+      - TAN न लेने पर क्या consequences होंगे?
+      - क्या TAN हर deduction certificate में लिखना पड़ता है?
+      - TAN क्यों issue किया जाता है?
+      - TAN का महत्व क्या है?
+      - TAN allotment rule under Income Tax Act क्या कहता है?
+      - PAN की जगह TAN चल सकता है क्या?
+      - TAN mandatory न होने पर क्या penalty लगेगी?
+      - क्या TAN को हर TDS/TCS document में mention करना होता है?
+      - TAN की जरूरत किसलिए होती है?
 
 - intent: tan_how_to_apply
   examples: |
@@ -502,6 +1011,21 @@ nlu:
       - TIN FC का पता कहाँ मिलेगा?
       - Companies Act में TAN आवेदन कैसे होता है?
       - TAN आवेदन के मोड्स क्या हैं?
+      - TAN नंबर के लिए कौन सा फॉर्म भरना पड़ता है?
+      - TAN आवेदन की फीस कितनी है?
+      - क्या TAN आवेदन NSDL पोर्टल से किया जा सकता है?
+      - TAN के लिए कौन-कौन से दस्तावेज़ चाहिए?
+      - TAN अलॉटमेंट का आवेदन कौन कर सकता है?
+      - TAN आवेदन का acknowledgement कैसे डाउनलोड करें?
+      - TAN के लिए आवेदन भरने के बाद स्टेटस कैसे चेक करें?
+      - क्या TAN ऑनलाइन आवेदन बिना DSC के किया जा सकता है?
+      - UTIITSL से TAN कैसे अप्लाई करें?
+      - TAN allotment application का ट्रैक कैसे करें?
+      - TAN आवेदन ऑफलाइन करने के लिए फॉर्म कहाँ जमा करना होता है?
+      - क्या नए कंपनी रजिस्ट्रेशन के साथ TAN ऑटोमेटिक बनता है?
+      - TAN के लिए आवेदन करने की अंतिम तिथि कब होती है?
+      - TAN आवेदन करते समय AO Code कहाँ से मिलेगा?
+      - TAN आवेदन करने के बाद कितने दिन में नंबर मिलता है?
 
 - intent: tan_allotment_authority
   examples: |
@@ -515,6 +1039,22 @@ nlu:
       - TAN allotment प्रक्रिया किसकी है?
       - TAN किस आधार पर अलॉट होता है?
       - TAN अलॉटमेंट की जिम्मेदारी किसकी है?
+      - TAN allotment authority कौन है?
+      - TAN किस संगठन द्वारा जारी किया जाता है?
+      - क्या NSDL TAN allotment करता है?
+      - TAN allotment का अधिकार किसके पास है?
+      - क्या UTIITSL TAN allotment करता है या सिर्फ आवेदन लेता है?
+      - TAN allotment की official authority कौन सी है?
+      - TAN issue करने की प्रक्रिया कौन संभालता है?
+      - TAN allotment notification किससे आता है?
+      - TAN allotment किस section of Income Tax Act के तहत होता है?
+      - TAN allotment certificate किस प्राधिकरण से जारी होता है?
+      - TAN allotment AO code किस authority से मिलता है?
+      - TAN allotment Central Board of Direct Taxes (CBDT) करता है या कोई और?
+      - TAN allotment में Protean का क्या रोल है?
+      - TAN allotment की legal authority कौन सी है?
+      - TAN किस department के under allot होता है?
+
 
 - intent: tan_application_basics
   examples: |
@@ -528,6 +1068,23 @@ nlu:
       - पुराने TAN की जानकारी कैसे मिलेगी?
       - Know Your TAN से TAN कैसे पता करें?
       - TAN आवेदन की स्थिति कैसे चेक करें?
+      - क्या एक व्यक्ति के पास एक से ज़्यादा TAN हो सकता है?
+      - TAN आवेदन में पेन (PAN) देना ज़रूरी है क्या?
+      - Form 49B हाथ से भर सकते हैं या सिर्फ ऑनलाइन?
+      - TAN application reject होने के कारण क्या हो सकते हैं?
+      - TAN correction और नया TAN आवेदन में क्या फर्क है?
+      - TAN application में AO code कहाँ से मिलेगा?
+      - TAN application में नाम और पता कैसे भरें?
+      - क्या TAN application में फोटो देना पड़ता है?
+      - TAN application में कितने characters का code बनता है?
+      - TAN application submit करने के बाद कितना समय लगता है allotment में?
+      - TAN application को कैसे modify या cancel करें?
+      - TAN application में गलत detail भर दी तो क्या होगा?
+      - TAN acknowledgment number का use कहाँ होता है?
+      - TAN application के साथ demand draft भेजना ज़रूरी है क्या?
+      - TAN application fees online कैसे pay करें?
+
+
 
 - intent: tan_same_tan_all_payments
   examples: |
@@ -541,6 +1098,19 @@ nlu:
       - क्या एक TAN से TDS और TCS दोनों हो सकते हैं?
       - क्या हर पेमेंट टाइप पर नया TAN चाहिए?
       - क्या वही TAN सभी रिटर्न/चालान/सर्टिफिकेट में दें?
+      - क्या अलग-अलग branches के लिए अलग TAN लेना ज़रूरी है?
+      - क्या same TAN से salary और contractor payment दोनों deduct कर सकते हैं?
+      - क्या company और branch office का TAN अलग होना चाहिए?
+      - क्या एक TAN से government payments और non-government payments दोनों cover होते हैं?
+      - क्या एक ही TAN से TDS on rent और TDS on professional fees deduct कर सकते हैं?
+      - क्या हर business vertical के लिए नया TAN apply करना पड़ेगा?
+      - क्या multiple locations के लिए separate TAN जरूरी है?
+      - क्या एक TAN से सभी quarterly TDS returns file हो जाते हैं?
+      - क्या same TAN से challans और certificates issue कर सकते हैं?
+      - क्या एक ही TAN से PAN वाले और बिना PAN वाले deductees दोनों को handle कर सकते हैं?
+      - क्या एक TAN से residents और non-residents payments दोनों cover होंगे?
+      - क्या अलग-अलग nature of payment (जैसे interest, commission, brokerage) के लिए different TAN चाहिए?
+      - क्या एक organization के लिए सिर्फ एक TAN ही sufficient है?
 
 - intent: tan_branches_and_ddo
   examples: |
@@ -554,6 +1124,21 @@ nlu:
       - विभाग/शाखा विवरण TAN आवेदन में कैसे लिखें?
       - क्या डिवीज़न अलग TAN ले सकते हैं?
       - सरकारी DDO के TAN नियम क्या हैं?
+      - क्या head office और branch office का TAN अलग होना चाहिए?
+      - क्या एक company group की अलग subsidiaries को अलग TAN मिलेगा?
+      - क्या government offices के हर DDO के लिए unique TAN जरूरी है?
+      - क्या एक branch दूसरे branch का TAN use कर सकती है?
+      - क्या DDO wise अलग-अलग TAN issue होते हैं?
+      - क्या educational institutions की अलग units के लिए अलग TAN लेना पड़ेगा?
+      - क्या PSU की हर branch को अलग TAN लेना चाहिए?
+      - क्या एक ministry के multiple DDOs को separate TAN allot होता है?
+      - क्या bank branch level पर TAN compulsory है?
+      - क्या departmental units के लिए common TAN चलता है?
+      - क्या cooperative society branches को अलग TAN चाहिए?
+      - क्या DDO change होने पर नया TAN लेना पड़ता है?
+      - क्या एक organization के सभी branches एक ही TAN से काम कर सकते हैं?
+      - क्या state government के हर treasury office को TAN लेना होगा?
+      - क्या DDO-wise TAN details TDS return में mandatory हैं?
 
 - intent: tan_etds_without_tan
   examples: |
@@ -567,6 +1152,21 @@ nlu:
       - क्या TAN के बिना TCS रिटर्न फाइल हो सकती है?
       - e-TDS में PAN से काम चल जाएगा?
       - e-filing में TAN के बिना submission होगा?
+      - क्या TRACES portal पर TAN के बिना login किया जा सकता है?
+      - e-TDS return upload करते समय TAN mandatory field है क्या?
+      - क्या Form 24Q/26Q बिना TAN के accept होते हैं?
+      - अगर TAN allot नहीं हुआ तो क्या provisional filing कर सकते हैं?
+      - क्या TCS quarterly return बिना TAN के file हो सकती है?
+      - क्या correction statement TAN के बिना possible है?
+      - क्या PAN से e-TDS return submit किया जा सकता है?
+      - TAN invalid हो तो return accept होगी?
+      - क्या deductor का TAN quote करना हर return में जरूरी है?
+      - क्या NSDL RPU software TAN missing होने पर file generate करेगा?
+      - क्या e-TDS statement acknowledgment TAN के बिना generate होता है?
+      - TAN cancel हो जाए तो क्या return file होगी?
+      - क्या duplicate TAN होने पर e-TDS filing reject होगी?
+      - TAN गलत quote करने पर e-TDS return valid रहेगी?
+      - क्या first-time filer बिना TAN के statement भेज सकता है?
 
 - intent: tan_duplicate_and_cancellation
   examples: |
@@ -580,6 +1180,21 @@ nlu:
       - duplicate TAN मिलने पर प्रक्रिया क्या है?
       - अनुपयोग किए गए TAN को कैसे हटाएं?
       - कहाँ आवेदन करें TAN cancellation के लिए?
+      - क्या duplicate TAN अपने आप cancel हो जाता है?
+      - एक से ज्यादा TAN detect हो तो income tax department क्या action लेता है?
+      - क्या गलत TAN को surrender करना पड़ता है?
+      - duplicate TAN cancel करने के लिए कौन सा form भरना है?
+      - क्या TAN cancellation online possible है?
+      - क्या offline mode से भी TAN surrender किया जा सकता है?
+      - duplicate TAN cancel करने की fees कितनी है?
+      - TAN cancellation request कहाँ submit करनी होती है?
+      - क्या केवल active TAN ही रखना जरूरी है?
+      - क्या TAN cancellation पर नया acknowledgment मिलता है?
+      - पुराने TAN को surrender करके नया TAN valid रहेगा?
+      - क्या TAN cancellation NSDL/Protean portal से किया जाता है?
+      - क्या TDS return wrong TAN से file होने पर cancel होगा?
+      - क्या duplicate TAN रखने पर penalty लग सकती है?
+      - TAN cancellation status कैसे check करें?
 
 - intent: tan_pan_instead_of_tan
   examples: |
@@ -593,6 +1208,21 @@ nlu:
       - PAN बनाम TAN उपयोग कब?
       - क्या PAN से TDS/TCS के दस्तावेज़ भर सकते हैं?
       - क्या PAN ही पर्याप्त है TAN की जगह?
+      - क्या हर TDS section में PAN से काम चल सकता है?
+      - PAN को TAN के alternate के रूप में कब use किया जाता है?
+      - क्या property purchase पर TDS deduct करने के लिए केवल PAN sufficient है?
+      - क्या rent payment पर TDS के लिए PAN चल जाएगा या TAN mandatory है?
+      - 194IA/194IB/194M जैसे sections में TAN क्यों नहीं चाहिए?
+      - PAN से TDS return file हो सकता है क्या?
+      - क्या PAN quote करने से TAN requirement पूरी मानी जाएगी?
+      - PAN और TAN में basic अंतर क्या है?
+      - PAN से TDS certificate issue कर सकते हैं क्या?
+      - PAN देने से challan accept होगा क्या?
+      - TAN mandatory cases और PAN allowed cases में क्या फर्क है?
+      - PAN based TDS compliance किन situations में possible है?
+      - PAN से TCS collection documents issue किए जा सकते हैं?
+      - क्या salaried payments में PAN TAN की जगह acceptable है?
+      - क्या PAN quoting से TRACES portal पर login possible है      - 
 
 - intent: tan_change_correction
   examples: |
@@ -606,5 +1236,20 @@ nlu:
       - TAN रिकॉर्ड अपडेट प्रक्रिया क्या है?
       - TAN address/contact बदलने का तरीका?
       - TAN डेटा करेक्शन के लिए क्या फॉर्म है?
+      - TAN application में गलत detail भर दी तो उसे कैसे correct करें?
+      - क्या TAN holder का नाम बदला जा सकता है?
+      - TAN correction form कहाँ से डाउनलोड करें?
+      - क्या TAN correction online submit कर सकते हैं?
+      - TAN details change करने की fees कितनी है?
+      - TAN correction के लिए कौन-कौन से documents चाहिए?
+      - TAN address change करने के लिए कौन सा form use करें?
+      - TAN record में spelling mistake कैसे ठीक करें?
+      - क्या PAN change होने पर TAN correction भी करना होगा?
+      - TAN data correction के बाद नया allotment letter मिलता है क्या?
+      - क्या TAN correction request NSDL portal से file होती है?
+      - TAN correction की acknowledgement कैसे मिलेगी?
+      - गलत AO code भर दिया तो correction कैसे करें?
+      - TAN details update करने में कितना समय लगता है?
+      - क्या TAN correction UTIITSL से भी किया जा सकता है?
 
 
