@@ -5,6 +5,7 @@ regex:
   - phone_number_with_country: "\\b\\+?91\\s*\\d{10}\\b"
   - phone_number_with_spaces: "\\b\\d{2,4}\\s+\\d{3,4}\\s+\\d{4}\\b"
   - pan_number: "\\b[A-Za-z]{5}\\d{4}[A-Za-z]\\b"
+  - tan_number: "\\b[A-Za-z]{4}\\d{5}[A-Za-z]\\b"
   - dob_ymd: "\\b\\d{4}-\\d{2}-\\d{2}\\b"
   - dob_dmy_dash: "\\b\\d{2}-\\d{2}-\\d{4}\\b"
   - dob_dmy_slash: "\\b\\d{2}\/\\d{2}\/\\d{4}\\b"

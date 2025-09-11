@@ -199,12 +199,14 @@ nlu:
     - abcde1234f
     - aaaaa1111a
     - aaaab1234c
-    - My PAN is ABCDE1234F
-    - pan number ABCDE1234F
-    - here is my pan ABCDE1234F
-    - PAN: ABCDE1234F
-    - my pan number is ABCDE1234F
+    - My PAN is [ABCDE1234F](pan_number)
+    - pan number [ABCDE1234F](pan_number)
+    - here is my pan [ABCDE1234F](pan_number)
+    - PAN: [ABCDE1234F](pan_number)
+    - my pan number is [ABCDE1234F](pan_number)
     - [ABCDE1234F](pan_number)
+    - [AAAAA1111A](pan_number) is my PAN
+    - my PAN: [AAAAB1234C](pan_number)
 
 - intent: provide_dob
   examples: |
@@ -333,6 +335,51 @@ nlu:
     - general information
     - other help
     - miscellaneous
+
+- intent: invalid_pan_format
+  examples: |
+    - asd12s
+    - qwert1234r
+    - asdew1234
+    - asd21as
+    - asdfr1234
+    - asde1234
+    - abc1234d
+    - xyz9876a
+    - asdf1234
+    - abcd1234
+    - xyz9876
+    - 1234abcd
+    - abcdefgh
+    - 12345678
+    - wrong pan
+    - invalid pan
+    - wrong pan format
+    - invalid pan format
+    - 1234567890
+    - abcdefghij
+    - 12345abcde
+
+- intent: invalid_tan_format
+  examples: |
+    - asdf12a
+    - 1234567890
+    - ABC123
+    - asde12345
+    - abc12345d
+    - xyz98765a
+    - 1234abcd
+    - abcdefghij
+    - asdf1234
+    - abcd1234
+    - xyz9876
+    - 1234abcd
+    - abcdefgh
+    - 12345678
+    - wrong tan
+    - invalid tan
+    - wrong tan format
+    - invalid tan format
 
 - intent: invalid_selection
   examples: |
@@ -1021,11 +1068,17 @@ nlu:
   examples: |
     - AAAA12345A
     - BBBB54321Z
-    - TAN: AAAA12345A
-    - my tan is AAAA12345A
-    - here is my tan AAAA12345A
-    - tan number AAAA12345A
-    - my tan number is AAAA12345A
+    - CCCC98765D
+    - DDDD11111E
+    - TAN: [AAAA12345A](tan_number)
+    - my tan is [AAAA12345A](tan_number)
+    - here is my tan [AAAA12345A](tan_number)
+    - tan number [AAAA12345A](tan_number)
+    - my tan number is [AAAA12345A](tan_number)
+    - TAN number is [BBBB54321Z](tan_number)
+    - here is my TAN [CCCC98765D](tan_number)
+    - [DDDD11111E](tan_number) is my TAN
+    - my TAN: [AAAA12345A](tan_number)
 # 1) Who needs TAN
 - intent: who_needs_tan
   examples: |
@@ -1033,11 +1086,6 @@ nlu:
     - Who must apply for TAN?
     - Do all TDS deductors need TAN?
     - Is TAN mandatory for TDS/TCS?
-    - TAN किसे लेना जरूरी है?
-    - किसे TAN apply करना चाहिए?
-    - क्या हर deductor को TAN चाहिए?
-    - TCS करने वालों को TAN चाहिए क्या?
-    - TDS/TCS के लिए TAN mandatory है क्या?
     - who is required to have a tan number
     - is tan compulsory for companies deducting tds
     - do partnership firms need tan
@@ -1096,10 +1144,6 @@ nlu:
   examples: |
     - How to apply for TAN?
     - TAN application process online
-    - TAN offline कहाँ से apply करें?
-    - Form 49B कैसे भरें?
-    - TAN apply करने का तरीका बताइए
-    - TAN के लिए online application possible है?
     - getting TAN from portal
     - steps on TAN application site
     - how can i apply for tan

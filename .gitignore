@@ -4,3 +4,9 @@ __pycache__/
 # Ignore Rasa-specific files
 rasa_bot/.rasa/
 rasa_bot/models/
+# Ignore __pycache__ in rasa_bot/actions
+rasa_bot/actions/__pycache__/
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class

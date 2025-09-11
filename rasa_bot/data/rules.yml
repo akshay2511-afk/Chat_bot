@@ -155,6 +155,29 @@ rules:
     - intent: tan_apply_process
     - action: utter_tan_apply_process
 
+- rule: Start TAN status flow (EN)
+  steps:
+    - intent: check_tan_status
+    - action: utter_ask_tan_number
+
+- rule: Collect TAN number (EN)
+  steps:
+    - intent: provide_tan_number
+    - action: action_check_tan_status
+
+- rule: Handle invalid PAN format
+  steps:
+    - intent: invalid_pan_format
+    - action: action_check_pan_status
+
+- rule: Handle invalid TAN format
+  steps:
+    - intent: invalid_tan_format
+    - action: action_check_tan_status
+
+
+
+
 - rule: Answer general tax info
   steps:
     - intent: general_tax_info
@@ -414,6 +437,16 @@ rules:
   steps:
     - intent: tan_apply_process_hindi
     - action: utter_tan_apply_process_hindi
+
+- rule: Start TAN status flow (HI)
+  steps:
+    - intent: check_tan_status_hindi
+    - action: utter_ask_tan_number_hindi
+
+- rule: Collect TAN number (HI)
+  steps:
+    - intent: provide_tan_number_hindi
+    - action: action_check_tan_status
 
 - rule: Answer general tax info in Hindi
   steps:

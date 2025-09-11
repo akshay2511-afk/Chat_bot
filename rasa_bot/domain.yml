@@ -20,6 +20,8 @@ intents:
   - select_tan_assistance
   - select_general_assistance
   - invalid_selection
+  - invalid_pan_format
+  - invalid_tan_format
   - pan_what
   - pan_importance
   - pan_who_needs
@@ -161,10 +163,13 @@ responses:
     - text: "I am a bot, powered by Rasa."
 
   utter_ask_pan_number:
-    - text: "Please enter your 10-character PAN (e.g., ABCDE1234F)."
+    - text: "Please enter your 10-character PAN (e.g., ABCDE1234E)."
 
   utter_ask_dob:
     - text: "Thanks. Now enter your date of birth (DD-MM-YYYY or DD/MM/YYYY)."
+
+  utter_ask_tan_number:
+    - text: "Please enter your 10-character TAN (e.g., ABCD12345E)."
 
   utter_phone_number_received:
     - text: "Thank you! Your phone number has been recorded. Now please select your preferred language:\n\n **भाषा चुनें / Choose Language:**\n\n🇮🇳 **हिंदी**\n🇺🇸 **English**\n\nType 'हिंदी' or 'Hindi' for Hindi, or 'English' for English to continue."
@@ -195,7 +200,7 @@ responses:
     - text: "Documents required for PAN application:\n\n **Identity Proof** (any one):\n• Aadhaar Card\n• Voter ID\n• Passport\n• Driving License\n\n **Address Proof** (any one):\n• Aadhaar Card\n• Utility Bill\n• Bank Statement\n• Rent Agreement\n\n **Date of Birth Proof**:\n• Birth Certificate\n• School Certificate\n• Passport"
 
   utter_tan_menu:
-    - text: "TAN Assistance Menu:\n\n1️⃣ What is TAN?\n2️⃣ Who needs TAN?\n3️⃣ How to apply for TAN?\n\nWhat would you like to know?"
+    - text: "TAN Assistance Menu:\n\n1️⃣ What is TAN?\n2️⃣ Who needs TAN?\n3️⃣ How to apply for TAN?\n4️⃣ Check TAN status\n\nWhat would you like to know?"
 
   utter_tan_what:
     - text: "TAN stands for Tax Deduction and Collection Account Number. It's a 10-digit alphanumeric number required for entities that deduct or collect tax at source."
@@ -333,17 +338,20 @@ responses:
 
   # Hindi prompts for PAN status flow
   utter_ask_pan_number_hindi:
-    - text: "कृपया अपना 10-अक्षरों वाला पैन दर्ज करें (जैसे ABCDE1234F)।"
+    - text: "कृपया अपना 10-अक्षरों वाला पैन दर्ज करें (जैसे ABCDE1234E)।"
 
   utter_ask_dob_hindi:
     - text: "धन्यवाद। अब अपनी जन्मतिथि दर्ज करें (DD-MM-YYYY या DD/MM/YYYY)।"
+
+  utter_ask_tan_number_hindi:
+    - text: "कृपया अपना 10-अक्षरों वाला टैन दर्ज करें (जैसे ABCD12345E)।"
 
   # Hindi Menu Selection Responses
   utter_select_pan_assistance_hindi:
     - text: "पैन सहायता मेनू:\n\n1️⃣ पैन क्या है?\n2️⃣ पैन क्यों महत्वपूर्ण है?\n3️⃣ किसे पैन की आवश्यकता है?\n4️⃣ पैन के लिए कैसे आवेदन करें?\n5️⃣ पैन के लिए कौन से दस्तावेज आवश्यक हैं?\n6️⃣ क्या मैं कई पैन रख सकता हूं?\n\nआप क्या जानना चाहते हैं?"
 
   utter_select_tan_assistance_hindi:
-    - text: "टैन सहायता मेनू:\n\n1️⃣ टैन क्या है?\n2️⃣ किसे टैन की आवश्यकता है?\n3️⃣ टैन के लिए कैसे आवेदन करें?\n\nआप क्या जानना चाहते हैं?"
+    - text: "टैन सहायता मेनू:\n\n1️⃣ टैन क्या है?\n2️⃣ किसे टैन की आवश्यकता है?\n3️⃣ टैन के लिए कैसे आवेदन करें?\n4️⃣ टैन स्थिति जांचें\n\nआप क्या जानना चाहते हैं?"
 
   utter_select_general_assistance_hindi:
     - text: "ℹ️सामान्य सहायता मेनू:\n\n1️⃣ कर की जानकारी\n2️⃣ संपर्क जानकारी\n\nआप क्या जानना चाहते हैं?"
@@ -510,9 +518,16 @@ slots:
     mappings:
     - type: from_text
 
+entities:
+  - phone_number
+  - pan_number
+  - tan_number
+  - dob
+
 actions:
   - action_hello_world
   - action_check_pan_status
+  - action_check_tan_status
 
 session_config:
   session_expiration_time: 60

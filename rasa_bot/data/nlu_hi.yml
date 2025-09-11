@@ -56,13 +56,18 @@ nlu:
 
 - intent: provide_tan_number_hindi
   examples: |
-    - AAAA12345A
-    - BBBB54321Z
-    - मेरा टैन AAAA12345A है
-    - टैन नंबर AAAA12345A
-    - यह रहा मेरा टैन AAAA12345A
-    - टैन: AAAA12345A
-    - मेरा टैन नंबर AAAA12345A है
+    - मेरा टैन [AAAA12345A](tan_number) है
+    - टैन नंबर [AAAA12345A](tan_number)
+    - यह रहा मेरा टैन [AAAA12345A](tan_number)
+    - टैन: [AAAA12345A](tan_number)
+    - मेरा टैन नंबर [AAAA12345A](tan_number) है
+    - मेरा टैन [BBBB54321Z](tan_number) है
+    - टैन नंबर [BBBB54321Z](tan_number)
+    - यह रहा मेरा टैन [BBBB54321Z](tan_number)
+    - टैन: [BBBB54321Z](tan_number)
+    - मेरा टैन नंबर [BBBB54321Z](tan_number) है
+    - [CCCC98765D](tan_number) मेरा टैन है
+    - मेरा टैन [DDDD11111E](tan_number) है
 
 - intent: provide_dob_hindi
   examples: |

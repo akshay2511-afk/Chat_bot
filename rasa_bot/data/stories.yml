@@ -87,6 +87,16 @@ stories:
   - intent: tan_who_needs
   - action: utter_tan_who_needs
 
+- story: TAN status check flow
+  steps:
+  - intent: check_tan_status
+  - action: utter_ask_tan_number
+
+- story: TAN number provided
+  steps:
+  - intent: provide_tan_number
+  - action: action_check_tan_status
+
 - story: General assistance flow
   steps:
   - intent: select_general_assistance
