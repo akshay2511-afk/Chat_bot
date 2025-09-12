@@ -1,4 +1,5 @@
 import os
+import os
 import uuid
 from typing import Any, Dict, List, Optional
 from fastapi import FastAPI, HTTPException
@@ -192,119 +193,8 @@ async def chat(payload: ChatIn):
             db.close()
 
     # Only now talk to Rasa
-    # Special handling: if user input looks like a PAN, call our PAN status API directly
-    if payload.text and isinstance(payload.text, str):
-        txt = payload.text.strip()
-        try:
-            import re  # local to avoid global scope pollution
-            if re.fullmatch(r"[A-Za-z]{5}\d{4}[A-Za-z]", txt):
-                pan_upper = txt.upper()
-                # Call internal PAN status API (static response for now)
-                base_url = os.getenv("FASTAPI_BASE_URL", "http://127.0.0.1:8000")
-                try:
-                    async with httpx.AsyncClient(timeout=10) as c:
-                        r2 = await c.post(f"{base_url}/api/pan/status", json={"pan_number": pan_upper})
-                        r2.raise_for_status()
-                        data2 = r2.json()
-                        status_msg = data2.get("message") or f"Your PAN {pan_upper} status is in progress."
-                except Exception:
-                    status_msg = "Your PAN application is in progress. Please check back later."
-
-                # Persist conversation and histories
-                if payload.phone_number and SessionLocal:
-                    db2 = SessionLocal()
-                    try:
-                        phone = normalized_phone or payload.phone_number.strip()
-                        try:
-                            save_conversation(
-                                db2,
-                                ConversationCreate(
-                                    phone_number=phone, role="user", message=payload.text
-                                ),
-                            )
-                        except Exception:
-                            pass
-                        try:
-                            save_conversation(
-                                db2,
-                                ConversationCreate(
-                                    phone_number=phone, role="bot", message=status_msg
-                                ),
-                            )
-                        except Exception:
-                            pass
-                        try:
-                            append_session_history(db2, session_id, f"user: {payload.text}", phone_number=phone)
-                            append_number_history(db2, phone, f"user: {payload.text}")
-                            append_session_history(db2, session_id, f"bot: {status_msg}", phone_number=phone)
-                            append_number_history(db2, phone, f"bot: {status_msg}")
-                        except Exception:
-                            pass
-                    finally:
-                        db2.close()
-                return {"sender_id": sender, "session_id": session_id, "replies": [{"text": status_msg}]}
-        except Exception:
-            pass
-
-    # Special handling: if user input looks like a TAN, call our TAN status API directly
-    if payload.text and isinstance(payload.text, str):
-        txt = payload.text.strip()
-        try:
-            import re  # local to avoid global scope pollution
-            # TAN format: 4 letters + 5 digits + 1 letter (e.g., AAAA12345A)
-            if re.fullmatch(r"[A-Za-z]{4}\d{5}[A-Za-z]", txt):
-                tan_upper = txt.upper()
-                # Call internal TAN status API (static response for now)
-                base_url = os.getenv("FASTAPI_BASE_URL", "http://127.0.0.1:8000")
-                try:
-                    async with httpx.AsyncClient(timeout=10) as c:
-                        r2 = await c.post(f"{base_url}/api/tan/status", json={"tan_number": tan_upper})
-                        r2.raise_for_status()
-                        data2 = r2.json()
-                        status_msg = data2.get("message") or f"Your TAN {tan_upper} status is in progress."
-                except Exception:
-                    status_msg = "Your TAN application is in progress. Please check back later."
-
-                # Persist conversation and histories
-                if payload.phone_number and SessionLocal:
-                    db2 = SessionLocal()
-                    try:
-                        phone = normalized_phone or payload.phone_number.strip()
-                        # Save TAN number to database
-                        try:
-                            save_tan_number(db2, SaveTANRequest(phone_number=phone, tan_number=tan_upper))
-                        except Exception:
-                            pass
-                        try:
-                            save_conversation(
-                                db2,
-                                ConversationCreate(
-                                    phone_number=phone, role="user", message=payload.text
-                                ),
-                            )
-                        except Exception:
-                            pass
-                        try:
-                            save_conversation(
-                                db2,
-                                ConversationCreate(
-                                    phone_number=phone, role="bot", message=status_msg
-                                ),
-                            )
-                        except Exception:
-                            pass
-                        try:
-                            append_session_history(db2, session_id, f"user: {payload.text}", phone_number=phone)
-                            append_number_history(db2, phone, f"user: {payload.text}")
-                            append_session_history(db2, session_id, f"bot: {status_msg}", phone_number=phone)
-                            append_number_history(db2, phone, f"bot: {status_msg}")
-                        except Exception:
-                            pass
-                    finally:
-                        db2.close()
-                return {"sender_id": sender, "session_id": session_id, "replies": [{"text": status_msg}]}
-        except Exception:
-            pass
+    # Note: Removed special PAN/TAN handling to let Rasa manage the conversation flow properly
+    # This ensures that context-aware processing happens through Rasa actions
 
     # Only now talk to Rasa
     data = {"sender": sender, "message": payload.text}
