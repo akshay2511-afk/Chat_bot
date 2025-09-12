@@ -52,6 +52,14 @@ class ActionCheckPANStatus(Action):
         return "action_check_pan_status"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Check if we're in a TAN status flow context
+        events = tracker.events
+        is_tan_context = False
+        for event in reversed(events[-10:]):  # Check last 10 events
+            if event.get("event") == "action" and event.get("name") == "utter_ask_tan_number":
+                is_tan_context = True
+                break
+        
         # Try to extract PAN from entities first
         pan_entities = tracker.latest_message.get("entities", [])
         pan = None
@@ -68,9 +76,20 @@ class ActionCheckPANStatus(Action):
             if re.fullmatch(r"[A-Za-z]{5}\d{4}[A-Za-z]", last_user_msg):
                 pan = last_user_msg
         
+        # If we're in TAN context and got a PAN-formatted input, redirect to TAN action
+        if is_tan_context and pan:
+            # This is a PAN format in TAN context, redirect to TAN action
+            return ActionCheckTANStatus().run(dispatcher, tracker, domain)
+        
         if not pan:
             # If not a valid PAN format, provide helpful error message
             last_user_msg = (tracker.latest_message.get("text") or "").strip()
+            
+            # Check if this looks like a TAN format instead of PAN
+            import re
+            if re.fullmatch(r"[A-Za-z]{4}\d{5}[A-Za-z]", last_user_msg.upper()):
+                dispatcher.utter_message(text="Invalid PAN format. Please enter your 10-character PAN (e.g., ABCDE1234E).")
+                return []
             
             # Check if this is an invalid PAN format intent or if it looks like an invalid PAN
             latest_intent = tracker.latest_message.get("intent", {}).get("name", "")
@@ -83,13 +102,13 @@ class ActionCheckPANStatus(Action):
                 dispatcher.utter_message(text="Please enter your 10-character PAN (e.g., ABCDE1234E).")
             return []
         
-        # Call backend API (static response for now)
+        # Call backend API
         base_url = os.getenv("FASTAPI_BASE_URL", "http://127.0.0.1:8000")
         try:
             resp = requests.post(f"{base_url}/api/pan/status", json={"pan_number": pan}, timeout=5)
             if resp.ok:
                 data = resp.json()
-                message = data.get("message") or f"PAN {data.get('pan_number','')} status: {data.get('status','unknown')}"
+                message = data.get("message") or f"Your PAN {data.get('pan_number','')} status is in progress."
                 dispatcher.utter_message(text=message)
                 return []
         except Exception:
@@ -104,6 +123,19 @@ class ActionCheckTANStatus(Action):
         return "action_check_tan_status"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Check if we're in a PAN status flow context
+        events = tracker.events
+        is_pan_context = False
+        is_tan_context = False
+        for event in reversed(events[-10:]):  # Check last 10 events
+            if event.get("event") == "action":
+                if event.get("name") == "utter_ask_pan_number":
+                    is_pan_context = True
+                    break
+                elif event.get("name") == "utter_ask_tan_number":
+                    is_tan_context = True
+                    break
+        
         # Try to extract TAN from entities first
         tan_entities = tracker.latest_message.get("entities", [])
         tan = None
@@ -120,9 +152,20 @@ class ActionCheckTANStatus(Action):
             if re.fullmatch(r"[A-Za-z]{4}\d{5}[A-Za-z]", last_user_msg):
                 tan = last_user_msg
         
+        # If we're in PAN context and got a TAN-formatted input, redirect to PAN action
+        if is_pan_context and tan:
+            # This is a TAN format in PAN context, redirect to PAN action
+            return ActionCheckPANStatus().run(dispatcher, tracker, domain)
+        
         if not tan:
             # If not a valid TAN format, provide helpful error message
             last_user_msg = (tracker.latest_message.get("text") or "").strip()
+            
+            # Check if this looks like a PAN format instead of TAN
+            import re
+            if re.fullmatch(r"[A-Za-z]{5}\d{4}[A-Za-z]", last_user_msg.upper()):
+                dispatcher.utter_message(text="Invalid TAN format. Please enter your 10-character TAN (e.g., ABCD12345E).")
+                return []
             
             # Check if this is an invalid TAN format intent or if it looks like an invalid TAN
             latest_intent = tracker.latest_message.get("intent", {}).get("name", "")
@@ -135,13 +178,13 @@ class ActionCheckTANStatus(Action):
                 dispatcher.utter_message(text="Please enter your 10-character TAN (e.g., ABCD12345E).")
             return []
         
-        # Call backend API (static response for now)
+        # Call backend API
         base_url = os.getenv("FASTAPI_BASE_URL", "http://127.0.0.1:8000")
         try:
             resp = requests.post(f"{base_url}/api/tan/status", json={"tan_number": tan}, timeout=5)
             if resp.ok:
                 data = resp.json()
-                message = data.get("message") or f"TAN {data.get('tan_number','')} status: {data.get('status','unknown')}"
+                message = data.get("message") or f"Your TAN {data.get('tan_number','')} status is in progress."
                 dispatcher.utter_message(text=message)
                 return []
         except Exception:
